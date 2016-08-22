@@ -7,36 +7,22 @@
   \documentclass{beamer}
 \fi
  
-\usepackage{econ103slides} 
+\usetheme[numbering = fraction, progressbar = none, background = light, sectionpage = progressbar]{metropolis}
+\usepackage{amsmath}
+\usepackage{synttree}
+\usepackage{tabu}
 
-\date{Lecture \# 2}
+\title{Econ 103 -- Statistics for Economists}
+\subtitle{Lecture 2}
+\author{Mallick Hossain}
+\institute{University of Pennsylvania}
+
 \begin{document} 
 
-
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}[plain]
+\begin{frame}
 	\titlepage 
-	
-
 \end{frame} 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\begin{frame}
-%\frametitle{Some Notes on Clickers}
-%
-%\begin{itemize}
-%	\item There was a last-minute change in the model of clicker sold at the bookstore: they now carry only the QT. Either the QT or NXT will work for this class. For more information, see
-%\url{http://www.sas.upenn.edu/computing/instructional/clickers}
-%	\item A clicker registration tool has been added to Canvas under ``Modules.'' Click on it and follow the instructions. 
-%	\item Any votes you make before registering your clicker \emph{will still be stored}. Registering simply links your name to the unique clicker id number on the back of your remote. \alert{Just make sure to register before the drop deadline to make sure I can award you credit.}
-%\end{itemize}
-
-
-
-%\end{frame}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}\frametitle{Class Survey}
@@ -324,124 +310,124 @@ On course evaluations you can rate your professor as follows:\\ 0 = Poor, 1 = Fa
 \item Ratio
 \end{enumerate}
 \end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{Handspan - Frequency and Relative Frequency}
-\small
-\singlespacing
-
-
-\begin{columns}
-    \column{0.35\textwidth}
-\begin{tabular}{rrr}
-cm& Freq.\ & Rel.\ Freq.\ \\
-\hline
-14.0         & 1 &0.01\\
-17.0         & 4 &0.05\\
-17.5      &  2 &0.02\\
-18.0         & 5 &0.06\\
-18.5      &  5 &0.06\\
-19.0         & 6 &0.07\\
-19.5      & 10 &0.11\\
-20.0        & 10 &0.11\\
-20.5      &  3 &0.03\\
-21.0         & 8 &0.09\\
-21.5      &  5 &0.06\\
-22.0         & 9 &0.10\\
-22.5      &  6 &0.07\\
-23.0         & 6 &0.07\\
-24.0         & 4 &0.05\\
-24.5      &  3 &0.03\\
-27.0         & 1 &0.01\\
-\hline
-& $n=89$&1.00
-\end{tabular}
-    \column{0.65\textwidth}
-\begin{figure}
-	\centering
-	\includegraphics[scale = 0.55]{./images/handspan_freq}
-\end{figure}
-\end{columns}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{Handspan - Summarize Barchart by ``Smoothing''}
-\small
-\singlespacing
-
-
-\begin{columns}
-    \column{0.4\textwidth}
-\begin{tabular}{rrr}
-cm& Freq.\ & Rel.\ Freq.\ \\
-\hline
-14.0         & 1 &0.01\\
-17.0         & 4 &0.05\\
-17.5      &  2 &0.02\\
-18.0         & 5 &0.06\\
-18.5      &  5 &0.06\\
-19.0         & 6 &0.07\\
-19.5      & 10 &0.11\\
-20.0        & 10 &0.11\\
-20.5      &  3 &0.03\\
-21.0         & 8 &0.09\\
-21.5      &  5 &0.06\\
-22.0         & 9 &0.10\\
-22.5      &  6 &0.07\\
-23.0         & 6 &0.07\\
-24.0         & 4 &0.05\\
-24.5      &  3 &0.03\\
-27.0         & 1 &0.01\\
-\hline
-& $n=88$&1.00
-\end{tabular}
-    \column{0.6\textwidth}
-    \alert{Group data into non-overlapping bins of equal width:}\\
-    \vspace{1em}
-    
-\begin{tabular}{crr}
-Bins & Freq.\ & Rel.\ Freq.\ \\
-\hline
- $[14,16)$&1& 0.01\\
- $[16,18)$&6& 0.07\\
- $[18,20)$&26&0.30 \\
- $[20,22)$&26&0.30 \\
- $[22,24)$&21&0.24 \\
- $[24,26)$&7&0.08 \\
- $[26,28)$&1&0.01\\
- \hline
- & $n=88$&1.00
-\end{tabular}
-\end{columns}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{Histogram -- Density Estimate by Smoothing Barchart}
-\footnotesize
-\singlespacing
-
-\begin{columns}
-    \column{0.4\textwidth}
-\begin{tabular}{crr}
-Bins & Freq.\ & Rel.\ Freq.\ \\
-\hline
- $[14,16)$&1& 0.01\\
- $[16,18)$&6& 0.07\\
- $[18,20)$&26&0.30 \\
- $[20,22)$&26&0.30 \\
- $[22,24)$&21&0.24 \\
- $[24,26)$&7&0.08 \\
- $[26,28)$&1&0.01\\
- \hline
- & $n=88$&1.00
-\end{tabular}
-    \column{0.6\textwidth}
-\begin{figure}
-	\centering
-	\includegraphics[scale = 0.5]{./images/handspan_truehist}
-\end{figure}
-\end{columns}
-\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}
+%\frametitle{Handspan - Frequency and Relative Frequency}
+%\small
+%\singlespacing
+%
+%
+%\begin{columns}
+%    \column{0.35\textwidth}
+%\begin{tabular}{rrr}
+%cm& Freq.\ & Rel.\ Freq.\ \\
+%\hline
+%14.0         & 1 &0.01\\
+%17.0         & 4 &0.05\\
+%17.5      &  2 &0.02\\
+%18.0         & 5 &0.06\\
+%18.5      &  5 &0.06\\
+%19.0         & 6 &0.07\\
+%19.5      & 10 &0.11\\
+%20.0        & 10 &0.11\\
+%20.5      &  3 &0.03\\
+%21.0         & 8 &0.09\\
+%21.5      &  5 &0.06\\
+%22.0         & 9 &0.10\\
+%22.5      &  6 &0.07\\
+%23.0         & 6 &0.07\\
+%24.0         & 4 &0.05\\
+%24.5      &  3 &0.03\\
+%27.0         & 1 &0.01\\
+%\hline
+%& $n=89$&1.00
+%\end{tabular}
+%    \column{0.65\textwidth}
+%\begin{figure}
+%	\centering
+%	\includegraphics[scale = 0.55]{./images/handspan_freq}
+%\end{figure}
+%\end{columns}
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}
+%\frametitle{Handspan - Summarize Barchart by ``Smoothing''}
+%\small
+%\singlespacing
+%
+%
+%\begin{columns}
+%    \column{0.4\textwidth}
+%\begin{tabular}{rrr}
+%cm& Freq.\ & Rel.\ Freq.\ \\
+%\hline
+%14.0         & 1 &0.01\\
+%17.0         & 4 &0.05\\
+%17.5      &  2 &0.02\\
+%18.0         & 5 &0.06\\
+%18.5      &  5 &0.06\\
+%19.0         & 6 &0.07\\
+%19.5      & 10 &0.11\\
+%20.0        & 10 &0.11\\
+%20.5      &  3 &0.03\\
+%21.0         & 8 &0.09\\
+%21.5      &  5 &0.06\\
+%22.0         & 9 &0.10\\
+%22.5      &  6 &0.07\\
+%23.0         & 6 &0.07\\
+%24.0         & 4 &0.05\\
+%24.5      &  3 &0.03\\
+%27.0         & 1 &0.01\\
+%\hline
+%& $n=88$&1.00
+%\end{tabular}
+%    \column{0.6\textwidth}
+%    \alert{Group data into non-overlapping bins of equal width:}\\
+%    \vspace{1em}
+%    
+%\begin{tabular}{crr}
+%Bins & Freq.\ & Rel.\ Freq.\ \\
+%\hline
+% $[14,16)$&1& 0.01\\
+% $[16,18)$&6& 0.07\\
+% $[18,20)$&26&0.30 \\
+% $[20,22)$&26&0.30 \\
+% $[22,24)$&21&0.24 \\
+% $[24,26)$&7&0.08 \\
+% $[26,28)$&1&0.01\\
+% \hline
+% & $n=88$&1.00
+%\end{tabular}
+%\end{columns}
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}
+%\frametitle{Histogram -- Density Estimate by Smoothing Barchart}
+%\footnotesize
+%\singlespacing
+%
+%\begin{columns}
+%    \column{0.4\textwidth}
+%\begin{tabular}{crr}
+%Bins & Freq.\ & Rel.\ Freq.\ \\
+%\hline
+% $[14,16)$&1& 0.01\\
+% $[16,18)$&6& 0.07\\
+% $[18,20)$&26&0.30 \\
+% $[20,22)$&26&0.30 \\
+% $[22,24)$&21&0.24 \\
+% $[24,26)$&7&0.08 \\
+% $[26,28)$&1&0.01\\
+% \hline
+% & $n=88$&1.00
+%\end{tabular}
+%    \column{0.6\textwidth}
+%\begin{figure}
+%	\centering
+%	\includegraphics[scale = 0.5]{./images/handspan_truehist}
+%\end{figure}
+%\end{columns}
+%\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Number of Bins Controls Degree of Smoothing}
