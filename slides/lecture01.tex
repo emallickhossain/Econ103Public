@@ -1,11 +1,5 @@
-%To compile as handout, use
-%pdflatex "\def\ishandout{1} \input{filename.tex}"
-%Defaults to non-handout mode (with slide reveals)
-\ifdefined\ishandout
-  \documentclass[handout]{beamer}
-\else
-  \documentclass{beamer}
-\fi
+%\documentclass[handout]{beamer}
+\documentclass{beamer}
  
 \usetheme[numbering = fraction, progressbar = none, background = light, sectionpage = progressbar]{metropolis}
 \usepackage{multimedia}
@@ -13,7 +7,7 @@
 
 \title{Econ 103 -- Statistics for Economists}
 \subtitle{Lecture 1}
-\author{Mallick Hossain}
+\author[Mallick Hossain -- Econ 103]{Mallick Hossain}
 \institute{University of Pennsylvania}
 \begin{document} 
 
@@ -371,7 +365,7 @@ In statistics we use samples to learn about populations, but samples almost neve
 \begin{frame}
 \frametitle{Quantifying Sampling Error}
 	$$Margin of Error (ME) \approx 2 \sqrt{P(1-P)/n}$$
-	We report: $P \pm ME$
+	We report: $P \pm ME$ (often called the confidence interval)
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -525,6 +519,8 @@ In statistics we use samples to learn about populations, but samples almost neve
 	\end{quote}
 	
 	\tiny{Source: \href{https://www.law.upenn.edu/live/news/2170-new-study-by-professor-david-s-abrams-confirms}{\fbox{Penn Law Website}}}
+	
+	\textcolor{white}{By Mallick Hossain (adapted from Frank DiTraglia), I hope credit was duly given}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
