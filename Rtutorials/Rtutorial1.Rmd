@@ -126,6 +126,15 @@ names(salaryData) <- c("Name", "Position", "Dept", "Salary")
 head(salaryData)
 ```
 
+Unfortunately, since the salary data has "$", R thinks it is a character string
+instead of numbers. To get rid of that, we need to strip out the dollar signs 
+and convert it to numeric data (slightly advanced, so it's okay if you don't 
+completely follow what's happening here).
+```{r}
+salaryData$Salary <- gsub('\\$', '', salaryData$Salary)
+salaryData$Salary <- as.numeric(salaryData$Salary)
+```
+
 #### Subsetting Data
 Let's say that we're only interested in looking at the police department. 
 I'll make a subset of only the data related to the police department.
@@ -139,15 +148,6 @@ head(copSalaries)
 ```
 
 #### Exploring Data
-Unfortunately, since the salary data has "$", R thinks it is a character string
-instead of numbers. To get rid of that, we need to strip out the dollar signs 
-and convert it to numeric data (slightly advanced, so it's okay if you don't 
-completely follow what's happening here).
-```{r}
-copSalaries$Salary <- gsub('\\$', '', copSalaries$Salary)
-copSalaries$Salary <- as.numeric(copSalaries$Salary)
-```
-
 Let's sort the data by salary since that's usually the first thing anyone 
 would do. We have to insert the "-" to sort from highest to lowest, otherwise
 it defaults to sorting from lowest to highest.

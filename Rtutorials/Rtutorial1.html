@@ -214,25 +214,25 @@ head(salaryData)</code></pre>
 ## 4:  $89880.00
 ## 5: $106836.00
 ## 6:  $70764.00</code></pre>
+<p>Unfortunately, since the salary data has “$”, R thinks it is a character string instead of numbers. To get rid of that, we need to strip out the dollar signs and convert it to numeric data (slightly advanced, so it’s okay if you don’t completely follow what’s happening here).</p>
+<pre class="r"><code>salaryData$Salary &lt;- gsub('\\$', '', salaryData$Salary)
+salaryData$Salary &lt;- as.numeric(salaryData$Salary)</code></pre>
 </div>
 <div id="subsetting-data" class="section level4">
 <h4>Subsetting Data</h4>
 <p>Let’s say that we’re only interested in looking at the police department. I’ll make a subset of only the data related to the police department. To get the corresponding subset, we need to figure out which column is the department (it’s “Dept”, since I changed it). The below command only returns the entries for which the condition is true (“==” is a logical operator).</p>
 <pre class="r"><code>copSalaries &lt;- salaryData[Dept == &quot;POLICE&quot;]
 head(copSalaries)</code></pre>
-<pre><code>##                     Name       Position   Dept    Salary
-## 1:     AARON,  JEFFERY M POLICE OFFICER POLICE $84450.00
-## 2:        AARON,  KARINA POLICE OFFICER POLICE $84450.00
-## 3:      ABBATE,  TERRY M POLICE OFFICER POLICE $90618.00
-## 4:     ABBOTT,  LYNISE M      CLERK III POLICE $46896.00
-## 5:       ABDALLAH,  ZAID POLICE OFFICER POLICE $74028.00
-## 6: ABDELHADI,  ABDALMAHD POLICE OFFICER POLICE $81588.00</code></pre>
+<pre><code>##                     Name       Position   Dept Salary
+## 1:     AARON,  JEFFERY M POLICE OFFICER POLICE  84450
+## 2:        AARON,  KARINA POLICE OFFICER POLICE  84450
+## 3:      ABBATE,  TERRY M POLICE OFFICER POLICE  90618
+## 4:     ABBOTT,  LYNISE M      CLERK III POLICE  46896
+## 5:       ABDALLAH,  ZAID POLICE OFFICER POLICE  74028
+## 6: ABDELHADI,  ABDALMAHD POLICE OFFICER POLICE  81588</code></pre>
 </div>
 <div id="exploring-data" class="section level4">
 <h4>Exploring Data</h4>
-<p>Unfortunately, since the salary data has “$”, R thinks it is a character string instead of numbers. To get rid of that, we need to strip out the dollar signs and convert it to numeric data (slightly advanced, so it’s okay if you don’t completely follow what’s happening here).</p>
-<pre class="r"><code>copSalaries$Salary &lt;- gsub('\\$', '', copSalaries$Salary)
-copSalaries$Salary &lt;- as.numeric(copSalaries$Salary)</code></pre>
 <p>Let’s sort the data by salary since that’s usually the first thing anyone would do. We have to insert the “-” to sort from highest to lowest, otherwise it defaults to sorting from lowest to highest.</p>
 <pre class="r"><code>copSalaries &lt;- copSalaries[order(-Salary)]</code></pre>
 <p>The top 5 highest paid people in the CPD are as follows:</p>
