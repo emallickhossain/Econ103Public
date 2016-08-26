@@ -9,39 +9,8 @@ output:
     highlight: zenburn
     toc: yes
 ---
-Part 1: Installing R
---------------------------------------------------------------------------------
-Carry out the following two steps *in order*
 
-1. Go to http://cran.r-project.org/ and install the version of R for your 
-operating system.
-
-2. Go to http://rstudio.org/download/desktop and click the link listed under 
-"Recommended for Your System". Follow the instructions to install RStudio.
-
-To make sure this worked, open the program RStudio and go to 
-File > New > R Script (or Ctrl + Shift + N). In the document, type the text 
-given in the box below, highlight both lines of code, and click "Run" 
-(or Ctrl + Shift + S). If everything is working correctly, the console should 
-display ``"Hello World!"`` and ``TRUE``.
-```{r results='hide'}
-print("Hello World!")
-x <- 5
-x == 5
-```
-
-Congratulations on writing your first R script! To save it, go to 
-File > Save As, and choose a name. NOTE: Always save your scripts as .R files 
-so they'll open in RStudio by default. 
-
-Note that you can run one line of your script at a time by moving your cursor 
-to that line and pressing CONTROL-ENTER or COMMAND-RETURN depending on whether 
-you're running Mac OSX, Linux or Windows. Another helpful shortcut 
-is CONTROL-A  (COMMAND-A on Mac) which highlights all of the lines of code 
-in the text editor.
-
-
-Part 2: Try R Tutorial
+Part 1: Try R Tutorial
 --------------------------------------------------------
 
 In this section, you'll be completing levels 1-6 on Try R, an online tutorial 
@@ -57,7 +26,7 @@ For your reference, I have posted a complete transcript of the commands
 introduced in Try R on the course webpage.
 
 
-Part 3: More Commands
+Part 2: More Commands
 --------------------------------------------------------
 Try R gives a good foundation for starting out with R, but there are some 
 important commands it doesn't mention. Once you've finished Try R, work through 
@@ -187,7 +156,7 @@ myData <- data.table(person, age, weight)
 myData
 ```
 
-Part 4: Exercises
+Part 3: Exercises
 --------------------------------------------------------
 ### Basics
 
