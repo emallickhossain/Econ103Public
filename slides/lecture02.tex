@@ -11,13 +11,15 @@
 \usepackage{amsmath}
 \usepackage{synttree}
 \usepackage{tabu}
+\usepackage{graphicx}
 
 \title{Econ 103 -- Statistics for Economists}
-\subtitle{Lecture 2}
+\subtitle{Chapter 2}
 \author{Mallick Hossain}
+\date{}
 \institute{University of Pennsylvania}
 
-\begin{document} 
+\begin{document}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
@@ -25,745 +27,593 @@
 \end{frame} 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}\frametitle{Class Survey}
- 
-\begin{itemize}
-	\item Collect some data to analyze later in the semester.
-	\item None of the questions are sensitive and your name will not be linked to your responses. I will post an anonymized version of the dataset on my website.
-	\item Participation is  \emph{strictly voluntary}: you can still earn full clicker credit for today's lecture without participating in the survey.
-\end{itemize}
+\begin{frame}
+\frametitle{Survey Results}
+%	\includegraphics[scale=0.5]{survey.jpg}
+\end{frame} 
 
-
-\end{frame}
-
+\section{Types of Variables}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Discussion!}
+	\begin{itemize}
+		\item What are the differences between the following variables?
+		\begin{itemize}
+			\item ``Age'' and ``gender''
+			\item ``Gender'' and ``class standing''
+			\item ``SAT score'' and ``job creation''
+		\end{itemize}
+	\end{itemize}
+\end{frame} 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-
-  \frametitle{\includegraphics[scale = 0.05]{./images/clicker}\hfill  Multiple Choice Entry -- What is your biological sex?}
-\begin{enumerate}[(a)]
-	\item Male
-	\item Female
-\end{enumerate}
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-
-\frametitle{\includegraphics[scale = 0.05]{./images/clicker} \hfill  Numeric Entry -- How Many Credits?}
-
-How many credits are you taking this semester? Please respond using your remote.
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-  \frametitle{\includegraphics[scale = 0.05]{./images/clicker} \hfill Multiple Choice -- Class Standing} 
-  What is your class standing at Penn?
-  \begin{enumerate}[(a)]
-    \item Freshman
-    \item Sophomore
-    \item Junior
-    \item Senior
-  \end{enumerate}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-  \frametitle{\includegraphics[scale = 0.05]{./images/clicker} \hfill Numeric Entry -- How long did you sleep?} 
-  For how many hours did you sleep last night? 
-  \vspace{1em}
-
-  Please round to the nearest half hour, e.g.\ 7 hours 23 minutes becomes 7.5.
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{\includegraphics[scale = 0.05]{./images/clicker} \hfill  Multiple Choice -- What is Your Eye Color?}
-Please enter your eye color using your remote.
-\begin{enumerate}[(a)]
-  \item Black
-  \item Blue
-  \item Brown
-  \item Green
-  \item Gray
-  \item Green
-  \item Hazel
-  \item Other
-\end{enumerate}
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{\includegraphics[scale = 0.05]{./images/clicker} \hfill  How Right-Handed are You?}
-
-The sheet in front of you contains a handedness inventory. Please complete it and calculate your handedness score:
-	$$\frac{\mbox{Right} -\mbox{Left}}{\mbox{Right} + \mbox{Left}}$$
-When finished, enter your score using your remote.
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\begin{frame}
-
-\frametitle{\includegraphics[scale = 0.05]{./images/clicker} \hfill  What is your Height in Inches?}
-
-Using your remote, please enter your height in inches, rounded to the nearest inch:
-
-\vspace{1em}
-	4ft = 48in
-	
-	5ft = 60in 
-	
-	6ft = 72in
-	
-	7ft = 84in
-
-
-\end{frame}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-
-\frametitle{\includegraphics[scale = 0.05]{./images/clicker} \hfill  What is your Hand Span (in cm)?}
-
-On the sheet in front of you is a ruler. Please use it to measure the span of your right hand in centimeters, to the nearest 1/2 cm. 
-
-\vspace{2em}
-\begin{quote}Hand Span: the distance from thumb to little finger when your fingers are spread apart\end{quote}
-
-\vspace{2em}
-When ready, enter your measurement using your remote.
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-
-\frametitle{\includegraphics[scale = 0.05]{./images/clicker}}
-
-We chose (by computer) a random number between 0 and 100. The number selected and assigned to you is written on the slip of paper in front of you. Please do not show your number to anyone else or look at anyone else's number.
-
-\vspace{1em}
-
-Please enter your number now using your remote.
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\begin{frame}
-
-\frametitle{\includegraphics[scale = 0.05]{./images/clicker}}
-
-Call your random number X. Do you think that the \alert{percentage} of countries, among all those in the United Nations, that are in Africa is \alert{higher} or \alert{lower} than X?
-
-\begin{enumerate}[(a)]
-	\item Higher
-	\item Lower
-\end{enumerate}
-
-Please answer using your remote.
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{\includegraphics[scale = 0.05]{./images/clicker}}
-What is your best estimate of the \alert{percentage} of countries, among all those that are in the United Nations, that are in Africa?
-
-\vspace{1em} Please enter your answer using your remote.
-
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\begin{frame}
-
-\Huge \centering 
-Types of Variables
-
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{A Taxonomy of Variables}
-
-\begin{figure}[htbp]
-\begin{center}
-
-\synttree[Variables
+\frametitle{A Few Definitions: A Taxonomy of Variables}
+	\begin{figure}[htbp]
+	\begin{center}
+	\scalebox{0.8}{
+		\synttree[Variables
 			[\begin{tabular}{c}Categorical\\(Qualitative)\end{tabular}
-				[Nominal]
-				[Ordinal]
+				[Discrete
+					[Nominal]
+					[Ordinal]
+				]%END Discrete
 			]%END Categorical
 			[\begin{tabular}{c}Numerical\\(Quantitative)\end{tabular}
-				[Interval
-					[Continuous]
-					[Discrete]
-				]%END interval
-				[Ratio
-					[Continuous]
-					[Discrete]
-				]%END Ratio
+				[Continuous
+					[Ordinal]
+					[Interval]
+					[Ratio]
+				]%END Continuous					
+				[Discrete
+					[Ordinal]
+					[Interval]
+					[Ratio]
+				]%END Discrete
 			]%END numerical
-]%END tree
-%\caption{Types of Data}
-%\label{fig:tree}
-\end{center}
-\end{figure}
+		]%END tree
+		}
+		\end{center}
+	\end{figure}
 \end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Definitions}
+	\begin{itemize}
+		\item \textbf{Discrete:} Can be a countable number of values
+		\item \textbf{Continuous:} Can take on any value
+	\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Discussion!}
+	Can you order the following from weakest to strongest? 
+	\alert{Interval, Nominal, Ordinal, Ratio.}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{From Weakest to Strongest}
-\begin{block}{Categorical}
-Qualitative, assigns each unit to category, number either meaningless or indicates order only \pause
-		\begin{description}
-			\item[Nominal] no order to the categories  \pause
-			\item[Ordinal]  categories with natural order \pause
-		\end{description}
-\end{block}
-\begin{block}{Numerical}
-Quantitative, number meaningful \pause
-		\begin{description}
-			\item[Interval] only differences meaningful, no natural zero \pause
-			\item[Ratio] differences and ratios meaningful, natural zero 
-		\end{description}
-\end{block}
-
+	\begin{itemize}[<+->]
+		\item \textbf{Nominal:} no order to the categories
+		\item \textbf{Ordinal:} categories with natural order
+		\item \textbf{Interval:} only differences meaningful, no natural zero
+		\item \textbf{Ratio:} differences and ratios meaningful, natural zero
+	\end{itemize}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\section{Summary Statistics}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\frametitle{And For Numerical Variables (interval or ratio)...}
-\begin{block}{Discrete}
-Takes value from discrete set of numbers, typically count data
-\end{block}
-\pause
-\begin{block}{Continuous}
-Value could be any real number within some range (even though \emph{measurements} are made with finite precision)
-\end{block}
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\begin{center}
-\Huge
-Note that in R, categorical variables are called \emph{factors}
-\end{center}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{\includegraphics[scale = 0.05]{./images/clicker} \hfill What kind of variable is...}
-...Handspan?
-	\begin{enumerate}[(a)]
-\item Nominal
-\item Ordinal
-\item Interval
-\item Ratio
-\end{enumerate}
+\frametitle{Definitions}
+	\begin{enumerate}
+		\item Measures of Central Tendency
+		\begin{itemize}
+			\item \textbf{Mean:} the average (``balance point'')
+			$$
+			\bar{x} = \frac{1}{n} \sum_{i=1}^n x_i
+			$$
+			\item \textbf{Median:} the middle observation (if data has even number of 							observations, take the mean of the middle two observations)
+		\end{itemize}
+	\end{enumerate}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\frametitle{\includegraphics[scale = 0.05]{./images/clicker} \hfill What kind of variable is...}
-...Temperature?
-	\begin{enumerate}[(a)]
-\item Nominal
-\item Ordinal
-\item Interval
-\item Ratio
-\end{enumerate}
+\frametitle{Definitions}
+	\begin{enumerate}
+	\setcounter{enumi}{1}
+		\item Percentiles
+		$$
+		P^{th} \text{Percentile = Value in}  \left(P/100\right)\cdot (n+1)^{th} \text{Ordered 					Position}
+		$$
+	\end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{An Example: n = 12}
+	$$
+	\begin{array}{cccccccccccc}
+		60 & 63 & \alert{65} & \alert{67} & 70 & 72 & 75 & 75 & 80 & 82 & 84 & 85
+	\end{array}
+	$$
+	\begin{eqnarray*}
+		\mbox{Q}_1 &=& \mbox{value in the } 0.25(n+1)^{th}\mbox{ ordered position}\\
+			&=& \mbox{value in the } 3.25^{th}\mbox{ ordered position}\\
+			&=& 0.75 * 65 + 0.25 * 67\\
+			&=& 65.5
+	\end{eqnarray*}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\frametitle{\includegraphics[scale = 0.05]{./images/clicker} \hfill What kind of variable is...}
-...Eye Color?
-	\begin{enumerate}[(a)]
-\item Nominal
-\item Ordinal
-\item Interval
-\item Ratio
-\end{enumerate}
+\frametitle{Definitions}
+	\begin{enumerate}
+	\setcounter{enumi}{2}
+		\item Measures of Spread
+		\begin{itemize}
+			\item \textbf{Variance:} the spread from the mean
+			$$
+			s^2 = \frac{1}{n-1} \sum_{i = 1}^n (x_i - \bar{x})^2
+			$$
+			\item \textbf{Standard Deviation:} another way to measure the spread
+			$$
+			s = \sqrt{s^2}
+			$$
+			\item \textbf{Range:} the distance between the highest and lowest value
+			$$
+			Range = \left| x_{max} - x_{min} \right|
+			$$
+			\item \textbf{Interquartile Range (IQR):} the distance between the upper and lower 					quartiles
+			$$
+			IQR = \left| x_{75\%} - x_{25\%} \right|
+			$$
+		\end{itemize}
+	\end{enumerate}
+\end{frame}
+
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \begin{frame}
+ \frametitle{Why Squares?}
+	 \begin{center}
+	 	\fbox{$\displaystyle s^2 = \frac{1}{n - 1} \sum_{i = 1}^n (x_i - \bar{x})^2$}
+	 \end{center}
+	\onslide<2-> \begin{alertblock}{What's Wrong With This?}
+	 	\begin{align*}
+	 		\frac{1}{n - 1} \sum_{i = 1}^n (x_i - \bar{x}) &= \frac{1}{n - 1} \left[\sum_{i = 1}^n x_i - 					\sum_{i = 1}^n \bar{x} \right] = \frac{1}{n - 1} \left[ \sum_{i = 1}^n x_i  - n\bar{x} \right]
+	 		\\
+	 		&= \frac{1}{n - 1} \left[ \sum_{i = 1}^n x_i  - n \cdot \frac{1}{n} \sum_{i = 1}^n x_i \right]
+	 		\\ 
+	 		&= \frac{1}{n - 1} \left[ \sum_{i = 1}^n x_i  -  \sum_{i = 1}^n x_i \right] = 0
+	 	\end{align*}
+	 \end{alertblock}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\frametitle{\includegraphics[scale = 0.05]{./images/clicker} \hfill What kind of variable?}
-On course evaluations you can rate your professor as follows:\\ 0 = Poor, 1 = Fair, 2 = Good,  3 = Very Good, 4 = Excellent. What kind of data is your rating?
-	\begin{enumerate}[(a)]
-\item Nominal
-\item Ordinal
-\item Interval
-\item Ratio
-\end{enumerate}
+\frametitle{Definitions}
+	\begin{enumerate}
+	\setcounter{enumi}{3}
+		\item Measure of Symmetry
+		\begin{itemize}
+			\item \textbf{Skewness:} a measure of symmetry, positive values means the right tail is 				longer and vice versa
+			$$
+			Skewness = \frac{1}{n}\frac{\sum_{i = 1}^n (x_i - \bar{x})^3}{s^3}
+			$$
+		\end{itemize}
+	\end{enumerate}
 \end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\begin{frame}
-%\frametitle{Handspan - Frequency and Relative Frequency}
-%\small
-%\singlespacing
-%
-%
-%\begin{columns}
-%    \column{0.35\textwidth}
-%\begin{tabular}{rrr}
-%cm& Freq.\ & Rel.\ Freq.\ \\
-%\hline
-%14.0         & 1 &0.01\\
-%17.0         & 4 &0.05\\
-%17.5      &  2 &0.02\\
-%18.0         & 5 &0.06\\
-%18.5      &  5 &0.06\\
-%19.0         & 6 &0.07\\
-%19.5      & 10 &0.11\\
-%20.0        & 10 &0.11\\
-%20.5      &  3 &0.03\\
-%21.0         & 8 &0.09\\
-%21.5      &  5 &0.06\\
-%22.0         & 9 &0.10\\
-%22.5      &  6 &0.07\\
-%23.0         & 6 &0.07\\
-%24.0         & 4 &0.05\\
-%24.5      &  3 &0.03\\
-%27.0         & 1 &0.01\\
-%\hline
-%& $n=89$&1.00
-%\end{tabular}
-%    \column{0.65\textwidth}
-%\begin{figure}
-%	\centering
-%	\includegraphics[scale = 0.55]{./images/handspan_freq}
-%\end{figure}
-%\end{columns}
-%\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\begin{frame}
-%\frametitle{Handspan - Summarize Barchart by ``Smoothing''}
-%\small
-%\singlespacing
-%
-%
-%\begin{columns}
-%    \column{0.4\textwidth}
-%\begin{tabular}{rrr}
-%cm& Freq.\ & Rel.\ Freq.\ \\
-%\hline
-%14.0         & 1 &0.01\\
-%17.0         & 4 &0.05\\
-%17.5      &  2 &0.02\\
-%18.0         & 5 &0.06\\
-%18.5      &  5 &0.06\\
-%19.0         & 6 &0.07\\
-%19.5      & 10 &0.11\\
-%20.0        & 10 &0.11\\
-%20.5      &  3 &0.03\\
-%21.0         & 8 &0.09\\
-%21.5      &  5 &0.06\\
-%22.0         & 9 &0.10\\
-%22.5      &  6 &0.07\\
-%23.0         & 6 &0.07\\
-%24.0         & 4 &0.05\\
-%24.5      &  3 &0.03\\
-%27.0         & 1 &0.01\\
-%\hline
-%& $n=88$&1.00
-%\end{tabular}
-%    \column{0.6\textwidth}
-%    \alert{Group data into non-overlapping bins of equal width:}\\
-%    \vspace{1em}
-%    
-%\begin{tabular}{crr}
-%Bins & Freq.\ & Rel.\ Freq.\ \\
-%\hline
-% $[14,16)$&1& 0.01\\
-% $[16,18)$&6& 0.07\\
-% $[18,20)$&26&0.30 \\
-% $[20,22)$&26&0.30 \\
-% $[22,24)$&21&0.24 \\
-% $[24,26)$&7&0.08 \\
-% $[26,28)$&1&0.01\\
-% \hline
-% & $n=88$&1.00
-%\end{tabular}
-%\end{columns}
-%\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\begin{frame}
-%\frametitle{Histogram -- Density Estimate by Smoothing Barchart}
-%\footnotesize
-%\singlespacing
-%
-%\begin{columns}
-%    \column{0.4\textwidth}
-%\begin{tabular}{crr}
-%Bins & Freq.\ & Rel.\ Freq.\ \\
-%\hline
-% $[14,16)$&1& 0.01\\
-% $[16,18)$&6& 0.07\\
-% $[18,20)$&26&0.30 \\
-% $[20,22)$&26&0.30 \\
-% $[22,24)$&21&0.24 \\
-% $[24,26)$&7&0.08 \\
-% $[26,28)$&1&0.01\\
-% \hline
-% & $n=88$&1.00
-%\end{tabular}
-%    \column{0.6\textwidth}
-%\begin{figure}
-%	\centering
-%	\includegraphics[scale = 0.5]{./images/handspan_truehist}
-%\end{figure}
-%\end{columns}
-%\end{frame}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \begin{frame}
+ \frametitle{Skewness -- A Measure of Symmetry}
+	 \begin{center}
+	 	\fbox{$\displaystyle\mbox{Skewness} = \frac{1}{n}\frac{\sum_{i = 1}^n (x_i - \bar{x})^3}				{s^3}$}
+	 \end{center}
+	 \begin{block}{What do the values indicate?}
+	 	Zero $\Rightarrow$ symmetry, positive right-skewed, negative left-skewed.
+	 \end{block}
+	 \begin{block}{Why cubed?}
+	 	To get the desired sign.
+	 \end{block}
+	 \begin{block}{Why divide by $s^3$?}
+	 	So that skewness is unitless
+	 \end{block}
+	 \begin{block}{Rule of Thumb}
+	 	Typically (but not always), right-skewed $\Rightarrow$ mean $>$ median
+	 	\\ 
+	 	left-skewed $\Rightarrow$ mean $<$ median
+	 \end{block}
+ \end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\frametitle{Number of Bins Controls Degree of Smoothing}
-\begin{figure}
-\includegraphics[scale = 0.53]{./images/handspan_four_histograms}
-\end{figure}
+\frametitle{Definitions}
+	\begin{enumerate}
+	\setcounter{enumi}{4}
+		\item Relationship between variables (to be covered later)
+		\begin{itemize}
+			\item \textbf{Covariance:} how two variables vary together
+			\item \textbf{Correlation:} normalized version of covariance (can only range between -1 			and +1)
+			\item \textbf{Regression:} an estimation of how two variables are related
+			\item \alert{We'll cover these in-depth later in the semester}
+		\end{itemize}
+	\end{enumerate}
 \end{frame}
+
+\section{Charts}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Some Data Visualization Quotes}
+	\begin{enumerate}
+		\item ``Overload, clutter, and confusion are not attributes of information, they are failures 			of design'' --Edward Tufte
+		
+		\medskip
+		
+		\item ``...few people will appreciate the music if I just show them the notes. Most of us 				need to listen to the music to understand how beautiful it is. But often, that's how we 				present statistics; we just show the notes we don't play the music.'' --Hans Rosling
+	\end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{An Illustration}
+	\url{https://i.imgur.com/W4BKCVU.gif}	
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Before and After}
+	\includegraphics[width = \textwidth]{./images/designBefore.png}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Before and After}
+	\includegraphics[width = \textwidth]{./images/designAfter.png}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Illustrating with Charts (Box and Whisker Chart)}
+	\begin{figure}
+		\includegraphics[scale = 0.5]{./images/chicagoBoxPlot.png}
+	\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Illustrating with Charts (Histogram)}
+	\begin{figure}
+		\includegraphics[scale = 0.5]{./images/chicagoHistogram.png}
+	\end{figure}
+\end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Histograms are \emph{Really} Important}
-
-\begin{block}{Why Histogram?}
-Summarize numerical data, especially continuous (few repeats)
-\end{block}
-\pause
-\begin{block}{Too Many Bins -- Undersmoothing}
-No longer a summary (lose the shape of distribution)
-\end{block}
-\pause
-\begin{block}{Too Few Bins -- Oversmoothing}
-Miss important detail
-\end{block}
-\pause
-\begin{alertblock}{Don't confuse with barchart!}
-\end{alertblock}
+	\begin{enumerate}
+		\item Histograms show the frequency of different observations
+		\item \alert{Important Choice:} How many bins?
+	\end{enumerate}
 \end{frame}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \begin{frame}
-\frametitle{Summary Statistic: Numerical Summary of Sample}
-	\begin{enumerate}
-\item Measures of Central Tendency
-	\begin{itemize}
-\item Mean
-\item Median
-\end{itemize}\pause
-\item Measures of Spread
-	\begin{itemize}
-\item Variance
-\item Standard Deviation
-\item Range
-\item Interquartile Range (IQR)
-\end{itemize} \pause
-\item Measures of Symmetry
-	\begin{itemize}
-		\item Skewness
-	\end{itemize} \pause
-\item Measures of relationship between variables 
-	\begin{itemize}
-\item Covariance
-\item Correlation
-\item Regression
-\end{itemize}
-\end{enumerate}
+\frametitle{Too Few Bins (Oversmoothing)}
+	\includegraphics[width = \textwidth]{./images/histogramFew.png}
 \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Too Many Bins (Undersmoothing)}
+	\includegraphics[width = \textwidth]{./images/histogramMany.png}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Just Right! (Usually around 20 bins or so)}
+	\includegraphics[width = \textwidth]{./images/histogramRight.png}
+\end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Questions to Ask Yourself about Each Summary Statistic}
-\begin{enumerate}
-\item What does it measure?
-\item What are its units compared to those of the data?
-\item (How) do its units change if those of the data change?
-\item What are the benefits and drawbacks of this statistic?
-\end{enumerate}
+	\begin{enumerate}
+		\item What does it measure?
+		\item What are its units compared to those of the data?
+		\item How do its units change if those of the data change?
+		\item What are the benefits and drawbacks of this statistic?
+	\end{enumerate}
+	\vspace{2em}
+	\alert{Some of the information regarding items 2 and 3 is on the homework rather than in the 		slides because working it out for yourself is a good way to check your understanding.}
+\end{frame}
 
-\vspace{2em}
-\alert{Some of the information regarding items 2 and 3 is on the homework rather than in the slides because working it out for yourself is a good way to check your understanding.}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{Measures of Central Tendency}
-Suppose we have a dataset with observations $x_1, x_2, \hdots, x_n$
-	\begin{block}{Sample Mean}
-		\begin{itemize}
-			\item $\displaystyle\bar{x} = \frac{1}{n} \sum_{i=1}^n x_i$
-			\item Only for numeric data
-			\item Works best when data are symmetric and there are no outliers
-		\end{itemize}
-	\end{block}\pause
-	\begin{block}{Sample Median}
-		\begin{itemize}
-		\item Middle observation if $n$ is odd, otherwise the mean of the two observations closest to the middle.
-		\item Applicable to numerical or ordinal data
-		\item Robust to outliers and skewness
-		\end{itemize}
-	\end{block}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{Percentage of UN Countries that are in Africa}
-\begin{block}{You Were a Subject in a Randomized Experiment!}
-	\begin{itemize}
-		\item There were only two numbers in the bag: 10 and 65
-		\item Randomly assigned to Low group (10) or High group (65)
-	\end{itemize}
-	\end{block} \pause
-\begin{block}{Anchoring Heuristic \href{http://www.jstor.org/stable/1738360}{\fbox{(Kahneman and Tversky, 1974)}}}
-	Subjects' estimates of an unknown quantity are influenced by an irrelevant previously supplied starting point.
-\end{block}
-\begin{alertblock}{Are Penn students subject to to this cognitive bias?}
-\end{alertblock}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\begin{block}{Last Semester's Class}
-	\begin{table}[h]
-		\begin{tabular}{r|cc}
-					& Mean & Median\\
-					\hline
-			Low ($n=43$)& 17.1&17\\
-			High ($n=46$)& 30.7&30
-		\end{tabular}
-	\end{table}
-\end{block}
-\pause
-\begin{block}{\href{http://www.jstor.org/stable/1738360}{\fbox{Kahneman and Tversky (1974)}}}
-Low Group (shown 10) $\rightarrow$ median answer of 25\\
-High Group (shown 65) $\rightarrow$ median answer of 45
-\end{block}
-
-\vspace{2em}
-\alert{ \footnotesize (Kahneman shared 2002 Economics Nobel Prize with Vernon Smith.)}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\section{Outliers}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{What is an Outlier?}
-	\begin{block}{Outlier}
-	A very unusual observation relative to the other observations in the dataset (i.e.\ very small or very big).
-\end{block}
-\end{frame}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{Mean is Sensitive to Outliers, Median Isn't}
-
-\begin{block}{First Dataset: $\begin{array}{ccccc}1& 2& 3& 4& 5\end{array}$}
-Mean = 3, Median = 3
-\end{block}
-\pause
-
-\begin{block}{Second Dataset: $\begin{array}{ccccc}1& 2& 3& 4& 4990\end{array}$}
-Mean = 1000, Median = 3
-\end{block}
-\pause
-\begin{alertblock}{When Does the Median Change?}Ranks would have to change so that 3 is no longer in the middle.\end{alertblock}
-
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{Percentiles (aka Quantiles) -- Generalization of Median}
-\begin{center}\fbox{Approx.\ $P\%$ of the data are at or below the $P^{th}$ percentile.} \end{center}
-\vspace{1.5em}
-\begin{block}{Percentiles (aka Quantiles)}
-$P^{th}$ Percentile = Value in  $\left(P/100\right)\cdot (n+1)^{th}$ Ordered Position
-\end{block}
-\pause
-\begin{block}{Quartiles}
-Q1 = 25th Percentile
-
-Q2 =  Median (i.e.\ 50th Percentile)
-
-Q3 = 75th Percentile
-\end{block}
-
+	\begin{center}
+		\includegraphics[scale = 0.4]{./images/outliers.jpg}
+	\end{center}
+	\centering
+	\textbf{Outlier:} A very unusual observation relative to the other observations in the dataset 		(i.e.\ very small or very big).
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \begin{frame}
-\frametitle{An Example: n = 12}
-$$\begin{array}{cccccccccccc}
-60&63&\alert{65}&\alert{67}&70&72&75&75&80&82&84&85
-\end{array}$$
-
-\begin{eqnarray*}\mbox{Q}_1 &=& \mbox{value in the } 0.25(n+1)^{th}\mbox{ ordered position}\\\pause
-	&=& \mbox{value in the } 3.25^{th}\mbox{ ordered position}\\\pause
-	&=& 65 + 0.25 * (67 - 65)\\\pause
-	&=& 65.5
-\end{eqnarray*}
+\frametitle{Which Summary Stats are Sensitive to Outliers?}
+	\begin{itemize}
+		\item Assume our data is 1, 2, 3, 4, 5. What are our summary stats (mean, median, variance, 			range, IQR)
+		\item What will be affected if the data includes an outlier and becomes 1, 2, 3, 4, 4990?
+	\end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \begin{frame}
-\frametitle{\includegraphics[scale = 0.05]{./images/clicker} \hfill  Student Debt}
-Guess the \alert{90th percentile} of student loan debt in the U.S. That is, guess the amount of money such that 10\% college students graduate with \emph{more} than this amount of debt and 90\% graduate with less than or equal to this amount of debt.
-
+\frametitle{Which Summary Stats are Sensitive to Outliers?}
+	\begin{itemize}[<+->]
+		\item Mean changes from 3 to 1000
+		\item Median remains at 3
+		\item Variance changes from 2.5 to 4,975,032
+		\item Range changes from 4 to 4889
+		\item IQR remains at 2
+		\item \alert{When Does the Median Change? IQR?}
+		\begin{itemize}
+			\item Ranks would have to change.
+		\end{itemize}
+	\end{itemize}
 \end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\frametitle{\includegraphics[scale = 0.05]{./images/clicker} \hfill  Student Debt}
-
-Would you guess that the median amount of student loan debt in the U.S.\ is above, below,  or equal to the mean amount?
-\begin{enumerate}[(a)]
-	\item Median $>$ Mean
-	\item Median $=$ Mean
-	\item Median $<$ Mean
-\end{enumerate}
-
+\frametitle{Summary of Sensitivity}
+	\begin{block}{Variance}
+		Essentially the average squared distance from the mean. Sensitive to both skewness and 			outliers.
+	\end{block}
+	\begin{block}{Standard Deviation}
+		$\sqrt{\mbox{Variance}}$, but more convenient since \alert{same units as data}
+	\end{block}
+	\begin{block}{Range}
+		Difference between larges and smallest observations. \emph{Very} sensitive to outliers. 		
+	\end{block}
+	\begin{block}{Interquartile Range}
+		Range of middle 50\% of the data. Insensitive to outliers, skewness. 
+	\end{block}
 \end{frame}
+
+\section{Sample vs. Population}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Essential Distinction: Sample vs.\ Population}
+	For now, you can think of the population as a list of $N$ objects:\\
+		\alert{$\mbox{Population: }x_1, x_2, \hdots, x_N$}\\
+	from which we draw a sample of size $n<N$ objects:\\
+		\alert{$\mbox{Sample: } x_1, x_2, \hdots, x_n$}
+	\vspace{3em}
+	\begin{alertblock}{Important Point:}
+		Later in the course we'll be more formal by considering \alert{probability models} that 				represent the \alert{\emph{act of sampling}} from a population rather than thinking of a 				population as a list of objects. Once we do this we will no longer use the notation $N$ as 			the population will be \alert{\emph{conceptually infinite}}.
+	\end{alertblock}
+\end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\frametitle{\footnotesize Source: \href{http://www.aeaweb.org/articles.php?doi=10.1257/jep.26.1.165}{\fbox{Avery \& Turner (2012)}}}
-
-
-\centering \includegraphics[scale = 0.18]{./images/student_borrowing}
-
-
+\frametitle{Essential Distinction: Parameter vs.\ Statistic}
+	$N$ individuals in the Population, $n$ individuals in the Sample:
+	\bigskip
+	\begin{tabular}{l|l|l}
+		&\textbf{Parameter} (Population)&\textbf{Statistic} (Sample)\\
+		\hline
+		Mean & $\displaystyle \mu = \frac{1}{N} \sum_{i = 1}^N x_i$	& $\displaystyle \bar{x} = 				\frac{1}{n} \sum_{i = 1}^n x_i$ 
+		\\
+		Var.\ &$ \displaystyle \sigma^2 = \frac{1}{N}\sum_{i = 1}^N (x_i - \mu)^2$ &$ \displaystyle 			s^2 = \frac{1}{n - 1}\sum_{i = 1}^n(x_i - \bar{x})^2$
+		\\
+		S.D.\ & $ \displaystyle \sigma = \sqrt{\sigma^2}$ &$ \displaystyle s = \sqrt{s^2}$ 
+	\end{tabular}
+	\bigskip	
+	\begin{alertblock}{Key Point}
+		We  use a \alert{sample} $x_1, \hdots, x_n$ to calculate \alert{statistics} (e.g.\ $\bar{x}$, 				$s^2$, $s$) that serve as \alert{estimates} of the corresponding population 							\alert{parameters} (e.g.\ $\mu$, $\sigma^2$, $\sigma$).
+	\end{alertblock}
 \end{frame}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \begin{frame}
-\frametitle{Boxplots and the Five-Number Summary}
-Minimum $<$ Q1 $<$ Median $<$ Q3 $<$ Maximum
-
-\begin{figure}
-\centering \includegraphics[scale = 0.65]{./images/anchoring_boxplot}
-\end{figure}
-
+\frametitle{Why Do Sample Variance and Std.\ Dev.\ Divide by $n - 1$? }
+	\begin{align*}
+		\sigma^2 &= \frac{1}{N}\sum_{i = 1}^N (x_i - \mu)^2
+		\\
+		s^2 &= \frac{1}{n - 1}\sum_{i = 1}^n(x_i - \bar{x})^2
+	\end{align*}
+	\alert{There is an important reason for this, but explaining it requires some concepts we 				haven't learned yet. }
 \end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \begin{frame}
-\frametitle{Measures of Variability/Spread}
-
-\begin{block}{Range}
-Maximum Observation - Minimum Observation
-\end{block}
-\pause
-\begin{block}{Interquartile Range (IQR)}
-IQR= $\mbox{Q}_3 - \mbox{Q}_1$
-\end{block}
-\pause
-\begin{block}{Variance}
-$\displaystyle s^2 = \frac{1}{n-1} \sum_{i=1}^n (x_i - \bar{x})^2$
-\end{block}
-\pause
- \begin{block}{Standard Deviation}
-	$s = \sqrt{s^2}$
-\end{block}
+\frametitle{Some Intuition}
+	\begin{itemize}
+		\item \textbf{Intuition 1:} If we only had one data point, what would be the sample 					variance? Would it even be defined?
+		\item \textbf{Intuition 2:} We know that the deviations from the sample mean sum to zero 			(see discussion of why variance is squared). Hence, we only need to know $n - 1$ of the 				deviations since the last one will be whatever it takes to make the sum of them equal to 0. 			Hence, it would be proper to divide by $n - 1$ instead of $n$
+	\end{itemize}
 \end{frame}
+
+\section{Z Scores}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \begin{frame}
-\begin{block}{Variance}
-Essentially the average squared distance from the mean. Sensitive to both skewness and outliers.
-\end{block}
-\pause
-\begin{block}{Standard Deviation}
-$\sqrt{\mbox{Variance}}$, but more convenient since \alert{same units as data}
-\end{block}
-\pause
-\begin{block}{Range}
-Difference between larges and smallest observations. \emph{Very} sensitive to outliers. Displayed in boxplot.
-\end{block}
-\pause
-\begin{block}{Interquartile Range}
-Range of middle 50\% of the data. Insensitive to outliers, skewness. Displayed in boxplot.
-\end{block}
-
+\frametitle{Why Mean and Variance (and Std.\ Dev.\ )?}
+	\begin{alertblock}{Empirical Rule}
+	For large populations that are approximately bell-shaped, standard deviation tells where most 		observations will be relative to the mean:
+		\begin{itemize}
+			\item $\approx$ 68\% of observations are in the interval $\mu \pm \sigma$
+			\item $\approx$ 95\% of observations are in the interval $\mu \pm 2\sigma$
+			\item Almost all of observations are in the interval $\mu \pm 3\sigma$
+		\end{itemize}
+	\end{alertblock}
 \end{frame}
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Standard Deviations}
+	\includegraphics[width = \textwidth]{./images/six_sigma_normal_distribution.jpg}
+\end{frame}
 
-% \begin{frame}
-% \frametitle{Measures of Spread for Anchoring Experiment}
-% \framesubtitle{Last Semester's Data}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Z-scores: How many standard deviations from the mean?}
+	$$
+	z _i= \frac{x_i - \bar{x}}{s}
+	$$
+	\pause
+	\begin{block}{Unitless}
+		Allows comparison of variables with different units.
+	\end{block}
+	\pause
+	\begin{block}{Detecting Outliers}
+		Measures how ``extreme'' one observation is relative to the others.
+	\end{block}
+	\pause
+	\begin{block}{Linear Transformation}
+	\end{block}
+\end{frame}
 
-% \begin{table}
-% 	\begin{tabular}{l|cc}
-% 	Treatment: & X = 10 & X = 65\\
-% 	\hline
-% 		Range&35&58\\
-% 		IQR&14.5&21\\
-% 		S.D.&9.3&15.9\\
-% 		Var.&86.1&253.5
-% 	\end{tabular}
-% \end{table}
-% \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{What is the sample mean of the z-scores?}
+	\begin{align*}
+	 \only<2->{\bar{z} &= \frac{1}{n} \sum_{i = 1}^n z_i = \frac{1}{n} \sum_{i = 1}^n \frac{x_i - \bar{x}}		{s}= \frac{1}{n\cdot s} \left[\sum_{i = 1}^n x_i  - \sum_{i = 1}^n \bar{x}  \right]
+	 \\}
+	\only<3->{&= \frac{1}{n\cdot s} \left[\sum_{i = 1}^n x_i  - n\bar{x}  \right] = \frac{1}{n\cdot s} 			\left[\sum_{i = 1}^n x_i - n\cdot \frac{1}{n} \sum_{i = 1}^n x_i  \right] 
+	 \\}
+ 	\only<4->{&= \frac{1}{n\cdot s} \left[\sum_{i = 1}^n x_i -  \sum_{i = 1}^n x_i  \right]  = 0}
+	\end{align*}
+\end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{What is the variance of the z-scores?}
+	\begin{align*}
+		\only<2->{s^2_z &= \frac{1}{n - 1}\sum_{i = 1}^n (z_i - \bar{z})^2 = \frac{1}{n - 1}\sum_{i = 				1}^n z_i^2 = 	\frac{1}{n - 1} \sum_{i = 1}^n \left(\frac{x_i - \bar{x}}{s_x}\right)^2
+		\\}
+		\only<3->{&= \frac{1}{s_x^2} \left[ \frac{1}{n - 1} \sum_{i = 1}^n \left(x_i - \bar{x}\right)^2 				\right] = \frac{s_x^2}{s_x^2} = 1}
+		\end{align*}
+	\vspace{5em}
+	\only<4->{\alert{So what is the \emph{standard deviation} of the z-scores? \hfill  }}
+\end{frame}
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \begin{frame}
-% \frametitle{Why Squares?}
-% \begin{center}\fbox{$\displaystyle s^2 = \frac{1}{n-1}\sum_{i=1}^n(x_i - \bar{x})^2$}\end{center}
-% \begin{alertblock}{What's Wrong With This?}
-% 	\begin{eqnarray*}
-% 		\displaystyle\frac{1}{n-1}\sum_{i=1}^N (x_i - \bar{x}) &=& \pause\frac{1}{n-1}\left[\sum_{i=1}^n x_i - \sum_{i=1}^n \bar{x} \right] = \pause\frac{1}{n-1}\left[ \sum_{i=1}^n x_i  - n\bar{x}\right]\\
-% 			&=& \pause \frac{1}{n-1}\left[ \sum_{i=1}^n x_i  - n\cdot\frac{1}{n} \sum_{i=1}^n x_i\right]\\ &=& \pause \frac{1}{n-1}\left[ \sum_{i=1}^n x_i  -  \sum_{i=1}^n x_i\right] =\pause 0
-% 	\end{eqnarray*}
-% \end{alertblock}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Population Z-scores and the Empirical Rule: $\mu \pm 2\sigma$}
+	If we knew the population mean $\mu$ and standard deviation $\sigma$ we could create a 			\alert{\emph{population version}} of a z-score. This leads to an important way of rewriting the 		Empirical Rule:
+	\vspace{2em}
+	\alert{Bell-shaped population $\Rightarrow$ approx.\ 95\% of observations $x_i$ satisfy}
+	\begin{align*}
+	\mu - 2\sigma &\leq x_i \leq \mu + 2\sigma
+	\\
+	\\
+	-2 \sigma &\leq x_i -\mu \leq 2\sigma
+	\\
+	\\
+	-2 &\leq \frac{x_i - \mu}{\sigma} \leq 2
+	\end{align*}
+\end{frame}
 
-% \end{frame}
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Covariance and Correlation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Covariance and Correlation: Linear Dependence Measures}
+	\begin{block}{Two Samples of Numeric Data}
+		$x_1, \hdots, x_n$ and $y_1, \hdots, y_n$
+	\end{block}
+	\begin{block}{Dependence}
+		Do $x$ and $y$ both tend to be large (or small) at the same time?
+	\end{block}
+	\begin{block}{Key Point}
+		Use the idea of centering and standardizing to decide what ``big'' or ``small'' means in this 			context.
+	\end{block}
+\end{frame}
 
-% \begin{frame}
-% \frametitle{Variance is Sensitive to Skewness and Outliers}
-% \framesubtitle{And so is Standard Deviation!}
-% \begin{center}\fbox{$\displaystyle s^2 = \frac{1}{n-1}\sum_{i=1}^n(x_i - \bar{x})^2$}\end{center}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Are These Related?}
+	Engine Cylinders and Horsepower?
+	\medskip
+	\only<2->{\includegraphics[scale=0.5]{./images/cars.png}}
+\end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Recall Formulas}
+	\begin{align*}
+		\bar{x} &= \frac{1}{n} \sum_{i = 1}^n x_i
+		\\
+		\bar{y} &= \frac{1}{n} \sum_{i = 1}^n y_i
+		\\
+		s_x &= \sqrt{\frac{1}{n - 1} \sum_{i = 1}^n (x_i - \bar{x})^2}
+		\\
+		s_y &= \sqrt{\frac{1}{n - 1} \sum_{i = 1}^n (y_i - \bar{y})^2}
+	\end{align*}
+\end{frame}
 
-% \begin{block}{Outliers}
-% Differentiate with respect to $(x_i-\bar{x})\Rightarrow$ the farther an observation is from the mean, the \emph{larger} its effect on the variance.
-% \end{block}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Covariance}
+	$$
+	s_{xy} = \frac{1}{n-1} \sum_{i=1}^n (x_i -\bar{x})(y_i - \bar{y})
+	$$
+	\begin{itemize}
+		\item Centers each observation around its mean and multiplies.
+		\item Zero $\Rightarrow$ no linear dependence
+		\item Positive $\Rightarrow$ positive linear dependence
+		\item Negative $\Rightarrow$ negative linear dependence
+		\item Population parameter: $\sigma_{xy}$
+		\item Units?
+	\end{itemize}
+\end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Correlation}
+	$$
+	r_{xy} = \frac{1}{n - 1} \sum_{i = 1}^n \left(\frac{x_i  - \bar{x}}{s_x}\right)\left(\frac{y_i - \bar{y}}			{s_y}\right) = \frac{s_{xy}}{s_x s_y}
+	$$
+	\begin{itemize}
+		\item Centers \emph{and} standardizes each observation 
+		\item Bounded between -1 and 1
+		\item Zero $\Rightarrow$ no linear dependence
+		\item Positive $\Rightarrow$ positive linear dependence
+		\item Negative $\Rightarrow$ negative linear dependence
+		\item Population parameter: $\rho_{xy}$
+		\item Unitless
+	\end{itemize}
+\end{frame}
 
-% \begin{block}{Skewness}
-% Variance measures average squared distance from center, taking \alert{mean} as the center, but the mean is sensitive to skewness!
-% \end{block}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Game!}
+	\url{guessthecorrelation.com}
+\end{frame}
 
-% \end{frame}
+\section{Review}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Essential Distinction: Parameter vs.\ Statistic}
+	$N$ individuals in the Population, $n$ individuals in the Sample:
+	\vspace{1em}
+	\small
+	\begin{tabular}{l|l|l}
+		&\textbf{Parameter} (Population)&\textbf{Statistic} (Sample)\\
+		\hline
+		Mean&$\displaystyle\mu_x = \frac{1}{N} \sum_{i = 1}^N x_i$& $\displaystyle\bar{x} = \frac{1}			{n} \sum_{i = 1}^n x_i$ \\
+		Var.\ &$\displaystyle \sigma_x^2 = \frac{1}{N}\sum_{i = 1}^N (x_i - \mu)^2$ &$\displaystyle 			s_x^2 = \frac{1}{n - 1}\sum_{i = 1}^n(x_i - \bar{x})^2$\\
+		S.D.\ &$\sigma_x = \sqrt{\sigma_x^2}$ &$s_x = \sqrt{s^2}$ \\
+		&&\\
+		\hline
+		&&\\
+		\alert{Cov.\ }&\alert{$\displaystyle \sigma_{xy} = \frac{\sum_{i = 1}^N(x_i - \mu_x)(y_i - 				\mu_y)}{N}$} &\alert{$\displaystyle s_{xy} = \frac{\sum_{i = 1}^n(x_i - \bar{x})(y_i - \bar{y})}			{n - 1}$}\\
+		\alert{Corr.\ } & \alert{$\displaystyle \rho = \frac{\sigma_{xy}}{\sigma_x \sigma_y}$}& 					\alert{$\displaystyle r = \frac{s_{xy}}{s_x s_y}$}
+	\end{tabular}
+\end{frame}
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \begin{frame}
-
-% \frametitle{Skewness -- A Measure of Symmetry}
-
-% \begin{center}
-% \fbox{$\displaystyle\mbox{Skewness} = \frac{1}{n}\frac{\sum_{i=1}^n (x_i - \bar{x})^3}{s^3}$}
-% \end{center}
-% \pause
-% \begin{block}{What do the values indicate?}Zero $\Rightarrow$ symmetry, positive right-skewed, negative left-skewed.\end{block} \pause
-% \begin{block}{Why cubed?}To get the desired sign.\end{block} \pause
-% \begin{block}{Why divide by $s^3$?}So that skewness is unitless\end{block}\pause
-% \begin{block}{Rule of Thumb}Typically (but not always), right-skewed $\Rightarrow$ mean $>$ median\\ left-skewed $\Rightarrow$ mean $<$ median\end{block}
-
-% \end{frame}
-
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{document}
