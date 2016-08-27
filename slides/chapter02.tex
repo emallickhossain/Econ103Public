@@ -1,11 +1,5 @@
-%To compile as handout, use
-%pdflatex "\def\ishandout{1} \input{filename.tex}"
-%Defaults to non-handout mode (with slide reveals)
-\ifdefined\ishandout
-  \documentclass[handout]{beamer}
-\else
-  \documentclass{beamer}
-\fi
+%\documentclass[handout]{beamer}
+\documentclass{beamer}
  
 \usetheme[numbering = fraction, progressbar = none, background = light, sectionpage = progressbar]{metropolis}
 \usepackage{amsmath}
@@ -29,6 +23,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Survey Results}
+	To be added soon.
 %	\includegraphics[scale=0.5]{survey.jpg}
 \end{frame} 
 
@@ -613,6 +608,15 @@
 		\alert{Cov.\ }&\alert{$\displaystyle \sigma_{xy} = \frac{\sum_{i = 1}^N(x_i - \mu_x)(y_i - 				\mu_y)}{N}$} &\alert{$\displaystyle s_{xy} = \frac{\sum_{i = 1}^n(x_i - \bar{x})(y_i - \bar{y})}			{n - 1}$}\\
 		\alert{Corr.\ } & \alert{$\displaystyle \rho = \frac{\sigma_{xy}}{\sigma_x \sigma_y}$}& 					\alert{$\displaystyle r = \frac{s_{xy}}{s_x s_y}$}
 	\end{tabular}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Related Reading}
+	\begin{itemize}
+		\item Wonnacott: Chapter 2, Appendix 2-2, and Appendix 2-5
+		\item How to Lie with Statistics: Chapters 2, 5, and 6
+	\end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
