@@ -1,60 +1,38 @@
-%        File: ClassicalProbability.tex
-%     Created: Sat Jan 31 04:00 PM 2015 E
-% Last Change: Sat Jan 31 04:00 PM 2015 E
-%
 \documentclass[12pt]{article}
 \usepackage{amsmath,amssymb}
-\title{Basic Combinatorics and Classical Probability\\ \large Addendum to Lecture \# 5}
+\title{Combinations and Permutations}
 \author{Econ 103}
 \date{}
 \begin{document}
 \maketitle
 
 \section*{Introduction}
-In lecture I don't spend much time on Classical Probability since I expect that this material should be familiar from High School.
-If you need a refresher, this document should help.
-Since Classical Probability is all about counting, we'll start off with a short review of combinatorics.
+In lecture I don't spend much time on combinations and permutations since I expect you to have some familiarity with these concepts and their formulas. Even if you are not familiar with these topics, this document should provide a quick review.
 
 \section*{Basic Combinatorics: Rules for Counting}
 \subsection*{The Multiplication Rule}
 When I visit Chipotle, I'm presented with a sequence of independent choices:
 \begin{enumerate}
-  \item Burrito, bowl, soft tacos, or crispy tacos? (4 options)
-  \item White or brown rice? (2 options)
-  \item Black or pinto beans? (2 options)
-  \item Chicken, carnitas, steak, barbacoa, sofritas, or vegetables? (6 options) 
-  \item Mild, medium or hot salsa? (3 options)
-  \item Cheese? (2 options: yes/no)
-  \item Guacamole? (2 options: yes/no)
+    \item Burrito, bowl, soft tacos, or crispy tacos? (4 options)
+    \item White or brown rice? (2 options)
+    \item Black or pinto beans? (2 options)
+    \item Chicken, carnitas, steak, barbacoa, sofritas, or vegetables? (6 options) 
+    \item Mild, medium or hot salsa? (3 options)
+    \item Cheese? (2 options: yes/no)
+    \item Guacamole? (2 options: yes/no)
 \end{enumerate}
+
 I've left off a number of the toppings, but you get the idea.
 The question is: how many different meals could I order?
 To answer this, we'll use a principle called the \emph{multiplication rule}.
 
-Imagine a gigantic rectangular classroom, College Hall Room 200 perhaps, with 50 rows of seats, each containing 20 chairs.
-Now suppose that I asked you to count the number of chairs in the room.
-Would you visit each row individually and count each chair? 
-Of course not: you'd simply multiply 50 by 20 to get 1000.
-This is just a special case of the multiplication rule.
+Imagine a gigantic rectangular classroom, College Hall Room 200 perhaps, with 50 rows of seats, each containing 20 chairs. Now suppose that I asked you to count the number of chairs in the room. Would you visit each row individually and count each chair? Of course not: you'd simply multiply 50 by 20 to get 1000. This is just a special case of the multiplication rule.
 
-Let me phrase the question a little differently.
-How many different ways could you choose where to sit if this lecture hall were completely empty?
-We already know that the answer is 1000, but let's try getting it a different way.
-The room is rectangular, so each chair is uniquely identified by its \emph{column} and \emph{row}.
-Choosing a seat is equivalent to choosing a row and a column.
-There are 50 ways to choose a row, and \emph{for each of these} there are 20 ways to choose a column.
-This means that, if we want the total number of ways to choose, we need to repeatedly add the number 20 a total of 50 times.
-But that's just the definition of multiplication, so the answer is 1000.
+Let me phrase the question a little differently. How many different ways could you choose where to sit if this lecture hall were completely empty? We already know that the answer is 1000, but let's try getting it a different way. The room is rectangular, so each chair is uniquely identified by its \emph{column} and \emph{row}. Choosing a seat is equivalent to choosing a row and a column. There are 50 ways to choose a row, and \emph{for each of these} there are 20 ways to choose a column. This means that, if we want the total number of ways to choose, we need to repeatedly add the number 20 a total of 50 times. But that's just the definition of multiplication, so the answer is 1000.
 
-Now suppose I added one more choice: there are \emph{three} identical classrooms, each with 50 rows of 20 seats.
-If all the seats are empty, how many ways are there to decide where you want to sit?
-Well, we already know how to solve the problem for \emph{each} classroom so to find the total, we just need to add up this answer three times.
-But again, that is simply the definition of multiplication, so our answer is $3 \times 20 \times 50 = 3000$.
+Now suppose I added one more choice: there are \emph{three} identical classrooms, each with 50 rows of 20 seats. If all the seats are empty, how many ways are there to decide where you want to sit? Well, we already know how to solve the problem for \emph{each} classroom so to find the total, we just need to add up this answer three times. But again, that is simply the definition of multiplication, so our answer is $3 \times 20 \times 50 = 3000$.
 
-Are you starting to see the pattern here?
-This has nothing in particular to do with chairs in classrooms, but it's a basic feature of \emph{how we count things}: \textbf{if you have a series of independent decisions to make, the total number of ways to decide equals the product of the number of ways to make each individual choice}.
-Stated more mathematically, if you have $k$ independent decisions to make and there are $n_1$ ways to make the first decision, $n_2$ ways to make the second decision, $\hdots$, and $n_k$ ways to make the $k^{th}$ decision, then there are $n_1 \times n_2 \times \cdots \times n_k$ total ways to decide.
-The \emph{key requirement here} is that the decisions are \emph{independent}.
+Are you starting to see the pattern here? This has nothing in particular to do with chairs in classrooms, but it's a basic feature of \emph{how we count things}: \textbf{if you have a series of independent decisions to make, the total number of ways to decide equals the product of the number of ways to make each individual choice}. Stated more mathematically, if you have $k$ independent decisions to make and there are $n_1$ ways to make the first decision, $n_2$ ways to make the second decision, $\hdots$, and $n_k$ ways to make the $k^{th}$ decision, then there are $n_1 \times n_2 \times \cdots \times n_k$ total ways to decide. The \emph{key requirement here} is that the decisions are \emph{independent}.
 What I mean by this is that the number of ways to make a particular decision does not depend on what you chose in a \emph{separate decision}.
 Going back to the classroom example, this is the same as requiring that each room have the same number of rows and columns of chairs.
 Since the Chipotle example also has this structure, we can solve it as follows: $4 \times 2 \times 2 \times 6 \times 3 \times 2 \times 2 = 1152$.
@@ -209,3 +187,4 @@ Using this intuition, we see that there are ${5\choose 3}=10$ ways to allocate t
 \end{document}
 
 
+\grid
