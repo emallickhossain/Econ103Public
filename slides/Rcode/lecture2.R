@@ -51,4 +51,16 @@ short_b <- round(reg$coefficients[2], digits = 2)
 plot_ly(data = carStats, x = carStats$mpg, y = carStats$hp, type = "scatter", mode = "markers") %>%
   add_trace(x = mpg, y = fitted(reg), mode = "lines") %>%
   layout(xaxis = x, yaxis = y, title = "Horsepower and MPG", showlegend = FALSE)
+sd(carStats$mpg)
+sd(carStats$hp)
+cov(carStats$mpg, carStats$hp)
+mean(carStats$mpg)
+mean(carStats$hp)
+cor(carStats$hp, carStats$mpg)
 
+# Zero Correlation Chart
+x = seq(-1, 1, by = 0.1)
+y = x^2
+plot_ly(x = x, y = y, type = "scatter", mode = "markers") %>%
+  layout(title = "Correlation = 0")
+cor(apple, pear)
