@@ -663,281 +663,178 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\begin{block}{Objective Function}
-$$\displaystyle \min_{a,b}  \sum_{i=1}^n (y_i - a - b x_i)^2$$
-\end{block}
-\begin{block}{FOC with respect to $a$}\pause
-\begin{eqnarray*}
-	-2 \sum_{i=1}^n\left(y_i - a -bx_i\right) &=& 0 \\\pause
-	\sum_{i=1}^n y_i - \sum_{i=1}^n a - b\sum_{i=1}^n x_i &=& 0 \\\pause
-	\frac{1}{n} \sum_{i=1}^n y_i - \frac{na}{n} -  \frac{b}{n} \sum_{i=1}^n x_i &=& 0\\\pause
-	\bar{y} - a - b\bar{x} &=& 0
-\end{eqnarray*}
-\end{block}
+\frametitle{Derivation}
+	\begin{block}{Objective Function}
+	$$
+	\displaystyle \min_{a,b}  \sum_{i = 1}^n (y_i - a - b x_i)^2
+	$$
+	\end{block}
+	\begin{block}{FOC with respect to $a$}
+		\only<2->{\begin{align*}
+			-2 \sum_{i = 1}^n\left(y_i - a - bx_i\right) &= 0 
+			\\
+			\sum_{i = 1}^n y_i - \sum_{i = 1}^n a - b\sum_{i = 1}^n x_i &= 0 
+			\\
+			\frac{1}{n} \sum_{i = 1}^n y_i - \frac{na}{n} -  \frac{b}{n} \sum_{i = 1}^n x_i &= 0
+			\\
+			\bar{y} - a - b\bar{x} &= 0
+		\end{align*}}
+	\end{block}
 \end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
 
-\frametitle{Regression Line Goes Through the Means!}
- \Huge
-\begin{equation*}\boxed{\bar{y} = a + b\bar{x}}\end{equation*}
-\normalsize
-\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-  \frametitle{Substitute $a = \bar{y} - b \bar{x}$}
-  \small
-\begin{eqnarray*}
-	\sum_{i=1}^n (y_i - a - b x_i)^2 &=& \pause\sum_{i=1}^n (y_i - \bar{y} + b\bar{x} - b x_i)^2\\
-	&=&\pause\sum_{i=1}^n \left[ \left(y_i - \bar{y}\right) - b\left(x_i - \bar{x}\right) \right]^2
-\end{eqnarray*}
-\alert{FOC wrt $b$}
-\begin{eqnarray*}\pause
-	-2\sum_{i=1}^n \left[\left(y_i - \bar{y}\right) - b\left(x_i - \bar{x}\right) \right]\left(x_i - \bar{x} \right) &=& 0\\\pause
-	\sum_{i=1}^n \left(y_i - \bar{y}\right)\left(x_i - \bar{x} \right) - b\sum_{i=1}^n \left(x_i - \bar{x}\right)^2 &=& 0\\ \\\pause
-	b = \frac{\sum_{i=1}^n \left(y_i - \bar{y}\right)\left(x_i - \bar{x} \right)}{\sum_{i=1}^n \left(x_i - \bar{x}\right)^2}
-\end{eqnarray*}
+\frametitle{Regression Line Goes Through the Means!}
+	 \Huge
+	$$
+	\boxed{\bar{y} = a + b\bar{x}}
+	$$
 \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Substitute $a = \bar{y} - b \bar{x}$}
+	\small
+	\begin{align*}
+		\sum_{i = 1}^n (y_i - a - b x_i)^2 &= \sum_{i = 1}^n (y_i - \bar{y} + b\bar{x} - b x_i)^2
+		\\
+		&= \sum_{i = 1}^n \left[ \left(y_i - \bar{y}\right) - b\left(x_i - \bar{x}\right) \right]^2
+	\end{align*}
+	\alert{FOC wrt $b$}
+	\begin{align*}
+		-2\sum_{i = 1}^n \left[\left(y_i - \bar{y}\right) - b\left(x_i - \bar{x}\right) \right]\left(x_i - 				\bar{x} \right) &= 0
+		\\
+		\sum_{i = 1}^n \left(y_i - \bar{y}\right)\left(x_i - \bar{x} \right) - b\sum_{i = 1}^n \left(x_i - 				\bar{x}\right)^2 &= 0
+		\\
+		b = \frac{\sum_{i = 1}^n \left(y_i - \bar{y}\right)\left(x_i - \bar{x} \right)}{\sum_{i = 1}^n 				\left(x_i - \bar{x}\right)^2}
+	\end{align*}
+\end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Simple Linear Regression}
 	\begin{block}{Problem}
-	$$\min_{a,b}  \sum_{i=1}^n (y_i - a - b x_i)^2$$
-\end{block}
-\begin{block}{Solution}
-	\begin{eqnarray*}
-		b &=& \frac{\sum_{i=1}^n \left(y_i - \bar{y}\right)\left(x_i - \bar{x} \right)}{\sum_{i=1}^n \left(x_i - \bar{x}\right)^2}\\ \\
-		a &=& \bar{y} - b\bar{x}
-	\end{eqnarray*}
-\end{block}
+	$$
+	\min_{a,b}  \sum_{i = 1}^n (y_i - a - b x_i)^2
+	$$
+	\end{block}
+	\begin{block}{Solution}
+		\begin{align*}
+			b &= \frac{\sum_{i = 1}^n \left(y_i - \bar{y}\right)\left(x_i - \bar{x} \right)}{\sum_{i = 1}^n 				\left(x_i - \bar{x}\right)^2}
+			\\
+			\\
+			a &= \bar{y} - b\bar{x}
+		\end{align*}
+	\end{block}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-	\frametitle{Relating Regression to Covariance and Correlation}
-		$$b = \frac{\sum_{i=1}^n \left(y_i - \bar{y}\right)\left(x_i - \bar{x} \right)}{\sum_{i=1}^n \left(x_i - \bar{x}\right)^2} = \frac{\frac{1}{n-1}\sum_{i=1}^n \left(y_i - \bar{y}\right)\left(x_i - \bar{x} \right)}{\frac{1}{n-1}\sum_{i=1}^n \left(x_i - \bar{x}\right)^2} = \frac{s_{xy}}{s_x^2}$$
-		
-		$$r = \frac{s_{xy}}{s_x s_y} = b \frac{s_x}{s_y}$$
-		
+\frametitle{Relating Regression to Covariance and Correlation}
+		$$
+		b = \frac{\sum_{i = 1}^n \left(y_i - \bar{y}\right)\left(x_i - \bar{x} \right)}{\sum_{i = 1}^n 				\left(x_i - \bar{x}\right)^2} = \frac{\frac{1}{n-1}\sum_{i=1}^n \left(y_i - \bar{y}\right)\left(x_i - 			\bar{x} \right)}{\frac{1}{n-1}\sum_{i=1}^n \left(x_i - \bar{x}\right)^2} = \frac{s_{xy}}{s_x^2}
+		$$
+		$$
+		r = \frac{s_{xy}}{s_x s_y} = b \frac{s_x}{s_y}
+		$$		
 \end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Comparing Regression, Correlation and Covariance}
+	\begin{block}{Units}
+	Correlation is unitless, covariance and regression coefficients ($a, b$) are not. (What are the 			units of these?)
+	\end{block}
+	\begin{block}{Symmetry}
+	Correlation and covariance are symmetric, regression isn't. (Switching $x$ and $y$ axes changes 		the slope and intercept.)
+	\end{block}
+\end{frame}
 
-\begin{block}{Units}
-Correlation is unitless, covariance and regression coefficients ($a, b$) are not. (What are the units of these?)
-\end{block}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Checking Our Results}
+	$\begin{array}{ccccc} 
+		s_{mpg, hp} = -321 & s_{mpg} = 6 & s_{hp} = 69 & \bar{mpg} = 20,& \bar{hp} = 147
+	\end{array}$
+	\begin{columns}[c]
+		\column{2.5in}
+			What is the sample correlation between MPG ($x$) and horsepower ($y$)?
+		\column{1.8in}
+			\includegraphics[scale = 0.25]{./images/cars.png}
+	\end{columns}
+	\only<2->{$$
+	r = \frac{s_{xy}}{s_x s_y} = \frac{-321}{6\times 69} \approx -0.78
+	$$}
+\end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Checking our Results}
+	$\begin{array}{ccccc} 
+		s_{mpg, hp} = -321 & s_{mpg} = 6 & s_{hp} = 69 & \bar{mpg} = 20,& \bar{hp} = 147
+	\end{array}$
+	\begin{columns}[c]
+		\column{2.5in}
+			What is the value of $b$ for the regression: 
+			$$
+			\hat{y} = a + bx
+			$$
+			where $x$ is MPG and $y$ is horsepower?
+		\column{1.8in}
+			\includegraphics[scale = 0.25]{./images/cars.png}
+	\end{columns}
+	\only<2->{$$
+	b = \frac{s_{xy}}{s_x^2} = \frac{-321}{6^2} \approx -8.9
+	$$}
+\end{frame}
 
-\begin{block}{Symmetry}
-Correlation and covariance are symmetric, regression isn't. (Switching $x$ and $y$ axes changes the slope and intercept.)
-\end{block}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Checking our Results}
+	$\begin{array}{ccccc} 
+		s_{mpg, hp} = -321 & s_{mpg} = 6 & s_{hp} = 69 & \bar{mpg} = 20,& \bar{hp} = 147
+	\end{array}$
+	\begin{columns}[c]
+		\column{2.5in}
+			What is the value of $a$ for the regression: $$\hat{y} = a + bx$$
+			where $x$ is MPG and $y$ is horsepower? (prev.\ slide $b = -8.9$)
+		\column{1.8in}
+			\includegraphics[scale = 0.25]{./images/cars.png}
+	\end{columns}
+	\only<2->{$$
+	a = \bar{y} - b \bar{x} = 147 - (-8.9) \times 20 \approx 325
+	$$}
+\end{frame}
 
-\begin{block}{On the Homework}
-Regression with z-scores rather than raw data gives $a=0, b = r_{xy}$
-\end{block}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Checking our Results}
+	\begin{figure}
+		\includegraphics[scale = 0.4]{./images/carsFitted.png}
+	\end{figure}
+	\begin{align*}
+		a &\approx 325
+		\\
+		b &\approx -8.9
+	\end{align*}
+	$$
+	\widehat{hp} = 324.08 - 8.83 mpg
+	$$
+\end{frame}
 
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-
-$\begin{array}{ccccc} s_{xy} = 6,&s_x = 5,& s_y = 2,& \bar{x} = 68,& \bar{y} = 21\end{array}$
-\begin{columns}[c]
-\column{2.5in}
-What is the sample correlation between height ($x$) and handspan ($y$)?
-\column{1.8in}
-\includegraphics[scale = 0.4]{./images/height_handspan1}
-\end{columns}
-\alert{$$\phantom{r = \frac{s_{xy}}{s_x s_y} = \frac{6}{4.5\times 2.2} \approx 0.6}$$}
-\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-$\begin{array}{ccccc} s_{xy} = 6,&s_x = 5,& s_y = 2,& \bar{x} = 68,& \bar{y} = 21\end{array}$
-\begin{columns}[c]
-\column{2.5in}
-What is the sample correlation between height ($x$) and handspan ($y$)?
-\column{1.8in}
-\includegraphics[scale = 0.4]{./images/height_handspan_zline}
-\end{columns}
-\alert{$$r = \frac{s_{xy}}{s_x s_y} = \frac{6}{5\times 2} = 0.6$$}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-$\begin{array}{ccccc} s_{xy} = 6,&s_x = 5,& s_y = 2,& \bar{x} = 68,& \bar{y} = 21\end{array}$
-\begin{columns}[c]
-\column{2.5in}
-What is the value of $b$ for the regression: $$\hat{y}=a+bx$$
-where $x$ is height and $y$ is handspan?
-\column{1.8in}
-\includegraphics[scale = 0.4]{./images/height_handspan1}
-\end{columns}
-\alert{$$\phantom{b = \frac{s_{xy}}{s_x^2} = \frac{6}{(4.5)^2} = 6/20.25 \approx 0.3}$$}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-$\begin{array}{ccccc} s_{xy} = 6,&s_x = 5,& s_y = 2,& \bar{x} = 68,& \bar{y} = 21\end{array}$
-\begin{columns}[c]
-\column{2.5in}
-What is the value of $b$ for the regression: $$\hat{y}=a+bx$$
-where $x$ is height and $y$ is handspan?
-\column{1.8in}
-\includegraphics[scale = 0.4]{./images/height_handspan2}
-\end{columns}
-\alert{$$b = \frac{s_{xy}}{s_x^2} = \frac{6}{5^2} = 6/25 = 0.24 $$}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-$\begin{array}{ccccc} s_{xy} = 6,&s_x = 5,& s_y = 2,& \bar{x} = 68,& \bar{y} = 21\end{array}$
-\begin{columns}[c]
-\column{2.5in}
-What is the value of $a$ for the regression: $$\hat{y}=a+bx$$
-where $x$ is height and $y$ is handspan? (prev.\ slide $b = 0.24$)
-\column{1.8in}
-\includegraphics[scale = 0.4]{./images/height_handspan1}
-\end{columns}
-\alert{$$\phantom{a = \bar{y} - b \bar{x} = 20.6 - 0.297 \times 67.6 \approx 0.5}$$}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-$\begin{array}{ccccc} s_{xy} = 6,&s_x = 5,& s_y = 2,& \bar{x} = 68,& \bar{y} = 21\end{array}$
-\begin{columns}[c]
-\column{2.5in}
-What is the value of $a$ for the regression: $$\hat{y}=a+bx$$
-where $x$ is height and $y$ is handspan? (prev.\ slide $b = 0.24$)
-\column{1.8in}
-\includegraphics[scale = 0.4]{./images/height_handspan2}
-\end{columns}
-\alert{$$a = \bar{y} - b \bar{x} = 21 - 0.24 \times 68 = 4.68 $$}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\alert{$\begin{array}{ccccc} s_{xy} = 6,&s_y = 5,& s_x = 2,& \bar{y} = 68,& \bar{x} = 21\end{array}$}
-\begin{columns}[c]
-\column{2.5in}
-What is the value of $b$ for the regression: $$\hat{y}=a+bx$$
-where \alert{$x$ is handspan and $y$ is height? }
-\column{1.8in}
-\includegraphics[scale = 0.4]{./images/handspan_height}
-\end{columns}
-\alert{$$\phantom{b = \frac{s_{xy}}{s_x^2} = 6 /2.2^2 \approx 1.2}$$}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\alert{$\begin{array}{ccccc} s_{xy} = 6,&s_y = 5,& s_x = 2,& \bar{y} = 68,& \bar{x} = 21\end{array}$}
-\begin{columns}[c]
-\column{2.5in}
-What is the value of $b$ for the regression: $$\hat{y}=a+bx$$
-where \alert{$x$ is handspan and $y$ is height? }
-\column{1.8in}
-\includegraphics[scale = 0.4]{./images/handspan_height2}
-\end{columns}
-\alert{$$b = \frac{s_{xy}}{s_x^2} = 6 /2^2 = 1.5 $$}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-
-\begin{alertblock}{EXTREMELY IMPORTANT}
+\frametitle{\alert{EXTREMELY IMPORTANT}}
 	\begin{itemize}
-		\item Regression, Covariance and Correlation: linear association.
+		\item Regression, Covariance, and Correlation: linear association.
 		\item Linear association $\neq$ causation. 
 		\item Linear is not the only kind of association!
 	\end{itemize}
-\end{alertblock}
-
-\centering{\includegraphics[scale = 0.45]{./images/zero_corr}}
-
+	\centering{
+	\includegraphics[scale = 0.35]{./images/zero_corr.png}
+	}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-  \frametitle{Regression to the Mean and the Regression Fallacy}
-
-  \alert{Please read Chapter 17 of ``Thinking Fast and Slow'' by Daniel Kahnemann which I have posted on Piazza. This reading is fair game on an exam or quiz.}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-
-\centering{\includegraphics[scale = 0.46]{./images/pearson}}
-
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\begin{frame}
-%\frametitle{\includegraphics[scale = 0.05]{./images/clicker}}
-%
-%Suppose a father is very short compared to other fathers (very negative z-score). Would you expect his son to be:
-%	\begin{enumerate}[(a)]
-%\item Shorter
-%\item About as short
-%\item Taller
-%\end{enumerate}
-%\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\begin{frame}
-%
-%\centering{\includegraphics[scale = 0.65]{./images/short_father}}
-%
-%
-%\end{frame}
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%
-%\begin{frame}
-%
-%\centering{\includegraphics[scale = 0.65]{./images/tall_father}}
-%
-%
-%\end{frame}
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%
-%\begin{frame}
-%
-%\centering{\includegraphics[scale = 0.46]{./images/pearson}}
-%
-%
-%\end{frame}
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{Regression to the Mean}
-
-\begin{block}{Skill and Luck / Genes and Random Environmental Factors}\end{block}
-
-
-\begin{block}{Unless $r_{xy}=1$, There Is Regression to the Mean}
-$$\frac{\hat{y} - \bar{y}}{{s_y}} = r_{xy} \frac{x - \bar{x}}{s_x}$$
-\end{block}
-
-\begin{alertblock}{Least-squares Prediction $\hat{y}$ closer to $\bar{y}$ than $x$ is to $\bar{x}$}
-\end{alertblock}
-You will derive the above formula in this week's homework.
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\begin{frame}
-%\frametitle{Regression Fallacy}
-%\framesubtitle{For More, See the Document Posted on Piazza}
-%\begin{block}{Pre-test}
-%Which students are strongest, which are weakest?
-%\end{block}
-%
-%\begin{block}{Intervention} Put the best performing in an enrichment program and the worst performing in a remedial class
-%\end{block}
-%
-%\begin{block}{Post-test}
-%The weak students did better than on their first test, but the strong students did \emph{worse}.
-%\end{block}
-%
-%\begin{block}{Mistaken Conclusion}
-%Remedial classes are beneficial, enrichment programs are harmful
-%\end{block}
-%\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
   \frametitle{Next Up: Basic Probability}
@@ -949,8 +846,6 @@ You will derive the above formula in this week's homework.
     \item If you're rusty on permutations, combinations, etc. from High School math, read this review \footnotesize \url{http://ditraglia.com/Econ103Public/ClassicalProbability.pdf}
   \end{enumerate}
 \end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
 \section{Review}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -977,7 +872,7 @@ You will derive the above formula in this week's homework.
 \begin{frame}
 \frametitle{Related Reading}
 	\begin{itemize}
-		\item Wonnacott: Chapter 2, Section 4-5 A+B, Section 5-3, Appendix 2-2, and Appendix 2-5
+		\item Wonnacott: Chapter 2, Section 4-5 A+B, Section 5-3, 11-1, 11-2, Appendices to 2-2, 2-5, 11-1, and 11-2
 		\item How to Lie with Statistics: Chapters 2, 5, and 6
 	\end{itemize}
 \end{frame}
