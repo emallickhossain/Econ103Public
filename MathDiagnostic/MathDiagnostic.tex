@@ -1,0 +1,88 @@
+\documentclass[12pt]{exam}
+\usepackage{amsmath, amssymb}
+\linespread{1.1}
+\usepackage{graphicx}
+%\printanswers
+
+\title{Econ 103 (LPS Section) -- Math Diagnostic Test}
+\date{}
+\author{}
+\begin{document}
+
+\maketitle
+
+\paragraph{Instructions:} You should be able to complete this within 25 minutes. If you have trouble completing it within that time, take not of which areas you had the most trouble with and ask questions on Piazza. 
+
+\begin{questions}
+
+\question \textbf{Properties of Sums:} True or False?
+	\begin{parts}
+		\part $\sum_{i=1}^n (x_i/n) = (\sum_{i=1}^n x_i)/n$ \answerline[TRUE]
+		\part $\sum_{k = 1}^n x_k z_k = z_k \sum_{k = 1}^n x_k$ \answerline[FALSE]
+		\part $\sum_{k=1}^m x_k y_k = (\sum_{k=1}^m x_k) (\sum_{k=1}^m y_k)$ \answerline[FALSE]
+		\part $(\sum_{i=1}^n x_i )(\sum_{j=1}^m y_j) = \sum_{i=1}^n \sum_{j=1}^m x_iy_j$ \answerline[TRUE]
+		\part $(\sum_{i=1}^n x_i)/(\sum_{i=1}^n z_i)= \sum_{i=1}^n (x_i/z_i) $\answerline[FALSE]
+	\end{parts}
+	
+\question \textbf{Inequalities:} Suppose that $-z < (a - x)/b < z$ where $b>0$. Find a lower bound $L$ and an upper bound $U$ such that $L < x < U$. $U$ and $L$ should be in terms of $a$, $b$, and $z$.
+			\begin{solution}[1.5in]
+                   Multiply by $b$,
+                   $$-zb < a - x < bz$$				
+				Subtract $a$, 
+					$$-bz - a < -x < bz - a$$
+				and multiplying through by $-1$ flips the signs,
+					$$a + bz > x > a - bz$$
+				Or you can write it as 
+				    $$ a - bz < x < a + bz$$
+			\end{solution}
+
+\question \textbf{Combinatorics:} Evaluate each of the following expressions.
+	\begin{parts}
+		\part $4!$ \answerline[$4 * 3 * 2 * 1 = 24$]
+		\part $\displaystyle \frac{100!}{98!}$ \answerline[$\frac{100 * 99 * 98 * 97 * \ldots}{98 * 97 * \ldots} = 9900$]
+		\part $\displaystyle{5 \choose{3}}$ \answerline[$\frac{5!}{3! 2!} = \frac{5 * 4 * 3 * 2 * 1}{3 * 2 * 1 * 2 * 1} = \frac{5 * 4}{2} = 10$]
+		\part How many different ways can a deck of cards be arranged? \answerline[$52! \approx 8.07E67$]
+		\part How many different ways can 3 balls be pulled for the lottery? There are 10 balls numbered from 1 to 10 and the order matters \answerline[$10 * 9 * 8 = 720$] 
+	\end{parts}
+
+\question \textbf{Calculus and Optimization:} Let $f(a) = (x-a)^2 + (y-a)^2$ where $x$ and $y$ are constants.
+	\begin{parts}
+		\part What value of $a$ minimizes $f(a)$?
+			\begin{solution}[1.5in]
+			The first order condition is $-2(x-a) - 2(y-a) = 0$. Solving for $a$, we find $a^* = (x+y)/2$.
+			\end{solution}
+		\part How can you be sure this is a minimum rather than a maximum?
+					\begin{solution}[1.5in]
+					The second derivative is $4$, which is positive.
+			\end{solution}
+	 \end{parts} 
+
+\question \textbf{Integration:} Imagine a rectangle whose base is the $x$-axis and whose bottom left corner is the origin $(0,0)$. Suppose its area is 1 and the length of its base is 5. The area of this rectangle can be expressed as the definite integral of a function $f(x)$ from $a$ to $b$. 
+	\begin{parts}
+		\part What is the function $f$?
+			\begin{solution}[0.8in]
+			$f(x) = 1/5$
+			\end{solution}
+		\part What are the limits of integration $(a,b)$?
+			\begin{solution}[0.8in]
+			$a=0, b = 5$
+			\end{solution}
+	\end{parts}
+
+\question \textbf{Integration:} Solve $\displaystyle \int_0^3 c x^2 \; dx = 1$ for $c$. Your answer should not involve $x$.
+				\begin{solution}[2in]
+								The integral evaluates to $\displaystyle  \left.\frac{cx^3}{3}\right|_0^3 = 27c/3$. Setting this equal to 1 and solving, $c = 1/9$.
+		\end{solution}
+
+\question Let $z = \sum_{i=1}^n (y_i - a - bx_i)^2$. Evalulate $\partial z/\partial b$.
+					\begin{solution}[2in]
+						$-2\sum_{i=1}^n (y_i - a - bx_i) x_i$
+			\end{solution}
+
+\question Let $\displaystyle F(x) = \int_a^x f(t) \; dt$. Express the derivative $F'(x)$ in terms of $f$.
+			\begin{solution}[2in]
+			By the Fundamental Theorem of Calculus, $F'(x) = f(x)$.
+			\end{solution}
+\end{questions}
+
+\end{document}
