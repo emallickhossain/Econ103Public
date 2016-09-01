@@ -64,3 +64,9 @@ y = x^2
 plot_ly(x = x, y = y, type = "scatter", mode = "markers") %>%
   layout(title = "Correlation = 0")
 cor(apple, pear)
+
+# Survey Data
+classData <- fread("~/Dropbox/UPenn/Teaching/ECON103Stats/Private/Econ 103 Fall 2016 Survey.csv")
+plot_ly(data = classData, x = Salary, y = Retirement, type = "scatter", mode = "markers")
+plot_ly(data = classData, x = Team, type = "histogram")
+plot_ly(data = classData, x = Drink, type = "histogram")
