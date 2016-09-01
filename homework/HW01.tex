@@ -1,35 +1,38 @@
 \documentclass[addpoints,12pt]{exam}
 \usepackage{amsmath, amssymb}
 \usepackage{hyperref}
+\usepackage{enumitem}
 \linespread{1.1}
 
-%To include the answers use:
-%	pdflatex "\def\showanswers{1} \input{thisfile.tex}"
-\ifdefined\showanswers
-  \printanswers
-\else
-  \noprintanswers
-\fi
-
-\title{Problem Set 1}
+\title{Homework 1}
 \author{Econ 103}
 \date{}
 \begin{document}
 \maketitle
 
-\section*{Part I -- Problems from the Textbook}
-Chapter 1: 3, 5, 9, 11, 13
-\\
-Chapter 2: 1, 7, 8, 9bc, 13, 14, 21, 23, 33, 35, 37, 41
+\section*{Lecture Progress}
+We made it through the Chapter 1 lecture and to slide 10 of the Chapter 2 lecture.
 
- \section*{Part II -- R Tutorial}
-Complete R Tutorial 1 on the course website:
-\\
-\url{https://mallickhossain.wordpress.com/econ-103/}
-
-This might seem like a long intro to R, but we need to get around the R learning curve quickly so you can get to the fun part, which is using R on real data! This should also serve as a useful reference for a majority of the tasks you will be expected to do in R.
-
-\section*{Part III -- Survey}
-Take the survey that will be emailed to you by Friday.
+\section*{Homework Checklist}
+\begin{itemize}[label = $\square$]
+    \item \textbf{Course Website:} Bookmark the class website (mallickhossain.com/econ-103)    
+    \item \textbf{Piazza:} Register at piazza.com/upenn/fall2016/econ103601
+    \item \textbf{Install R:} Go to http://cran.r-project.org/ and install the version of R for your 
+    operating system.
+    \item \textbf{Install RStudio:} Go to http://rstudio.org/download/desktop and click the link listed 
+    under "Recommended for Your System". Follow the instructions to install RStudio.
+    \item \textbf{Install R Packages:} Run the following command in R: 
+    \begin{itemize}
+        \item install.packages(c(``e1071", ``plotly", ``data.table", ``knitr", ``rmarkdown"))
+    \end{itemize}
+    \item \textbf{Class Survey:} Fill out the class survey at 
+    https://goo.gl/forms/76J66LsDcZ971nhC2
+    \item \textbf{Math Diagnostic:} Take the math diagnostic exam posted on the class website and     
+    check your solutions
+    \item \textbf{Book Problems (Chapter 1):} Do problems 3, 5, 9, 11, 13. Problems are posted on the website
+    \item \textbf{R Tutorial:} Do R Tutorial 1 on the course website
+    \item \textbf{Ask questions on Piazza}
+    \item \textbf{Review slides}
+\end{itemize}
 
 \end{document}
