@@ -2,6 +2,8 @@ library(data.table)
 library(plotly)
 library(e1071)
 library(datasets)
+Sys.setenv("plotly_username" = "emallickhossain")
+Sys.setenv("plotly_api_key" = "yty4o2de7a")
 
 # Loading data
 salaryData <- fread("https://data.cityofchicago.org/api/views/xzkq-xp2w/rows.csv?accessType=DOWNLOAD")
@@ -63,10 +65,12 @@ x = seq(-1, 1, by = 0.1)
 y = x^2
 plot_ly(x = x, y = y, type = "scatter", mode = "markers") %>%
   layout(title = "Correlation = 0")
-cor(apple, pear)
 
 # Survey Data
-classData <- fread("~/Dropbox/UPenn/Teaching/ECON103Stats/Private/Econ 103 Fall 2016 Survey.csv")
-plot_ly(data = classData, x = Salary, y = Retirement, type = "scatter", mode = "markers")
-plot_ly(data = classData, x = Team, type = "histogram")
-plot_ly(data = classData, x = Drink, type = "histogram")
+classData <- fread("~/Dropbox/UPenn/Teaching/ECON103Stats/Private/Class Survey/Cleaned_Econ_103_Fall_2016_Survey.csv")
+chart <- plot_ly(data = classData, x = salary, y = retirement, type = "scatter", mode = "markers") %>%
+         layout(title = "Retirement Savings and Expected Salary")
+plotly_IMAGE(x = chart, format = "png", out_file = "~/Dropbox/UPenn/Teaching/ECON103Stats/Econ103Public/slides/images/classSurvey.png")
+plot_ly(data = classData, x = team, type = "histogram")
+plot_ly(data = classData, x = drink, type = "histogram")
+plot_ly(data = classData, x = pennid, y = sat, type = "scatter", mode = "markers")
