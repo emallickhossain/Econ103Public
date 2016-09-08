@@ -45,14 +45,16 @@ variable, so there's no need to specify the ``y`` variable when you're making
 a histogram.
 ```{r}
 library(plotly)
-plot_ly(data = carData, x = mpg, type = "histogram")
+carHistogram <- plot_ly(data = carData, x = mpg, type = "histogram")
+plotly_POST(carHistogram, filename = "carHistogram", sharing = "public")
 ```
 The chart isn't too well labeled. Having a title and proper axis labels would 
 be nice. Let's add the proper labels. 
 ```{r}
-plot_ly(data = carData, x = mpg, type = "histogram") %>% 
+carHistogram2 <- plot_ly(data = carData, x = mpg, type = "histogram") %>% 
   layout(title = "MPG Histogram", xaxis = list(title = "MPG"), 
          yaxis = list(title = "Frequency"))
+plotly_POST(carHistogram2, filename = "carHistogram2", sharing = "public")
 ```
 
 By default, R produces histograms in terms of *frequencies*. That is, it counts 
@@ -60,9 +62,11 @@ the *numbers* of observations in each bin. To change this to
 *relative frequencies*, that is proportions, we add the argument ``histnorm``
 and set it to ``percent``. Note, I also changed the y-axis label.
 ```{r}
-plot_ly(data = carData, x = mpg, type = "histogram", histnorm = "percent") %>% 
+carHistogram3 <- plot_ly(data = carData, x = mpg, type = "histogram", histnorm = "percent") %>% 
   layout(title = "MPG Histogram", xaxis = list(title = "MPG"), 
          yaxis = list(title = "Percent"))
+plotly_POST(carHistogram3, filename = "carHistogram3", sharing = "public")
+
 ```
 
 ### Scatter Plots
@@ -71,18 +75,20 @@ appropriate change to the plot ``type`` as well as specifying the ``y`` data.
 Let's make a scatter plot of horsepower and MPG. What happens if you forget to 
 specify ``mode = "markers"``?
 ```{r}
-plot_ly(data = carData, x = mpg, y = hp, type = "scatter", mode = "markers") %>% 
+carScatter <- plot_ly(data = carData, x = mpg, y = hp, type = "scatter", mode = "markers") %>% 
   layout(title = "MPG and Horsepower", xaxis = list(title = "MPG"), 
          yaxis = list(title = "Horsepower"))
+plotly_POST(carScatter, filename = "carScatter", sharing = "public")
 ```
 
 Let's say your were interested in how different engine sizes were related to this 
 scatter. You could color the dots by the number of cylinders.
 ```{r}
-plot_ly(data = carData, x = mpg, y = hp, type = "scatter", 
+carScatter2 <- plot_ly(data = carData, x = mpg, y = hp, type = "scatter", 
         mode = "markers", color = cyl) %>% 
   layout(title = "MPG and Horsepower", xaxis = list(title = "MPG"), 
          yaxis = list(title = "Horsepower"))
+plotly_POST(carScatter2, filename = "carScatter2", sharing = "public")
 ```
 If you're familiar with cars, the color grouping should not surprise you.
 
@@ -90,16 +96,19 @@ If you're familiar with cars, the color grouping should not surprise you.
 A boxplot is an alternative way to visualize the distribution of a dataset. 
 Once again, a few tweaks to the chart type should give us what we need.
 ```{r}
-plot_ly(data = carData, y = mpg, type = "box", boxpoints = FALSE) %>% 
+carBox <- plot_ly(data = carData, y = mpg, type = "box", boxpoints = FALSE) %>% 
   layout(title = "MPG Box Plot")
+plotly_POST(carBox, filename = "carBox", sharing = "public")
+
 ```
 Let's say you're interested in the MPG spread by engine size. How can you easily 
 create the box plots for those different groups? Just tell R that you want to 
 group the data by ``cyl`` and you're good to go!
 ```{r}
-plot_ly(data = carData, y = mpg, type = "box", boxpoints = FALSE, 
+carBox2 <- plot_ly(data = carData, y = mpg, type = "box", boxpoints = FALSE, 
         group = cyl) %>% 
-  layout(title = "MPG Box Plot")
+  layout(title = "MPG Box Plot", xaxis = list(title = "Cylinders"))
+plotly_POST(carBox2, filename = "carBox2", sharing = "public")
 ```
 
 ### Summary Statistics
