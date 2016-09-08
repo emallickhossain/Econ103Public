@@ -25,27 +25,6 @@ survey <- survey[,c("handedness", "height", "handspan")]
 head(survey)
 ```
 
-### ``cor``
-This command calculates sample correlation coefficients. If you pass it two vectors of the same length it returns the correlation between them. If you feed it a dataframe or matrix it returns a matrix containing *all pairwise correlations* between the columns. Unlike the univariate summary statistics, in which we used ``na.rm = TRUE`` to ignore missing observations, for ``cor`` we use the argument ``use = "complete.obs"``. The reason for this difference is that ``cor`` can handle a matrix or dataframe as its input. In this case there are actually many different ways of handling missing observations. For more details, see the help file. Setting  ``use = "complete.obs"`` removes any rows with missing observations before proceeding.
-```{r}
-cor(survey$handspan, survey$height, use = "complete.obs")
-```
-We see that there is a large positive correlation between ``height`` and ``handspan``
-```{r}
-cor(survey, use = "complete.obs")
-```
-and a slight positive correlation between ``height`` and ``handedness.`` There's basically no correlation between ``handedness`` and ``handspan``. The preceding matrix has ones on its main diagonal since the correlation between any variable and itself is one. (A good exercise for extra practice would be to prove this assertion using the formula for correlation from class. It's not very difficult.)
-
-If you look carefully, you'll notice that the correlation between ``height`` and ``handspan`` is slightly different when calculated at the same time as all the other correlations. This is because of the way that ``use = "complete.obs"`` drops rows. In this case, it indicates that there is at least one observation in our dataset for which we have ``height`` and ``handspan`` but not ``handedness``.
-
-### ``cov``
-This command works just like ``cor`` but returns covariances rather than correlations:
-```{r}
-cov(survey$handspan, survey$height, use = "complete.obs")
-cov(survey, use = "complete.obs")
-```
-
-
 ### ``lm`` and ``abline``
 This command stands for "linear model" and is R's general purpose regression command. Its syntax is similar to that of ``boxplot`` from R Tutorial #2 in that we use a tilde to indicate a functional relationship. Here the variable to the left of the tilde is the "y" variable while the variable to the right is the "x" variable
 ```{r}

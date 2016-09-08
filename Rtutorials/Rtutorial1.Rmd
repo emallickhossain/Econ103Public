@@ -259,8 +259,10 @@ expenses <- c(35000, 34000, 38000, 40000)
 and store this in a vector called ``savings``. Make a scatterplot of ``years`` 
 against ``savings``.
 ```{r echo=FALSE,results='hide',fig.show='hide'}
+library(plotly)
 savings <- income - expenses
 plot(years, savings)
+plot_ly(x = years, y = savings, type = "scatter", mode = "markers")
 ```
 3. Assuming zero interest on bank deposits (roughly accurate at the moment), 
 calculate the total amount that Steve has saved over all the years for which 

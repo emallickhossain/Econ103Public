@@ -1,13 +1,15 @@
 ---
-title: "R Tutorial #2 -- Econ 103"
+title: 'R Tutorial #2 -- Econ 103'
 output:
   html_document:
-    toc: true
-    theme: readable
     css: custom.css
+    theme: readable
+    toc: yes
   pdf_document:
-    toc: true
     highlight: zenburn
+    toc: yes
+  word_document:
+    toc: yes
 ---
 This tutorial has two parts. In the first part, you'll compute summary 
 statistics and graphs using R. In the second part, you'll use what you've 
@@ -52,19 +54,6 @@ plot_ly(data = carData, x = mpg, type = "histogram") %>%
   layout(title = "MPG Histogram", xaxis = list(title = "MPG"), 
          yaxis = list(title = "Frequency"))
 ```
-The reason the ``xaxis`` and ``yaxis`` options are lists is because they can 
-take many, many more formatting options. Below is an example of using those options
-to pretty up the graph even more.
-```{r}
-xAxisTemplate <- list(title = "MPG", showgrid = FALSE, range = c(0, 40),
-                      showticklabels = TRUE, ticks = "outside", 
-                      linecolor = "#000", tick0 = 0, dtick = 5)
-yAxisTemplate <- list(title = "Frequency", showgrid = TRUE, range = c(0, 20),
-                      showticklabels = TRUE, ticks = "outside", 
-                      linecolor = "#000", tick0 = 0, dtick = 5)
-plot_ly(data = carData, x = mpg, type = "histogram") %>%
-  layout(title = "MPG Histogram", xaxis = xAxisTemplate, yaxis = yAxisTemplate)
-```
 
 By default, R produces histograms in terms of *frequencies*. That is, it counts 
 the *numbers* of observations in each bin. To change this to 
@@ -79,7 +68,8 @@ plot_ly(data = carData, x = mpg, type = "histogram", histnorm = "percent") %>%
 ### Scatter Plots
 Making scatter plots is very similar to how we made histograms, with the 
 appropriate change to the plot ``type`` as well as specifying the ``y`` data. 
-Let's make a scatter plot of horsepower and MPG.
+Let's make a scatter plot of horsepower and MPG. What happens if you forget to 
+specify ``mode = "markers"``?
 ```{r}
 plot_ly(data = carData, x = mpg, y = hp, type = "scatter", mode = "markers") %>% 
   layout(title = "MPG and Horsepower", xaxis = list(title = "MPG"), 
@@ -87,10 +77,8 @@ plot_ly(data = carData, x = mpg, y = hp, type = "scatter", mode = "markers") %>%
 ```
 
 Let's say your were interested in how different engine sizes were related to this 
-scatter. You could color the dots by the number of cylinders (I converted "cyl"
-to an integer, otherwise R thinks it is a continuous variable)
+scatter. You could color the dots by the number of cylinders.
 ```{r}
-carData$cyl <- as.integer(carData$cyl)
 plot_ly(data = carData, x = mpg, y = hp, type = "scatter", 
         mode = "markers", color = cyl) %>% 
   layout(title = "MPG and Horsepower", xaxis = list(title = "MPG"), 
@@ -112,51 +100,6 @@ group the data by ``cyl`` and you're good to go!
 plot_ly(data = carData, y = mpg, type = "box", boxpoints = FALSE, 
         group = cyl) %>% 
   layout(title = "MPG Box Plot")
-```
-
-### ``table``
-The command ``table`` is used for making cross-tabs, aka two-way tables, which 
-are a useful way of summarizing the relationship between two categorical 
-variables. Both arguments of table must be vectors. For example, we can make 
-a cross-tab of engine size (cylinders) and transmission type (auto or manual) follows:
-```{r}
-table(carData$cyl, carData$am)
-```
-Most 8-cylinder engines tend to have automatic transmissions, while smaller engines
-(4 cylinders) tend to have manual transmissions. 
-
-We can also use ``table`` to make a *one-way* crosstab:
-```{r}
-table(carData$cyl)
-```
-
-Adding the row and column sums is a little clumsy in R: you first need to give 
-your table a name and store it, then use the function ``addmargins``
-```{r}
-carTable <- table(carData$cyl, carData$am)
-addmargins(carTable)
-```
-
-To convert a cross-tab in R into *percents* rather than counts, we use the 
-function prop.table. This is a little clumsy as well. First, store the original 
-table, then pass it as the argument to ``prop.table`` as you did with ``addmargins`` 
-```{r}
-carTable <- table(carData$cyl, carData$am)
-prop.table(carTable)
-```
-
-Now you have a table in which percents are expressed as *decimals*. For example, 
-the value of 0.25 in the row ``4`` and the column ``1`` indicates 
-that 25% of the cars in the dataset have 4-cylinder engines with manual transmission.
-
-To get ordinary percents, we multiply by 100
-```{r}
-100 * prop.table(carTable)
-```
-To make this cleaner we can round the result to a desired number of decimal places:
-```{r}
-round(100 * prop.table(carTable), digits = 1)
-round(100 * prop.table(carTable), digits = 0)
 ```
 
 ### Summary Statistics
@@ -233,6 +176,32 @@ Note that quantiles are specified as *probabilities* so the preceding command
 gives the 30th percentile. You can also ask for multiple quantiles at once:
 ```{r}
 quantile(carData$mpg, na.rm = TRUE, probs = c(0.1, 0.3, 0.7, 0.9))
+```
+
+### ``cor``
+This command calculates sample correlation coefficients. If you pass it two vectors of the same length it returns the correlation between them. Unlike the univariate summary statistics, in which we used ``na.rm = TRUE`` to ignore missing observations, for ``cor`` we use the argument ``use = "complete.obs"``. The reason for this difference is that ``cor`` can handle a matrix or dataframe as its input. In this case there are actually many different ways of handling missing observations. For more details, see the help file. Setting  ``use = "complete.obs"`` removes any rows with missing observations before proceeding.
+```{r}
+cor(carData$mpg, carData$hp, use = "complete.obs")
+```
+We see that there is a large negative correlation between ``mpg`` and ``hp``
+
+You can also put a whole data table into ``cor`` and it will return the whole matrix
+of all correlations between each variable (i.e. *all pairwise correlations*). 
+```{r}
+cor(carData, use = "complete.obs")
+```
+We can see that ``mpg`` is also negatively correlated with ``cyl`` (engine cylinders),
+``wt`` (car weight), but it is positively correlated with ``qsec`` (the time to 
+cover 0.25 miles). The preceding matrix has ones on its main diagonal since the 
+correlation between any variable and itself is one. (A good exercise for extra 
+practice would be to prove this assertion using the formula for correlation from 
+class. It's not very difficult.)
+
+### ``cov``
+This command works just like ``cor`` but returns covariances rather than correlations:
+```{r}
+cov(carData$mpg, carData$hp, use = "complete.obs")
+cov(carData, use = "complete.obs")
 ```
 
 ## Exploring the Titanic

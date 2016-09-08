@@ -130,7 +130,6 @@ $(document).ready(function () {
 <li><a href="#making-histograms">Making Histograms</a></li>
 <li><a href="#scatter-plots">Scatter Plots</a></li>
 <li><a href="#box-plots">Box Plots</a></li>
-<li><a href="#table"><code>table</code></a></li>
 <li><a href="#summary-statistics">Summary Statistics</a></li>
 <li><a href="#mean"><code>mean</code></a></li>
 <li><a href="#median"><code>median</code></a></li>
@@ -139,6 +138,8 @@ $(document).ready(function () {
 <li><a href="#iqr"><code>IQR</code></a></li>
 <li><a href="#max-min"><code>max, min</code></a></li>
 <li><a href="#quantile"><code>quantile</code></a></li>
+<li><a href="#cor"><code>cor</code></a></li>
+<li><a href="#cov"><code>cov</code></a></li>
 </ul></li>
 <li><a href="#exploring-the-titanic">Exploring the Titanic</a></li>
 </ul>
@@ -185,115 +186,50 @@ carData &lt;- mtcars</code></pre>
 ## 
 ##     layout</code></pre>
 <pre class="r"><code>plot_ly(data = carData, x = mpg, type = &quot;histogram&quot;)</code></pre>
-<p><div id="htmlwidget-49dbabe58af048bffeb9" style="width:672px;height:480px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-49dbabe58af048bffeb9">{"x":{"data":[{"type":"histogram","inherit":false,"x":[21,21,22.8,21.4,18.7,18.1,14.3,24.4,22.8,19.2,17.8,16.4,17.3,15.2,10.4,10.4,14.7,32.4,30.4,33.9,21.5,15.5,15.2,13.3,19.2,27.3,26,30.4,15.8,19.7,15,21.4]}],"layout":{"xaxis":{"title":"mpg"},"margin":{"b":40,"l":60,"t":25,"r":10}},"url":null,"width":null,"height":null,"source":"A","config":{"modeBarButtonsToRemove":["sendDataToCloud"]},"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script> The chart isn’t too well labeled. Having a title and proper axis labels would be nice. Let’s add the proper labels.</p>
+<p><div id="htmlwidget-8adea782423094937c3b" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-8adea782423094937c3b">{"x":{"data":[{"type":"histogram","inherit":false,"x":[21,21,22.8,21.4,18.7,18.1,14.3,24.4,22.8,19.2,17.8,16.4,17.3,15.2,10.4,10.4,14.7,32.4,30.4,33.9,21.5,15.5,15.2,13.3,19.2,27.3,26,30.4,15.8,19.7,15,21.4]}],"layout":{"xaxis":{"title":"mpg"},"margin":{"b":40,"l":60,"t":25,"r":10}},"url":null,"width":null,"height":null,"source":"A","config":{"modeBarButtonsToRemove":["sendDataToCloud"]},"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script> The chart isn’t too well labeled. Having a title and proper axis labels would be nice. Let’s add the proper labels.</p>
 <pre class="r"><code>plot_ly(data = carData, x = mpg, type = &quot;histogram&quot;) %&gt;% 
   layout(title = &quot;MPG Histogram&quot;, xaxis = list(title = &quot;MPG&quot;), 
          yaxis = list(title = &quot;Frequency&quot;))</code></pre>
-<p><div id="htmlwidget-e5ea340311eeef3751a6" style="width:672px;height:480px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-e5ea340311eeef3751a6">{"x":{"data":[{"type":"histogram","inherit":false,"x":[21,21,22.8,21.4,18.7,18.1,14.3,24.4,22.8,19.2,17.8,16.4,17.3,15.2,10.4,10.4,14.7,32.4,30.4,33.9,21.5,15.5,15.2,13.3,19.2,27.3,26,30.4,15.8,19.7,15,21.4]}],"layout":{"title":"MPG Histogram","xaxis":{"title":"MPG"},"yaxis":{"title":"Frequency"},"margin":{"b":40,"l":60,"t":25,"r":10}},"url":null,"width":null,"height":null,"source":"A","config":{"modeBarButtonsToRemove":["sendDataToCloud"]},"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script> The reason the <code>xaxis</code> and <code>yaxis</code> options are lists is because they can take many, many more formatting options. Below is an example of using those options to pretty up the graph even more.</p>
-<pre class="r"><code>xAxisTemplate &lt;- list(title = &quot;MPG&quot;, showgrid = FALSE, range = c(0, 40),
-                      showticklabels = TRUE, ticks = &quot;outside&quot;, 
-                      linecolor = &quot;#000&quot;, tick0 = 0, dtick = 5)
-yAxisTemplate &lt;- list(title = &quot;Frequency&quot;, showgrid = TRUE, range = c(0, 20),
-                      showticklabels = TRUE, ticks = &quot;outside&quot;, 
-                      linecolor = &quot;#000&quot;, tick0 = 0, dtick = 5)
-plot_ly(data = carData, x = mpg, type = &quot;histogram&quot;) %&gt;%
-  layout(title = &quot;MPG Histogram&quot;, xaxis = xAxisTemplate, yaxis = yAxisTemplate)</code></pre>
-<div id="htmlwidget-86c933fdee2a5373f3e4" style="width:672px;height:480px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-86c933fdee2a5373f3e4">{"x":{"data":[{"type":"histogram","inherit":false,"x":[21,21,22.8,21.4,18.7,18.1,14.3,24.4,22.8,19.2,17.8,16.4,17.3,15.2,10.4,10.4,14.7,32.4,30.4,33.9,21.5,15.5,15.2,13.3,19.2,27.3,26,30.4,15.8,19.7,15,21.4]}],"layout":{"title":"MPG Histogram","xaxis":{"title":"MPG","showgrid":false,"range":[0,40],"showticklabels":true,"ticks":"outside","linecolor":"#000","tick0":0,"dtick":5},"yaxis":{"title":"Frequency","showgrid":true,"range":[0,20],"showticklabels":true,"ticks":"outside","linecolor":"#000","tick0":0,"dtick":5},"margin":{"b":40,"l":60,"t":25,"r":10}},"url":null,"width":null,"height":null,"source":"A","config":{"modeBarButtonsToRemove":["sendDataToCloud"]},"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-aa74f2c07ac853670f00" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-aa74f2c07ac853670f00">{"x":{"data":[{"type":"histogram","inherit":false,"x":[21,21,22.8,21.4,18.7,18.1,14.3,24.4,22.8,19.2,17.8,16.4,17.3,15.2,10.4,10.4,14.7,32.4,30.4,33.9,21.5,15.5,15.2,13.3,19.2,27.3,26,30.4,15.8,19.7,15,21.4]}],"layout":{"title":"MPG Histogram","xaxis":{"title":"MPG"},"yaxis":{"title":"Frequency"},"margin":{"b":40,"l":60,"t":25,"r":10}},"url":null,"width":null,"height":null,"source":"A","config":{"modeBarButtonsToRemove":["sendDataToCloud"]},"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 <p>By default, R produces histograms in terms of <em>frequencies</em>. That is, it counts the <em>numbers</em> of observations in each bin. To change this to <em>relative frequencies</em>, that is proportions, we add the argument <code>histnorm</code> and set it to <code>percent</code>. Note, I also changed the y-axis label.</p>
 <pre class="r"><code>plot_ly(data = carData, x = mpg, type = &quot;histogram&quot;, histnorm = &quot;percent&quot;) %&gt;% 
   layout(title = &quot;MPG Histogram&quot;, xaxis = list(title = &quot;MPG&quot;), 
          yaxis = list(title = &quot;Percent&quot;))</code></pre>
-<div id="htmlwidget-cc77d78c9dcbf7ed1289" style="width:672px;height:480px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-cc77d78c9dcbf7ed1289">{"x":{"data":[{"type":"histogram","inherit":false,"x":[21,21,22.8,21.4,18.7,18.1,14.3,24.4,22.8,19.2,17.8,16.4,17.3,15.2,10.4,10.4,14.7,32.4,30.4,33.9,21.5,15.5,15.2,13.3,19.2,27.3,26,30.4,15.8,19.7,15,21.4],"histnorm":"percent"}],"layout":{"title":"MPG Histogram","xaxis":{"title":"MPG"},"yaxis":{"title":"Percent"},"margin":{"b":40,"l":60,"t":25,"r":10}},"url":null,"width":null,"height":null,"source":"A","config":{"modeBarButtonsToRemove":["sendDataToCloud"]},"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-a4a4a7911b80c4a9a80d" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-a4a4a7911b80c4a9a80d">{"x":{"data":[{"type":"histogram","inherit":false,"x":[21,21,22.8,21.4,18.7,18.1,14.3,24.4,22.8,19.2,17.8,16.4,17.3,15.2,10.4,10.4,14.7,32.4,30.4,33.9,21.5,15.5,15.2,13.3,19.2,27.3,26,30.4,15.8,19.7,15,21.4],"histnorm":"percent"}],"layout":{"title":"MPG Histogram","xaxis":{"title":"MPG"},"yaxis":{"title":"Percent"},"margin":{"b":40,"l":60,"t":25,"r":10}},"url":null,"width":null,"height":null,"source":"A","config":{"modeBarButtonsToRemove":["sendDataToCloud"]},"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="scatter-plots" class="section level3">
 <h3>Scatter Plots</h3>
-<p>Making scatter plots is very similar to how we made histograms, with the appropriate change to the plot <code>type</code> as well as specifying the <code>y</code> data. Let’s make a scatter plot of horsepower and MPG.</p>
+<p>Making scatter plots is very similar to how we made histograms, with the appropriate change to the plot <code>type</code> as well as specifying the <code>y</code> data. Let’s make a scatter plot of horsepower and MPG. What happens if you forget to specify <code>mode = &quot;markers&quot;</code>?</p>
 <pre class="r"><code>plot_ly(data = carData, x = mpg, y = hp, type = &quot;scatter&quot;, mode = &quot;markers&quot;) %&gt;% 
   layout(title = &quot;MPG and Horsepower&quot;, xaxis = list(title = &quot;MPG&quot;), 
          yaxis = list(title = &quot;Horsepower&quot;))</code></pre>
-<div id="htmlwidget-908ea0a3187842402cfc" style="width:672px;height:480px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-908ea0a3187842402cfc">{"x":{"data":[{"type":"scatter","inherit":false,"x":[21,21,22.8,21.4,18.7,18.1,14.3,24.4,22.8,19.2,17.8,16.4,17.3,15.2,10.4,10.4,14.7,32.4,30.4,33.9,21.5,15.5,15.2,13.3,19.2,27.3,26,30.4,15.8,19.7,15,21.4],"y":[110,110,93,110,175,105,245,62,95,123,123,180,180,180,205,215,230,66,52,65,97,150,150,245,175,66,91,113,264,175,335,109],"mode":"markers"}],"layout":{"title":"MPG and Horsepower","xaxis":{"title":"MPG"},"yaxis":{"title":"Horsepower"},"hovermode":"closest","margin":{"b":40,"l":60,"t":25,"r":10}},"url":null,"width":null,"height":null,"source":"A","config":{"modeBarButtonsToRemove":["sendDataToCloud"]},"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
-<p>Let’s say your were interested in how different engine sizes were related to this scatter. You could color the dots by the number of cylinders (I converted “cyl” to an integer, otherwise R thinks it is a continuous variable)</p>
-<pre class="r"><code>carData$cyl &lt;- as.integer(carData$cyl)
-plot_ly(data = carData, x = mpg, y = hp, type = &quot;scatter&quot;, 
+<div id="htmlwidget-0f3d84d78f115371cb7e" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-0f3d84d78f115371cb7e">{"x":{"data":[{"type":"scatter","inherit":false,"x":[21,21,22.8,21.4,18.7,18.1,14.3,24.4,22.8,19.2,17.8,16.4,17.3,15.2,10.4,10.4,14.7,32.4,30.4,33.9,21.5,15.5,15.2,13.3,19.2,27.3,26,30.4,15.8,19.7,15,21.4],"y":[110,110,93,110,175,105,245,62,95,123,123,180,180,180,205,215,230,66,52,65,97,150,150,245,175,66,91,113,264,175,335,109],"mode":"markers"}],"layout":{"title":"MPG and Horsepower","xaxis":{"title":"MPG"},"yaxis":{"title":"Horsepower"},"hovermode":"closest","margin":{"b":40,"l":60,"t":25,"r":10}},"url":null,"width":null,"height":null,"source":"A","config":{"modeBarButtonsToRemove":["sendDataToCloud"]},"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<p>Let’s say your were interested in how different engine sizes were related to this scatter. You could color the dots by the number of cylinders.</p>
+<pre class="r"><code>plot_ly(data = carData, x = mpg, y = hp, type = &quot;scatter&quot;, 
         mode = &quot;markers&quot;, color = cyl) %&gt;% 
   layout(title = &quot;MPG and Horsepower&quot;, xaxis = list(title = &quot;MPG&quot;), 
          yaxis = list(title = &quot;Horsepower&quot;))</code></pre>
 <pre><code>## Warning in doColorRamp(colorMatrix, x, alpha, ifelse(is.na(na.color), &quot;&quot;, :
 ## '.Random.seed' is not an integer vector but of type 'NULL', so ignored</code></pre>
-<p><div id="htmlwidget-cafe817ab214daaedd6d" style="width:672px;height:480px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-cafe817ab214daaedd6d">{"x":{"data":[{"type":"scatter","inherit":false,"x":[21,21,22.8,21.4,18.7,18.1,14.3,24.4,22.8,19.2,17.8,16.4,17.3,15.2,10.4,10.4,14.7,32.4,30.4,33.9,21.5,15.5,15.2,13.3,19.2,27.3,26,30.4,15.8,19.7,15,21.4],"y":[110,110,93,110,175,105,245,62,95,123,123,180,180,180,205,215,230,66,52,65,97,150,150,245,175,66,91,113,264,175,335,109],"mode":"markers","marker":{"colorbar":{"title":"cyl"},"colorscale":[[0,"#440154"],[0.111111111111111,"#482878"],[0.222222222222222,"#3E4A89"],[0.333333333333333,"#31688E"],[0.444444444444444,"#26828E"],[0.555555555555556,"#1F9E89"],[0.666666666666667,"#35B779"],[0.777777777777778,"#6DCD59"],[0.888888888888889,"#B4DE2C"],[1,"#FDE725"]],"color":[6,6,4,6,8,6,8,4,4,6,6,8,8,8,8,8,8,4,4,4,4,8,8,8,8,4,4,4,8,6,8,4]}}],"layout":{"title":"MPG and Horsepower","xaxis":{"title":"MPG"},"yaxis":{"title":"Horsepower"},"hovermode":"closest","margin":{"b":40,"l":60,"t":25,"r":10}},"url":null,"width":null,"height":null,"source":"A","config":{"modeBarButtonsToRemove":["sendDataToCloud"]},"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script> If you’re familiar with cars, the color grouping should not surprise you.</p>
+<p><div id="htmlwidget-c3a7bf0be795ad7383d2" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c3a7bf0be795ad7383d2">{"x":{"data":[{"type":"scatter","inherit":false,"x":[21,21,22.8,21.4,18.7,18.1,14.3,24.4,22.8,19.2,17.8,16.4,17.3,15.2,10.4,10.4,14.7,32.4,30.4,33.9,21.5,15.5,15.2,13.3,19.2,27.3,26,30.4,15.8,19.7,15,21.4],"y":[110,110,93,110,175,105,245,62,95,123,123,180,180,180,205,215,230,66,52,65,97,150,150,245,175,66,91,113,264,175,335,109],"mode":"markers","marker":{"colorbar":{"title":"cyl"},"colorscale":[[0,"#440154"],[0.111111111111111,"#482878"],[0.222222222222222,"#3E4A89"],[0.333333333333333,"#31688E"],[0.444444444444444,"#26828E"],[0.555555555555556,"#1F9E89"],[0.666666666666667,"#35B779"],[0.777777777777778,"#6DCD59"],[0.888888888888889,"#B4DE2C"],[1,"#FDE725"]],"color":[6,6,4,6,8,6,8,4,4,6,6,8,8,8,8,8,8,4,4,4,4,8,8,8,8,4,4,4,8,6,8,4]}}],"layout":{"title":"MPG and Horsepower","xaxis":{"title":"MPG"},"yaxis":{"title":"Horsepower"},"hovermode":"closest","margin":{"b":40,"l":60,"t":25,"r":10}},"url":null,"width":null,"height":null,"source":"A","config":{"modeBarButtonsToRemove":["sendDataToCloud"]},"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script> If you’re familiar with cars, the color grouping should not surprise you.</p>
 </div>
 <div id="box-plots" class="section level3">
 <h3>Box Plots</h3>
 <p>A boxplot is an alternative way to visualize the distribution of a dataset. Once again, a few tweaks to the chart type should give us what we need.</p>
 <pre class="r"><code>plot_ly(data = carData, y = mpg, type = &quot;box&quot;, boxpoints = FALSE) %&gt;% 
   layout(title = &quot;MPG Box Plot&quot;)</code></pre>
-<p><div id="htmlwidget-cd1447097716d47a5846" style="width:672px;height:480px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-cd1447097716d47a5846">{"x":{"data":[{"type":"box","inherit":false,"y":[21,21,22.8,21.4,18.7,18.1,14.3,24.4,22.8,19.2,17.8,16.4,17.3,15.2,10.4,10.4,14.7,32.4,30.4,33.9,21.5,15.5,15.2,13.3,19.2,27.3,26,30.4,15.8,19.7,15,21.4],"boxpoints":false}],"layout":{"title":"MPG Box Plot","yaxis":{"title":"mpg"},"margin":{"b":40,"l":60,"t":25,"r":10}},"url":null,"width":null,"height":null,"source":"A","config":{"modeBarButtonsToRemove":["sendDataToCloud"]},"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script> Let’s say you’re interested in the MPG spread by engine size. How can you easily create the box plots for those different groups? Just tell R that you want to group the data by <code>cyl</code> and you’re good to go!</p>
+<p><div id="htmlwidget-ab2508ab0323a9500e31" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-ab2508ab0323a9500e31">{"x":{"data":[{"type":"box","inherit":false,"y":[21,21,22.8,21.4,18.7,18.1,14.3,24.4,22.8,19.2,17.8,16.4,17.3,15.2,10.4,10.4,14.7,32.4,30.4,33.9,21.5,15.5,15.2,13.3,19.2,27.3,26,30.4,15.8,19.7,15,21.4],"boxpoints":false}],"layout":{"title":"MPG Box Plot","yaxis":{"title":"mpg"},"margin":{"b":40,"l":60,"t":25,"r":10}},"url":null,"width":null,"height":null,"source":"A","config":{"modeBarButtonsToRemove":["sendDataToCloud"]},"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script> Let’s say you’re interested in the MPG spread by engine size. How can you easily create the box plots for those different groups? Just tell R that you want to group the data by <code>cyl</code> and you’re good to go!</p>
 <pre class="r"><code>plot_ly(data = carData, y = mpg, type = &quot;box&quot;, boxpoints = FALSE, 
         group = cyl) %&gt;% 
   layout(title = &quot;MPG Box Plot&quot;)</code></pre>
-<div id="htmlwidget-6fd570b0883f3d06ff92" style="width:672px;height:480px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-6fd570b0883f3d06ff92">{"x":{"data":[{"type":"box","inherit":false,"y":[21,21,21.4,18.1,19.2,17.8,19.7],"boxpoints":false,"group":[6,6,6,6,6,6,6],"name":6},{"type":"box","inherit":false,"y":[22.8,24.4,22.8,32.4,30.4,33.9,21.5,27.3,26,30.4,21.4],"boxpoints":false,"group":[4,4,4,4,4,4,4,4,4,4,4],"name":4},{"type":"box","inherit":false,"y":[18.7,14.3,16.4,17.3,15.2,10.4,10.4,14.7,15.5,15.2,13.3,19.2,15.8,15],"boxpoints":false,"group":[8,8,8,8,8,8,8,8,8,8,8,8,8,8],"name":8}],"layout":{"title":"MPG Box Plot","yaxis":{"title":"mpg"},"margin":{"b":40,"l":60,"t":25,"r":10}},"url":null,"width":null,"height":null,"source":"A","config":{"modeBarButtonsToRemove":["sendDataToCloud"]},"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
-</div>
-<div id="table" class="section level3">
-<h3><code>table</code></h3>
-<p>The command <code>table</code> is used for making cross-tabs, aka two-way tables, which are a useful way of summarizing the relationship between two categorical variables. Both arguments of table must be vectors. For example, we can make a cross-tab of engine size (cylinders) and transmission type (auto or manual) follows:</p>
-<pre class="r"><code>table(carData$cyl, carData$am)</code></pre>
-<pre><code>##    
-##      0  1
-##   4  3  8
-##   6  4  3
-##   8 12  2</code></pre>
-<p>Most 8-cylinder engines tend to have automatic transmissions, while smaller engines (4 cylinders) tend to have manual transmissions.</p>
-<p>We can also use <code>table</code> to make a <em>one-way</em> crosstab:</p>
-<pre class="r"><code>table(carData$cyl)</code></pre>
-<pre><code>## 
-##  4  6  8 
-## 11  7 14</code></pre>
-<p>Adding the row and column sums is a little clumsy in R: you first need to give your table a name and store it, then use the function <code>addmargins</code></p>
-<pre class="r"><code>carTable &lt;- table(carData$cyl, carData$am)
-addmargins(carTable)</code></pre>
-<pre><code>##      
-##        0  1 Sum
-##   4    3  8  11
-##   6    4  3   7
-##   8   12  2  14
-##   Sum 19 13  32</code></pre>
-<p>To convert a cross-tab in R into <em>percents</em> rather than counts, we use the function prop.table. This is a little clumsy as well. First, store the original table, then pass it as the argument to <code>prop.table</code> as you did with <code>addmargins</code></p>
-<pre class="r"><code>carTable &lt;- table(carData$cyl, carData$am)
-prop.table(carTable)</code></pre>
-<pre><code>##    
-##           0       1
-##   4 0.09375 0.25000
-##   6 0.12500 0.09375
-##   8 0.37500 0.06250</code></pre>
-<p>Now you have a table in which percents are expressed as <em>decimals</em>. For example, the value of 0.25 in the row <code>4</code> and the column <code>1</code> indicates that 25% of the cars in the dataset have 4-cylinder engines with manual transmission.</p>
-<p>To get ordinary percents, we multiply by 100</p>
-<pre class="r"><code>100 * prop.table(carTable)</code></pre>
-<pre><code>##    
-##          0      1
-##   4  9.375 25.000
-##   6 12.500  9.375
-##   8 37.500  6.250</code></pre>
-<p>To make this cleaner we can round the result to a desired number of decimal places:</p>
-<pre class="r"><code>round(100 * prop.table(carTable), digits = 1)</code></pre>
-<pre><code>##    
-##        0    1
-##   4  9.4 25.0
-##   6 12.5  9.4
-##   8 37.5  6.2</code></pre>
-<pre class="r"><code>round(100 * prop.table(carTable), digits = 0)</code></pre>
-<pre><code>##    
-##      0  1
-##   4  9 25
-##   6 12  9
-##   8 38  6</code></pre>
+<div id="htmlwidget-fb8a89ffdec6a00b2dfa" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-fb8a89ffdec6a00b2dfa">{"x":{"data":[{"type":"box","inherit":false,"y":[21,21,21.4,18.1,19.2,17.8,19.7],"boxpoints":false,"group":[6,6,6,6,6,6,6],"name":6},{"type":"box","inherit":false,"y":[22.8,24.4,22.8,32.4,30.4,33.9,21.5,27.3,26,30.4,21.4],"boxpoints":false,"group":[4,4,4,4,4,4,4,4,4,4,4],"name":4},{"type":"box","inherit":false,"y":[18.7,14.3,16.4,17.3,15.2,10.4,10.4,14.7,15.5,15.2,13.3,19.2,15.8,15],"boxpoints":false,"group":[8,8,8,8,8,8,8,8,8,8,8,8,8,8],"name":8}],"layout":{"title":"MPG Box Plot","yaxis":{"title":"mpg"},"margin":{"b":40,"l":60,"t":25,"r":10}},"url":null,"width":null,"height":null,"source":"A","config":{"modeBarButtonsToRemove":["sendDataToCloud"]},"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="summary-statistics" class="section level3">
 <h3>Summary Statistics</h3>
@@ -383,6 +319,83 @@ prop.table(carTable)</code></pre>
 <pre class="r"><code>quantile(carData$mpg, na.rm = TRUE, probs = c(0.1, 0.3, 0.7, 0.9))</code></pre>
 <pre><code>##   10%   30%   70%   90% 
 ## 14.34 15.98 21.47 30.09</code></pre>
+</div>
+<div id="cor" class="section level3">
+<h3><code>cor</code></h3>
+<p>This command calculates sample correlation coefficients. If you pass it two vectors of the same length it returns the correlation between them. Unlike the univariate summary statistics, in which we used <code>na.rm = TRUE</code> to ignore missing observations, for <code>cor</code> we use the argument <code>use = &quot;complete.obs&quot;</code>. The reason for this difference is that <code>cor</code> can handle a matrix or dataframe as its input. In this case there are actually many different ways of handling missing observations. For more details, see the help file. Setting <code>use = &quot;complete.obs&quot;</code> removes any rows with missing observations before proceeding.</p>
+<pre class="r"><code>cor(carData$mpg, carData$hp, use = &quot;complete.obs&quot;)</code></pre>
+<pre><code>## [1] -0.7761684</code></pre>
+<p>We see that there is a large negative correlation between <code>mpg</code> and <code>hp</code></p>
+<p>You can also put a whole data table into <code>cor</code> and it will return the whole matrix of all correlations between each variable (i.e. <em>all pairwise correlations</em>).</p>
+<pre class="r"><code>cor(carData, use = &quot;complete.obs&quot;)</code></pre>
+<pre><code>##             mpg        cyl       disp         hp        drat         wt
+## mpg   1.0000000 -0.8521620 -0.8475514 -0.7761684  0.68117191 -0.8676594
+## cyl  -0.8521620  1.0000000  0.9020329  0.8324475 -0.69993811  0.7824958
+## disp -0.8475514  0.9020329  1.0000000  0.7909486 -0.71021393  0.8879799
+## hp   -0.7761684  0.8324475  0.7909486  1.0000000 -0.44875912  0.6587479
+## drat  0.6811719 -0.6999381 -0.7102139 -0.4487591  1.00000000 -0.7124406
+## wt   -0.8676594  0.7824958  0.8879799  0.6587479 -0.71244065  1.0000000
+## qsec  0.4186840 -0.5912421 -0.4336979 -0.7082234  0.09120476 -0.1747159
+## vs    0.6640389 -0.8108118 -0.7104159 -0.7230967  0.44027846 -0.5549157
+## am    0.5998324 -0.5226070 -0.5912270 -0.2432043  0.71271113 -0.6924953
+## gear  0.4802848 -0.4926866 -0.5555692 -0.1257043  0.69961013 -0.5832870
+## carb -0.5509251  0.5269883  0.3949769  0.7498125 -0.09078980  0.4276059
+##             qsec         vs          am       gear        carb
+## mpg   0.41868403  0.6640389  0.59983243  0.4802848 -0.55092507
+## cyl  -0.59124207 -0.8108118 -0.52260705 -0.4926866  0.52698829
+## disp -0.43369788 -0.7104159 -0.59122704 -0.5555692  0.39497686
+## hp   -0.70822339 -0.7230967 -0.24320426 -0.1257043  0.74981247
+## drat  0.09120476  0.4402785  0.71271113  0.6996101 -0.09078980
+## wt   -0.17471588 -0.5549157 -0.69249526 -0.5832870  0.42760594
+## qsec  1.00000000  0.7445354 -0.22986086 -0.2126822 -0.65624923
+## vs    0.74453544  1.0000000  0.16834512  0.2060233 -0.56960714
+## am   -0.22986086  0.1683451  1.00000000  0.7940588  0.05753435
+## gear -0.21268223  0.2060233  0.79405876  1.0000000  0.27407284
+## carb -0.65624923 -0.5696071  0.05753435  0.2740728  1.00000000</code></pre>
+<p>We can see that <code>mpg</code> is also negatively correlated with <code>cyl</code> (engine cylinders), <code>wt</code> (car weight), but it is positively correlated with <code>qsec</code> (the time to cover 0.25 miles). The preceding matrix has ones on its main diagonal since the correlation between any variable and itself is one. (A good exercise for extra practice would be to prove this assertion using the formula for correlation from class. It’s not very difficult.)</p>
+</div>
+<div id="cov" class="section level3">
+<h3><code>cov</code></h3>
+<p>This command works just like <code>cor</code> but returns covariances rather than correlations:</p>
+<pre class="r"><code>cov(carData$mpg, carData$hp, use = &quot;complete.obs&quot;)</code></pre>
+<pre><code>## [1] -320.7321</code></pre>
+<pre class="r"><code>cov(carData, use = &quot;complete.obs&quot;)</code></pre>
+<pre><code>##              mpg         cyl        disp          hp         drat
+## mpg    36.324103  -9.1723790  -633.09721 -320.732056   2.19506351
+## cyl    -9.172379   3.1895161   199.66028  101.931452  -0.66836694
+## disp -633.097208 199.6602823 15360.79983 6721.158669 -47.06401915
+## hp   -320.732056 101.9314516  6721.15867 4700.866935 -16.45110887
+## drat    2.195064  -0.6683669   -47.06402  -16.451109   0.28588135
+## wt     -5.116685   1.3673710   107.68420   44.192661  -0.37272073
+## qsec    4.509149  -1.8868548   -96.05168  -86.770081   0.08714073
+## vs      2.017137  -0.7298387   -44.37762  -24.987903   0.11864919
+## am      1.803931  -0.4657258   -36.56401   -8.320565   0.19015121
+## gear    2.135685  -0.6491935   -50.80262   -6.358871   0.27598790
+## carb   -5.363105   1.5201613    79.06875   83.036290  -0.07840726
+##               wt         qsec           vs           am        gear
+## mpg   -5.1166847   4.50914919   2.01713710   1.80393145   2.1356855
+## cyl    1.3673710  -1.88685484  -0.72983871  -0.46572581  -0.6491935
+## disp 107.6842040 -96.05168145 -44.37762097 -36.56401210 -50.8026210
+## hp    44.1926613 -86.77008065 -24.98790323  -8.32056452  -6.3588710
+## drat  -0.3727207   0.08714073   0.11864919   0.19015121   0.2759879
+## wt     0.9573790  -0.30548161  -0.27366129  -0.33810484  -0.4210806
+## qsec  -0.3054816   3.19316613   0.67056452  -0.20495968  -0.2804032
+## vs    -0.2736613   0.67056452   0.25403226   0.04233871   0.0766129
+## am    -0.3381048  -0.20495968   0.04233871   0.24899194   0.2923387
+## gear  -0.4210806  -0.28040323   0.07661290   0.29233871   0.5443548
+## carb   0.6757903  -1.89411290  -0.46370968   0.04637097   0.3266129
+##             carb
+## mpg  -5.36310484
+## cyl   1.52016129
+## disp 79.06875000
+## hp   83.03629032
+## drat -0.07840726
+## wt    0.67579032
+## qsec -1.89411290
+## vs   -0.46370968
+## am    0.04637097
+## gear  0.32661290
+## carb  2.60887097</code></pre>
 </div>
 </div>
 <div id="exploring-the-titanic" class="section level2">
