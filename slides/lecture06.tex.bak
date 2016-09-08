@@ -226,7 +226,7 @@ P\mbox{(C)}\geq P\mbox{(F)}
 \begin{block}{What are the basic outcomes?}
 $\{1,2,3,4,5,6\}$
 \end{block}\pause
-\begin{block}{What is $P(E)$? }\pause
+\begin{block}{What is $P(E)$?\hfill \includegraphics[scale = 0.05]{./images/clicker} }\pause
 $E = \{2,4,6\}$ and the basic outcomes are equally likely (and mutually exclusive), so 
 	$$P(E) = 1/6 + 1/6 + 1/6 = 3/6 = \alert{1/2}$$
 \end{block}
@@ -237,7 +237,7 @@ $E = \{2,4,6\}$ and the basic outcomes are equally likely (and mutually exclusiv
 \frametitle{Throw a Fair Die Once}
 \begin{block}{$E = $ roll an even number \hfill $M = $ roll a 1 or a prime number}
 \end{block}
-\begin{alertblock}{What is $P(E\cup M)$?}\end{alertblock}
+\begin{alertblock}{What is $P(E\cup M)$?\hfill \includegraphics[scale = 0.05]{./images/clicker} }\end{alertblock}
 \pause
 Key point: $E$ and $M$ are not mutually exclusive! 
 	\begin{eqnarray*}
@@ -287,7 +287,7 @@ $$P(A\cup B) = P(A) + P(B) - P(A\cap B)$$
 	\item Obama/Gaga
 	\item Obama/Obama
 \end{enumerate} 
-\begin{alertblock}{I draw a card at random and look at one side: it's Obama. What is the probability that the other side is also Obama?\\\hfill}\end{alertblock}
+\begin{alertblock}{I draw a card at random and look at one side: it's Obama. What is the probability that the other side is also Obama?\\\hfill\includegraphics[scale = 0.05]{./images/clicker} }\end{alertblock}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
@@ -446,7 +446,7 @@ Knowledge that $B$ has occurred tells nothing about whether $A$ will.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-\frametitle{Will Having 5 Children Guarantee a Boy? }
+\frametitle{Will Having 5 Children Guarantee a Boy? \hfill \includegraphics[scale = 0.05]{./images/clicker}}
 A couple plans to have five children. Assuming that each birth is independent and male and female children are equally likely, what is the probability that they have at least one boy?
 \vspace{1em}
 
@@ -464,7 +464,7 @@ A couple plans to have five children. Assuming that each birth is independent an
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 %\begin{frame}
-%\frametitle{An Example -- Do you agree with this calculation? }
+%\frametitle{An Example -- Do you agree with this calculation?\hfill\includegraphics[scale = 0.05]{./images/clicker} }
 %\begin{quote}
 %	On September 9, 1982, the four-digit lottery number 8092 was drawn in both Massachusetts and New Hampshire. This was described as a 1 in 100 million event.
 %\end{quote}
