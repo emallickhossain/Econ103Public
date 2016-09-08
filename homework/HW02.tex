@@ -5,7 +5,7 @@
 \usepackage{enumitem}
 \usepackage{array}
 \newcolumntype{L}{>{\centering\arraybackslash}m{3cm}}
-\printanswers
+%\printanswers
 
 \title{Homework 2}
 \author{Econ 103}
@@ -14,7 +14,7 @@
 \maketitle
 
 \section*{Lecture Progress}
-We finished the Chapter 2 lecture and made it to slide XX of the Chapter 3 lecture.
+We finished the Chapter 2 lecture and made it to slide 8 of the Chapter 3 lecture.
 
 \section*{Homework Checklist}
 \begin{itemize}[label = $\square$]
@@ -251,22 +251,22 @@ We finished the Chapter 2 lecture and made it to slide XX of the Chapter 3 lectu
 	
 	\question You are a partner at Shady-Sleazy Consulting, LLC (motto: ``Everything you want to hear and nothing you don't!"\texttrademark). 
 	\begin{parts}
-		\part You have been hired by a large investment bank to help them convince their clients	that they should sell Google stock. Create a chart for their slide deck that supports this view. Making it in Excel is fine, though I encourage you to try in R (using the ``quantmod''	package makes it easy to get stock data)
+		\part You have been hired by a large investment bank to help them convince their clients	that they should sell Google stock. Create a chart for their slide deck that supports this view. Making it in Excel is fine, though I encourage you to try in R (using the ``Quandl''	package makes it easy to get stock data)
 		\begin{solution}		
 		The key is picking a good time horizon to make your chart fit your objective. This time horizon makes it look like the stock has been tumbling throughout August and therefore, you should convince your client to sell. DISCLAIMER: This should not be construed as investment advice. I am not a financial adviser. You probably should not make investing decisions based on something like this.
 			\begin{verbatim}
-				install.packages("quantmod")
-				library(quantmod)
+				install.packages("Quandl")
 				library(plotly)
 				library(data.table)
-				getSymbols("GOOGL")
-				google <- data.table(date = index(GOOGL), 
-															   price = GOOGL[, "GOOGL.Adjusted"])
+				library(Quandl)
+				google <- Quandl("WIKI/GOOGL", type = "xts")
+				google <- data.table(date = index(google), 
+				                     price = google$Close)
 				
 				# Selling Google stock
 				sellChart <- google[date >= "2016-08-01"]
-				plot_ly(data = sellChart, x = date, y = price.GOOGL.Adjusted, 
-								 type = "scatter")
+				plot_ly(data = sellChart, x = date, y = price.Close, 
+				        type = "scatter")
 			\end{verbatim}
 		\end{solution}
 		\part You have been hired by the investment bank's rival as well and they want to convince their clients that they should invest more in a certain stock. As a partner of Shady-Sleazy Consulting, LLC, you have become adept at cutting corners, so you want to use the same data you've already collected. Create a chart that will convince their clients they should buy 			more Google stock.
@@ -275,7 +275,7 @@ We finished the Chapter 2 lecture and made it to slide XX of the Chapter 3 lectu
 			\begin{verbatim}
 				# Buying Google stock
 				buyChart <- google[date >= "2006-01-01"]
-				plot_ly(data = buyChart, x = date, y = price.GOOGL.Adjusted, 
+				plot_ly(data = buyChart, x = date, y = price.Close, 
 								 type = "scatter")
 			\end{verbatim}
 		\end{solution}
