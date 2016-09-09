@@ -228,7 +228,7 @@ first few rows.
 ```{r echo=FALSE,results='hide',fig.show='hide'}
 #Ex-2
 library(data.table)
-titanic <- fread("https://github.com/emallickhossain/Econ103Public/raw/master/Rtutorials/titanic3.csv")
+titanic <- fread("https://github.com/emallickhossain/Econ103Public/raw/master/Rtutorials/titanic.csv")
 head(titanic)
 ```
 
