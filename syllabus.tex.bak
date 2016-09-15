@@ -1,0 +1,261 @@
+\documentclass[11pt, letterpaper]{article}
+\usepackage{geometry}
+\geometry{margin=1in} 
+\usepackage{setspace}
+\linespread{1}
+\usepackage{hyperref}
+\usepackage{enumerate}
+\usepackage{fancybox}
+\usepackage{amsmath, amssymb}
+\usepackage{tabu}
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} 
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0.4pt} % customise the layout...
+\rhead{\footnotesize Hossain--Fall 2016}
+\lhead{\footnotesize Econ 103 Syllabus}
+\renewcommand\footrulewidth{0pt}
+
+
+\begin{document}
+
+
+\thispagestyle{plain}
+
+\begin{center}
+\Large
+\sc
+Statistics for Economists\\
+\large
+Economics 103\\
+\large
+Fall 2016
+\end{center}
+
+
+\normalsize
+\bigskip
+\noindent \textbf{Course Instructor:} Mallick Hossain
+
+\medskip
+
+\noindent \textbf{Class Times:} Wednesday 5:00-8:00 PM in McNeil 103
+
+\medskip
+
+\noindent \textbf{Office Hours:} Tuesday 8-9 AM and Wednesday 4-5 PM and by appointment if necessary. Office is McNeil 476.
+
+\medskip
+
+\noindent \textbf{Course Communication:} 
+For course-related questions, please post them to Piazza (course discussion board). 
+For personal issues, please send private messages on either Canvas or Piazza. 
+Once everyone is set up on Canvas and Piazza, I will not respond to emails sent to my email because it is much easier to keep track of course-related questions on Piazza and everyone gets the benefit of my responses. 
+
+\medskip
+ 
+\noindent \textbf{Course Website:} Materials for this course can be found on my website \url{http://mallickhossain.com/econ-103}. 
+You can view your grades on Canvas at \url{https://canvas.upenn.edu} and log-on to the course discussion board, Piazza, at \url{piazza.com/upenn/fall2016/econ103601}.
+
+\medskip
+
+\noindent \textbf{Course Description:} 
+This course will teach you how to use probability and statistics to learn from data and understand uncertainty. 
+After completing this course you will be able to carry out simple statistical analyses using R.
+
+\medskip
+
+\noindent \textbf{Prerequisites:} 
+The prerequisites for this course are multivariate calculus (Math 104 followed by 114 or 115). 
+You should be comfortable with algebra, manipulating sums, differentiation, and integration. 
+To help you determine if this course is right for you I will administer a short math quiz early in the semester. 
+Although it will not count towards your grade, it will help you assess your mathematical readiness for the course. 
+After you have identified areas of weakness, spend some time brushing up on those areas because you will need those skills for this course.
+
+\medskip
+
+\noindent \textbf{Required Text:} 
+The textbook for this course is \emph{Introductory Statistics for Business and Economics}, 4\textsuperscript{th} Edition by Thomas H.\ and Ronald J.\ Wonnacott (WW4). 
+Save yourself some money and get a cheap used copy from \href{http://tinyurl.com/ECON103-2013A}{Amazon}.
+While I strongly suggest that you complete the assigned readings, my lecture slides, which will be posted online at the start of each week, are the final authority on course material. 
+You are responsible for \emph{all lecture material} unless otherwise specified.
+
+\medskip
+
+\noindent \textbf{Required Software:} 
+We will use the statistical package R via a front-end called RStudio throughout the course. 
+Both R and RStudio are free and open source. Installation instructions appear on the last page of this syllabus.
+RStudio is also available in the Undergraduate Data Analysis Lab (UDAL) in McNeil rooms 104 and 108--9. 
+You will be taught to use R primarily through a series of tutorials that I will assign as homework. (See ``Homework'' below.)  
+Additional R resources are listed on the last page of this syllabus.
+
+\medskip
+
+\noindent \textbf{Recommended Texts:} 
+I highly recommend reading \textit{How to Lie with Statistics}, which provides a short introduction to common statistical mistakes (or deliberate deceptions). 
+While I will not use these texts, past instructors have recommended  texts for students who are looking for additional resources. 
+First is \textit{The Cartoon Guide to Statistics} by Larry Gonick and Woollcott Smith. It provides a fun, illustrated manual for the concepts we will be covering in the course.
+Second is the \emph{Student Workbook to Accompany Introductory Statistics for Business and Economics 4\textsuperscript{th} Edition}, which contains fully worked out solutions to the odd-numbered problems in the textbook as well as additional practice and solutions. 
+Used copies are available on \href{http://www.amazon.com/gp/offer-listing/0471508993/sr=/qid=/ref=olp_page_2?ie=UTF8&colid=&coliid=&condition=all&me=&qid=&shipPromoFilter=0&sort=sip&sr=&startIndex=10}{Amazon}. 
+For those who prefer a physical reference book for R, \emph{The R Student Companion} by Brian Dennis is the second recommended text. 
+There are many free online resources for R, some of which I describe at the end of the syllabus.
+
+\medskip
+
+\noindent \textbf{Departmental Course Policies: } 
+All Economics Department course policies are in force in Econ 103 even if not explicitly listed on this syllabus. 
+See: \url{http://economics.sas.upenn.edu/undergraduate-program/course-information/guidelines/policies} for full details. 
+
+\bigskip
+
+\noindent \textbf{Academic Integrity: } 
+All suspected violations of the code of academic integrity as set forth in the Pennbook will be reported to the Office of Student Conduct. 
+Confirmed violations will result in failure for the course. 
+We will check identification cards at exams so please be sure to bring yours.
+
+\medskip
+
+\section*{Assignments and Grading}
+	\subsection*{Option 1 (Default Scheme)}
+		\begin{align*}
+		\text{Final Grade} = (20\% \times \text{R Project}) + (20\% \times \text{Midterm 1}) + 
+		(20\% \times \text{Midterm 2}) + (40\% \times \text{Final})
+		\end{align*}
+	Under the default grading scheme, final grades are based \textbf{\underline{only}} on quizzes, midterms, and a final.
+
+	\subsection*{Option 2 (Participation Scheme)}
+		\begin{align*}
+		\text{Final Grade} = (15\% &\times \text{Participation}) + (15\% \times \text{R Project}) 
+		\\
+		+ (20\% &\times \text{Midterm 1}) + (20\% \times \text{Midterm 2}) + (30\% \times \text{Final})
+		\end{align*}
+	The participation scheme provides some buffer against a poor test score, encourages staying up-to-date on the course material, and compared to exams, you will likely obtain more credit. 
+	On the downside, it requires more work outside of class. 
+	\textbf{You must opt-in to this grading scheme. Opt-in decisions are final and irrevocable.} 
+	If you are unsure of which grading scheme to choose, I would recommend this scheme for the reasons outlined above.
+
+\medskip
+
+\noindent \textbf{Piazza:} 
+We will be using Piazza (an online discussion forum) for this course, which you can access directly from \href{http://upenn.instructure.com}{Canvas}. 
+Piazza is where I will make course announcements and answer questions about the course.
+By asking your question and getting an answer on Piazza, you create a positive externality (hopefully you remember this definition from other Econ courses!): other students benefit from your questions and you benefit from theirs. 
+I will actively moderate Piazza both to answer questions and approve (or correct) answers written by your fellow-students.
+If you opt-in to the participation component of the course you will receive credit for contributing answers, questions, and notes to Piazza. 
+If you did not opt-in to the participation component of the course you will receive the goodwill of your peers and a positive reputation for contributing answers, questions, and notes to Piazza. 
+
+\medskip
+
+\noindent \textbf{Course Attendance:}
+Course attendance is not necessary, but if you opt-in to the ``Participation Scheme'' outlined above, it will be counted towards your ``Participation'' score. 
+However, \textbf{being a seat-warmer will not count towards your score,} you must actively participate in the lesson (ask questions, answer questions, point out errors, etc.)
+The more engaged you are in the class, the easier it will be to keep up with the material and ensure that your questions are being answered (as opposed to desperately hoping for a response on Piazza at 4am before the test. I will be sleeping, but maybe your peers will be awake)
+
+\medskip
+
+\noindent \textbf{Piazza Participation:}
+In addition to attending and actively participating in class outlined above, the other part of your ``Participation'' score will come from being an active participant on Piazza. Your score will be based on the quality and frequency of your participation on Piazza. I will be actively moderating Piazza to see who is asking and answering questions. If you participate in class and participate after class on Piazza, you should receive full credit for ``Participation''. \textbf{Spamming Piazza or just reading it is not sufficient to get full ``Participation'' points.}
+
+\medskip 
+
+\noindent \textbf{Homework and R Tutorials:} 
+I will post problem sets and R Tutorials on the course website.
+Throughout the semester I will indicate which problem sets and tutorials you should complete in a given week.
+You should keep up with the homework on a weekly basis if you hope to do well in the course.
+After the homework deadline has passed, I will post the full solutions so everyone can reference them as they are studying for exams and assessing their progress in the course.
+Use the solution keys responsibly: you gain nothing by simply reading them.
+
+\medskip
+
+\noindent \textbf{Quizzes:} 
+I will administer a number of short quizzes over the course of the semester.
+Each quiz will cover basic material from the most recent lectures.
+Depending on class participation, these may either be written or oral quizzes.
+If written, when calculating your quiz average, I will drop your two lowest scores and weight the remaining quizzes evenly. 
+No makeup quizzes will be given so use your two ``free skips'' carefully.
+If oral, students will receive credit for answering questions in class.
+
+\medskip
+
+\noindent \textbf{Exams:} 
+There will be two 70-minute in-class midterm exams and a 2-hour final exam during the exam period.
+Dates, times and locations will appear on the semester calendar on the course website.
+\textbf{Test weights are determined by the grading scheme you have chosen.}
+Neither midterm is comprehensive, but the final is: it will focus on the final third of the course but include several questions on earlier material.
+To give you a sense of the style and level of difficulty to expect, I will post past exams with full solutions on the course website.
+Attendance at all exams is \emph{mandatory} and there will be no makeup midterms.
+In exceptional circumstances, e.g.\ a death in the family or a serious documented illness, please contact me in advance via the course email address.
+The makeup final will take place at the beginning of next semester and is outside of the instructor's control: eligibility as well as the time and date are determined by the Economics Department. 
+
+\medskip
+
+\noindent \textbf{Regrading Policy:} Exam regrade requests must be made in writing within a week of receiving your graded exam. 
+\textbf{Your entire exam will be regraded and your score could rise or fall.}
+You may not discuss your answers or rationale with the instructor before submitting a regrade request. 
+Exams will be photocopied before being returned and you may write in pencil or pen. 
+Scientific calculators are permitted but graphing calculators are not. 
+I will check ID cards at each exam.
+
+\medskip
+
+\noindent \textbf{Syllabus Changes:} This syllabus is subject to modifications and changes will be announced in class. The most updated version is always available on the course website.
+
+\newpage
+
+\section*{Installing R and RStudio} First, download and install R from \url{http://cran.r-project.org/}. Second, download and install RStudio by visiting \url{http://rstudio.org/download/desktop} and clicking the link listed under ``Recommended for Your System.'' 
+
+
+\section*{Additional R Resources} 
+\begin{itemize}
+		       \item Contributed Documentation -- Comprehensive R Archive Network (CRAN) \\\url{http://cran.r-project.org/other-docs.html}
+           	\begin{quote}
+           		Comprehensive list of freely available reference material for R.
+           	\end{quote}
+\item R Twotorials -- Anthony Damico \\\url{http://www.twotorials.com/}
+		\begin{quote}
+		Ninety energetic, two-minute video tutorials on statistical programming with R. 
+		\end{quote}
+			\item Google Developers R Programming Video Lectures\\ \url{https://www.youtube.com/playlist?list=PLOU2XLYxmsIK9qQfztXeybpHvru-TrqAP}\begin{quote}R Programming video tutorials from beginning to advanced. \end{quote}
+		 	\item Econometrics in R -- Grant Farnsworth\\\url{http://cran.r-project.org/doc/contrib/Farnsworth-EconometricsInR.pdf}
+ 		\begin{quote}
+ 		If you'd like to keep using R in Econ 104, this is what you should read.
+ 		\end{quote}
+ 			\item Resources to help you learn R -- UCLA Academic Technology Services \\\url{http://www.ats.ucla.edu/stat/R/}
+		\begin{quote}
+			A wealth of information about R, conveniently arranged in one place.
+		\end{quote}
+	           \item R in a Nutshell -- Adler\\ \url{http://proquestcombo.safaribooksonline.com/book/programming/r/9781449377502}         
+           	\begin{quote}
+           		E-book accessible on the UPenn Network. A comprehensive reference guide to R.
+           	\end{quote}
+\end{itemize}
+
+\newpage
+
+\section*{Important Dates}
+\begin{center}
+	\begin{tabular}{| l | l |}
+		\hline
+		August 31 	& \textbf{Math Quiz}, Background, Sampling Error, Summary Statistics \\ \hline
+		September 7 	& Variance, Skewness, Z-Scores, Contingency Tables, Covariance, Correlation, Regression \\ \hline
+		September 14	& Sets, Combinations, Permutations, Conditional Probability \\ \hline
+		September 21	& Bayes Rule, Random Variables, Expectation \\ \hline
+		September 28	& \textbf{Midterm 1} Discrete Random Variables, Binomial RV  \\ \hline
+		October 5	& Joint Probability, Law of Iterated Expectations, Continuous RV, Uniform RV  \\ \hline
+		October 10	& Last day to drop \\ \hline
+		October 12	& Normal, Chi-Squared, Student-t, and F distributions  \\ \hline
+		October 19	& Random Sampling, Consistency, Bias   \\ \hline
+		October 26	& Confidence Intervals, Sampling Distributions  \\ \hline
+		November 2	& \textbf{Midterm 2}, Confidence Intervals \\ \hline
+		November 9	& Confidence Intervals, Hypothesis Testing (Pepsi Challenge)\\ \hline
+		November 11	& Last day to withdraw \\ \hline
+		November 16	& Hypothesis Testing (Big Mac), p-value \\ \hline
+		November 23	& No class \\ \hline
+		November 30	& Measurement Error, Statistical Significance  \\ \hline
+		December 7	& Regression, Real-World Examples, Wrap-Up (Last class!)\\ \hline
+		December 21	& \textbf{Final Exam} \\ \hline
+	\end{tabular}
+\end{center}
+
+\end{document}
