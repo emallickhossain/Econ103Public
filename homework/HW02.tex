@@ -164,23 +164,23 @@ We finished the Chapter 2 lecture and made it to slide 8 of the Chapter 3 lectur
 		\part Calculate the regression line of suicides on spending (i.e. $Suicides = a + b \times spending$)
 		\begin{solution}
 			\begin{align*}
-			b &= \frac{\sum xy}{\sum x^2} = \frac{895000000}{2877000000} = 0.31
+			b &= \frac{\sum (x - \bar{x}) (y - \bar{y})}{\sum (x - \bar{x})r^2} \approx 0.29
 			\\
-			a &= \bar{Y} - b \bar{X} = 8325 - 0.31 \times 26750 = 32.5
+			a &= \bar{Y} - b \bar{X} = 8325 - 0.29 \times 26750 \approx 663
 			\\
-			Suicides &= 32.5 + 0.31 \times Spending
+			Suicides &= 663 + 0.29 \times Spending
 			\end{align*}
 		\end{solution}
 		
 		\part Assuming the relationship you derived in part (a) is true, how could we reduce the number of suicides? What is the lowest level of suicides we could attain (assuming you cannot have negative suicides)?
 		\begin{solution}
-			From the relationship derived above, we see that there is a positive relationship between spending and suicides. Hence, the lowest we can go would be to reduce spending to zero, which would imply about 32.5 suicides even with zero spending.
+			From the relationship derived above, we see that there is a positive relationship between spending and suicides. Hence, the lowest we can go would be to reduce spending to zero, which would imply that we could expect about 663 suicides. 
 		\end{solution}
 		
 		\part Compute the correlation between these two series
 		\begin{solution}
 		It's basically 1.
-		$r = \frac{\sum xy}{\sqrt{\sum x^2} \sqrt{\sum y^2}} = \frac{895000000}{53637 * 16688} = 0.99989$
+		$r = \frac{s_{xy}}{s_x s_y} = \frac{895000000}{53637 * 16688} \approx 0.993$
 		\end{solution}
 		
 		\part What could explain this relationship?
