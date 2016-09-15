@@ -2,3 +2,7 @@ base
 zoo
 xts
 Quandl
+data.table
+ggplot2
+plotly
+e1071
