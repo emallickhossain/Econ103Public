@@ -81,22 +81,8 @@
 \begin{frame}
 \frametitle{Definitions}
 	\begin{itemize}
-		\item \textbf{Discrete:} Can be a countable number of values
-		\item \textbf{Continuous:} Can take on any value
-	\end{itemize}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{Discussion!}
-	Can you order the following from weakest to strongest? 
-	\alert{Interval, Nominal, Ordinal, Ratio.}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{From Weakest to Strongest}
-	\begin{itemize}[<+->]
+		\item \textbf{Discrete:} takes a countable number of values
+		\item \textbf{Continuous:} takes on any value
 		\item \textbf{Nominal:} no order to the categories
 		\item \textbf{Ordinal:} categories with natural order
 		\item \textbf{Interval:} only differences meaningful, no natural zero
@@ -130,11 +116,12 @@
 		P^{th} \text{Percentile = Value in}  \left(P/100\right)\cdot (n+1)^{th} \text{Ordered 					Position}
 		$$
 	\end{enumerate}
+	\only<2->{\alert{Note: this is not the only definition of percentiles, but it is the one we will use for this course!}}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\frametitle{An Example: n = 12}
+\frametitle{Percentile Example: n = 12}
 	$$
 	\begin{array}{cccccccccccc}
 		60 & 63 & \alert{65} & \alert{67} & 70 & 72 & 75 & 75 & 80 & 82 & 84 & 85
@@ -177,19 +164,15 @@
 
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  \begin{frame}
- \frametitle{Why Squares?}
-	 \begin{center}
-	 	\fbox{$\displaystyle s^2 = \frac{1}{n - 1} \sum_{i = 1}^n (x_i - \bar{x})^2$}
-	 \end{center}
-	\onslide<2-> \begin{alertblock}{What's Wrong With This?}
-	 	\begin{align*}
+ \frametitle{Why Is Variance Squared?}
+	What happens if we do not square the deviations?
+	\onslide<2-> \begin{align*}
 	 		\frac{1}{n - 1} \sum_{i = 1}^n (x_i - \bar{x}) &= \frac{1}{n - 1} \left[\sum_{i = 1}^n x_i - 					\sum_{i = 1}^n \bar{x} \right] = \frac{1}{n - 1} \left[ \sum_{i = 1}^n x_i  - n\bar{x} \right]
 	 		\\
 	 		&= \frac{1}{n - 1} \left[ \sum_{i = 1}^n x_i  - n \cdot \frac{1}{n} \sum_{i = 1}^n x_i \right]
 	 		\\ 
 	 		&= \frac{1}{n - 1} \left[ \sum_{i = 1}^n x_i  -  \sum_{i = 1}^n x_i \right] = 0
 	 	\end{align*}
-	 \end{alertblock}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -260,6 +243,17 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
+\frametitle{Simplicity}
+	\begin{center}
+		\includegraphics[width = 0.45\textwidth]{./images/johnMaeda.jpg}\\
+	\end{center}
+	\begin{quote}
+		Simplicity is about subtracting the obvious and adding the meaningful
+	\end{quote}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
 \frametitle{An Illustration}
 	\url{https://i.imgur.com/W4BKCVU.gif}	
 \end{frame}
@@ -267,20 +261,21 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Before and After}
-	\includegraphics[width = \textwidth]{./images/designBefore.png}
+	\centering
+	\includegraphics[width = \textwidth, height = 0.8\textheight]{./images/designBefore.png}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Before and After}
-	\includegraphics[width = \textwidth]{./images/designAfter.png}
+	\includegraphics[width = \textwidth, height = 0.8\textheight]{./images/designAfter.png}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Illustrating with Charts (Box and Whisker Chart)}
 	\begin{figure}
-		\includegraphics[scale = 0.5]{./images/chicagoBoxPlot.png}
+		\includegraphics[scale = 0.45]{./images/chicagoBoxPlot.png}
 	\end{figure}
 	What summary statistics can you infer from this chart?
 \end{frame}
@@ -289,7 +284,7 @@
 \begin{frame}
 \frametitle{Illustrating with Charts (Histogram)}
 	\begin{figure}
-		\includegraphics[scale = 0.5]{./images/chicagoHistogram.png}
+		\includegraphics[scale = 0.45]{./images/chicagoHistogram.png}
 	\end{figure}
     What summary statistics can you infer from this chart?
 \end{frame}
@@ -306,19 +301,22 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Too Few Bins (Oversmoothing)}
-	\includegraphics[width = \textwidth]{./images/histogramFew.png}
+	\centering
+	\includegraphics[width = 0.9\textwidth]{./images/histogramFew.png}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Too Many Bins (Undersmoothing)}
-	\includegraphics[width = \textwidth]{./images/histogramMany.png}
+	\centering
+	\includegraphics[width = 0.9\textwidth]{./images/histogramMany.png}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Just Right! (Usually around 20 bins or so)}
-	\includegraphics[width = \textwidth]{./images/histogramRight.png}
+	\centering
+	\includegraphics[width = 0.9\textwidth]{./images/histogramRight.png}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -416,7 +414,7 @@
 		S.D.\ & $ \displaystyle \sigma = \sqrt{\sigma^2}$ &$ \displaystyle s = \sqrt{s^2}$ 
 	\end{tabular}
 	\bigskip	
-	\begin{alertblock}{Key Point}
+	\begin{alertblock}{Notation Matters!}
 		We  use a \alert{sample} $x_1, \hdots, x_n$ to calculate \alert{statistics} (e.g.\ $\bar{x}$, 				$s^2$, $s$) that serve as \alert{estimates} of the corresponding population 							\alert{parameters} (e.g.\ $\mu$, $\sigma^2$, $\sigma$).
 	\end{alertblock}
 \end{frame}
@@ -458,7 +456,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Standard Deviations}
-	\includegraphics[width = \textwidth]{./images/six_sigma_normal_distribution.jpg}
+	\centering
+	\includegraphics[width = 0.9\textwidth]{./images/six_sigma_normal_distribution.jpg}
 	
 	\only<2->{\alert{Physics uses a five-sigma rule (i.e. this could only happen normally 0.00057\% of the time!)}}
 \end{frame}
@@ -478,32 +477,31 @@
 		Measures how ``extreme'' one observation is relative to the others.
 	\end{block}
 	\pause
-	\begin{block}{Linear Transformation}
+	\begin{block}{Linear Transformation of $x$}
 	\end{block}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{What is the sample mean of the z-scores?}
-	\begin{align*}
-	 \only<2->{\bar{z} &= \frac{1}{n} \sum_{i = 1}^n z_i = \frac{1}{n} \sum_{i = 1}^n \frac{x_i - \bar{x}}		{s}= \frac{1}{n\cdot s} \left[\sum_{i = 1}^n x_i  - \sum_{i = 1}^n \bar{x}  \right]
-	 \\}
-	\only<3->{&= \frac{1}{n\cdot s} \left[\sum_{i = 1}^n x_i  - n\bar{x}  \right] = \frac{1}{n\cdot s} 			\left[\sum_{i = 1}^n x_i - n\cdot \frac{1}{n} \sum_{i = 1}^n x_i  \right] 
-	 \\}
- 	\only<4->{&= \frac{1}{n\cdot s} \left[\sum_{i = 1}^n x_i -  \sum_{i = 1}^n x_i  \right]  = 0}
-	\end{align*}
+	\only<2->{\begin{align*}
+	\bar{z} &= \frac{1}{n} \sum_{i = 1}^n z_i = \frac{1}{n} \sum_{i = 1}^n \frac{x_i - \bar{x}}		{s}= \frac{1}{n\cdot s} \left[\sum_{i = 1}^n x_i  - \sum_{i = 1}^n \bar{x}  \right]
+	 \\
+	&= \frac{1}{n\cdot s} \left[\sum_{i = 1}^n x_i  - n\bar{x}  \right] = \frac{1}{n\cdot s} 			\left[\sum_{i = 1}^n x_i - n\cdot \frac{1}{n} \sum_{i = 1}^n x_i  \right] 
+	 \\
+ 	&= \frac{1}{n\cdot s} \left[\sum_{i = 1}^n x_i -  \sum_{i = 1}^n x_i  \right]  = 0
+	\end{align*}}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{What is the variance of the z-scores?}
-	\begin{align*}
-		\only<2->{s^2_z &= \frac{1}{n - 1}\sum_{i = 1}^n (z_i - \bar{z})^2 = \frac{1}{n - 1}\sum_{i = 				1}^n z_i^2 = 	\frac{1}{n - 1} \sum_{i = 1}^n \left(\frac{x_i - \bar{x}}{s_x}\right)^2
-		\\}
-		\only<3->{&= \frac{1}{s_x^2} \left[ \frac{1}{n - 1} \sum_{i = 1}^n \left(x_i - \bar{x}\right)^2 				\right] = \frac{s_x^2}{s_x^2} = 1}
+	\only<2->{\begin{align*}
+		s^2_z &= \frac{1}{n - 1}\sum_{i = 1}^n (z_i - \bar{z})^2 = \frac{1}{n - 1}\sum_{i = 1}^n z_i^2 = 	\frac{1}{n - 1} \sum_{i = 1}^n \left(\frac{x_i - \bar{x}}{s_x}\right)^2
+		\\
+		&= \frac{1}{s_x^2} \left[ \frac{1}{n - 1} \sum_{i = 1}^n \left(x_i - \bar{x}\right)^2 \right] = \frac{s_x^2}{s_x^2} = 1
 		\end{align*}
-	\vspace{5em}
-	\only<4->{\alert{So what is the \emph{standard deviation} of the z-scores? \hfill  }}
+	\alert{So what is the \emph{standard deviation} of the z-scores?}}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -541,21 +539,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Are Engine Cylinders and Horsepower Related?}
-	\includegraphics[scale=0.5]{./images/cars.png}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{Recall Formulas}
-	\begin{align*}
-		\bar{x} &= \frac{1}{n} \sum_{i = 1}^n x_i
-		\\
-		\bar{y} &= \frac{1}{n} \sum_{i = 1}^n y_i
-		\\
-		s_x &= \sqrt{\frac{1}{n - 1} \sum_{i = 1}^n (x_i - \bar{x})^2}
-		\\
-		s_y &= \sqrt{\frac{1}{n - 1} \sum_{i = 1}^n (y_i - \bar{y})^2}
-	\end{align*}
+	\centering	
+	\includegraphics[width = 0.8\textwidth]{./images/cars.png}
+	
+	\only<2->{\alert{How do we quantify this relationship?}}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -571,7 +558,7 @@
 		\item Negative $\Rightarrow$ negative linear dependence
 		\item Population parameter: $\sigma_{xy}$
 		\item Units?
-		\only<2->{\item \alert{If you know this, you know variance!}}
+		\only<2->{\item \alert{Protip: If you know this, you know variance!}}
 	\end{itemize}
 \end{frame}
 
@@ -603,10 +590,10 @@
 \begin{frame}
 \frametitle{Least Squares Regression -- Predict Using a Line}
 	\begin{center}
-		\includegraphics[scale=0.4]{./images/cars.png}
+		\includegraphics[width = 0.65\textwidth]{./images/cars.png}
 	\end{center}
 	\begin{itemize}
-		\item In order to fit a line through this, we need to estimate $y = a + bx$
+		\item In order to fit a line through this, we need to estimate $\hat{y}_i = a + bx_i$
 		\item How do we find $a$ and $b$?
 	\end{itemize}
 \end{frame}
@@ -615,73 +602,20 @@
 \begin{frame}
 \frametitle{Finding $a$ and $b$}
 	\begin{itemize}
-		\item Linear regression chooses the slope ($b$) and intercept ($a$) that \alert{minimize the 		sum of squared vertical deviations}
-		$\displaystyle\sum_{i = 1}^n d_i^2 = \sum_{i = 1}^n (y_i - a - b x_i)^2$
-		\medskip
+		\item Given our data ($x_i, y_i$), linear regression chooses the slope ($b$) and intercept ($a$) that \alert{minimize the 		sum of squared vertical deviations}
+		$$
+		\min \sum_{i = 1}^n (y_i - \hat{y}_i)^2 = \min_{a, b} \sum_{i = 1}^n (y_i - a - b x_i)^2
+		$$
 		\item Why do we square the deviations?
+		\only<2->{\item \alert{Note: Once we have our model, we can make predictions for any $x$ and $y$!}}
 	\end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\frametitle{Important Point About Notation}
-  	$$
-  	\boxed{\underset{a, b}{\mbox{minimize }}\sum_{i = 1}^n d_i^2 = \sum_{i = 1}^n 
-  	(y_i - a - b x_i)^2}
-  	$$
-	$$
-	\boxed{\hat{y} = a + bx}
-	$$
-	\begin{itemize}
-		\item $(x_i, y_i)_{i = 1}^n$ are the \alert{observed data}
-		\item $\widehat{y}$ is our \alert{prediction} for a given value of $x$
-		\item Neither $x$ nor $\widehat{y}$ needs to be in our dataset!
-	\end{itemize}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{Prediction 28 MPG?}
-	\begin{figure}
-		\includegraphics[scale = 0.4]{./images/carsFitted.png}
-	\end{figure}
-	$$
-	\widehat{hp} = 324.08 - 8.83 mpg
-	$$
-	\only<2->{\alert{
-	$$
-	76.84 = 324.08 - 8.83 * 28
-	$$
-	}}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{You Need to Know How To Derive This}
-	\alert{Minimize the sum of squared vertical deviations from the line:}
-	$$
-	\min_{a,b}  \sum_{i=1}^n (y_i - a - b x_i)^2
-	$$
-	How should we proceed? Select all that apply.
-	\begin{enumerate}[(a)]
-		\item Differentiate with respect to $x$
-		\item Differentiate with respect to $y$
-		\item Differentiate with respect to $a$
-		\item Differentiate with respect to $b$
-		\item You can't fool me! You can't solve this with calculus.
-	\end{enumerate}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{Derivation}
-	\begin{block}{Objective Function}
-	$$
-	\displaystyle \min_{a,b}  \sum_{i = 1}^n (y_i - a - b x_i)^2
-	$$
-	\end{block}
-	\begin{block}{FOC with respect to $a$}
-		\only<2->{\begin{align*}
+\frametitle{Solving for $a$}
+	\textbf{Differentiate with respect to $a$}
+		\begin{align*}
 			-2 \sum_{i = 1}^n\left(y_i - a - bx_i\right) &= 0 
 			\\
 			\sum_{i = 1}^n y_i - \sum_{i = 1}^n a - b\sum_{i = 1}^n x_i &= 0 
@@ -689,8 +623,9 @@
 			\frac{1}{n} \sum_{i = 1}^n y_i - \frac{na}{n} -  \frac{b}{n} \sum_{i = 1}^n x_i &= 0
 			\\
 			\bar{y} - a - b\bar{x} &= 0
-		\end{align*}}
-	\end{block}
+			\\
+			\bar{y} - b\bar{x} &= a
+		\end{align*}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -704,8 +639,9 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\frametitle{Substitute $a = \bar{y} - b \bar{x}$}
+\frametitle{Solving for $b$}
 	\small
+	\alert{Substitute for $a$}
 	\begin{align*}
 		\sum_{i = 1}^n (y_i - a - b x_i)^2 &= \sum_{i = 1}^n (y_i - \bar{y} + b\bar{x} - b x_i)^2
 		\\
@@ -741,13 +677,24 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
+\frametitle{Fitting a Line}
+	\begin{figure}
+		\includegraphics[width = 0.7\textwidth]{./images/carsFitted.png}
+	\end{figure}
+	$$
+	\widehat{hp} = 324.08 - 8.83 mpg
+	$$
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
 \frametitle{Relating Regression to Covariance and Correlation}
-		$$
+		\only<2->{$$
 		b = \frac{\sum_{i = 1}^n \left(y_i - \bar{y}\right)\left(x_i - \bar{x} \right)}{\sum_{i = 1}^n 				\left(x_i - \bar{x}\right)^2} = \frac{\frac{1}{n-1}\sum_{i=1}^n \left(y_i - \bar{y}\right)\left(x_i - 			\bar{x} \right)}{\frac{1}{n-1}\sum_{i=1}^n \left(x_i - \bar{x}\right)^2} = \frac{s_{xy}}{s_x^2}
 		$$
 		$$
 		r = \frac{s_{xy}}{s_x s_y} = b \frac{s_x}{s_y}
-		$$		
+		$$}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -764,15 +711,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Checking Our Results}
+	\begin{block}{Model: $hp = a + b*mpg$}\end{block}
+	\begin{block}{Facts:} 
 	$\begin{array}{ccccc} 
 		s_{mpg, hp} = -321 & s_{mpg} = 6 & s_{hp} = 69 & \bar{mpg} = 20,& \bar{hp} = 147
 	\end{array}$
-	\begin{columns}[c]
-		\column{2.5in}
-			What is the sample correlation between MPG ($x$) and horsepower ($y$)?
-		\column{1.8in}
-			\includegraphics[scale = 0.25]{./images/cars.png}
-	\end{columns}
+	\end{block}
+	
+	\alert{What is the sample correlation between MPG ($x$) and horsepower ($y$)?}
 	\only<2->{$$
 	r = \frac{s_{xy}}{s_x s_y} = \frac{-321}{6\times 69} \approx -0.78
 	$$}
@@ -781,19 +727,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Checking our Results}
+	\begin{block}{Model: $hp = a + b*mpg$}\end{block}
+	\begin{block}{Facts:} 
 	$\begin{array}{ccccc} 
 		s_{mpg, hp} = -321 & s_{mpg} = 6 & s_{hp} = 69 & \bar{mpg} = 20,& \bar{hp} = 147
 	\end{array}$
-	\begin{columns}[c]
-		\column{2.5in}
-			What is the value of $b$ for the regression: 
-			$$
-			\hat{y} = a + bx
-			$$
-			where $x$ is MPG and $y$ is horsepower?
-		\column{1.8in}
-			\includegraphics[scale = 0.25]{./images/cars.png}
-	\end{columns}
+	\end{block}
+	
+	\alert{What is the value of $b$ for the regression? }
 	\only<2->{$$
 	b = \frac{s_{xy}}{s_x^2} = \frac{-321}{6^2} \approx -8.9
 	$$}
@@ -802,16 +743,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Checking our Results}
+	\begin{block}{Model: $hp = a + b*mpg$}\end{block}
+	\begin{block}{Facts:} 
 	$\begin{array}{ccccc} 
 		s_{mpg, hp} = -321 & s_{mpg} = 6 & s_{hp} = 69 & \bar{mpg} = 20,& \bar{hp} = 147
 	\end{array}$
-	\begin{columns}[c]
-		\column{2.5in}
-			What is the value of $a$ for the regression: $$\hat{y} = a + bx$$
-			where $x$ is MPG and $y$ is horsepower? (prev.\ slide $b = -8.9$)
-		\column{1.8in}
-			\includegraphics[scale = 0.25]{./images/cars.png}
-	\end{columns}
+	\end{block}
+	
+	\alert{What is the value of $a$ for the regression ($b = -8.9$)? }
 	\only<2->{$$
 	a = \bar{y} - b \bar{x} = 147 - (-8.9) \times 20 \approx 325
 	$$}
@@ -821,16 +760,13 @@
 \begin{frame}
 \frametitle{Checking our Results}
 	\begin{figure}
-		\includegraphics[scale = 0.4]{./images/carsFitted.png}
+		\includegraphics[width = 0.65\textwidth]{./images/carsFitted.png}
 	\end{figure}
 	\begin{align*}
-		a &\approx 325
+		a &\approx 325 \quad b \approx -8.9
 		\\
-		b &\approx -8.9
+		\widehat{hp} &= 324.08 - 8.83 mpg
 	\end{align*}
-	$$
-	\widehat{hp} = 324.08 - 8.83 mpg
-	$$
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -842,7 +778,7 @@
 		\item Linear is not the only kind of association!
 	\end{itemize}
 	\centering{
-	\includegraphics[scale = 0.35]{./images/zero_corr.png}
+	\includegraphics[scale = 0.34]{./images/zero_corr.png}
 	}
 \end{frame}
 
