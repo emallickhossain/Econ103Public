@@ -132,10 +132,10 @@
 \begin{frame}
 \frametitle{``Odd Question'' \# 1}
     Which statement is right?    
-    \begin{enumerate}[<+->]
+    \begin{enumerate}
         \item Lower rate in rural counties
         \item Higher rate in rural counties
-        \item \alert<5>{Both}
+        \item \alert<2->{Both}
         \item Neither
     \end{enumerate}
 \end{frame}
@@ -193,21 +193,6 @@ From \textit{Thinking Fast and Slow} by Daniel Kahneman
 		\item Prefer I
 		\item Prefer II
 		\item Indifferent
-	\end{enumerate}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{``Odd Question'' \# 4}
-    To throw a total of 7 with a pair of dice, you have to get a 1 and a 6, or a 2 and a 5, or a 3 and a 4.
-    To throw a total of 6 with a pair of dice, you have to get a 1 and a 5, or a 2 and a 4, or a 3 and 
-    another 3.
-	\vspace{1em}
-	With two fair dice, you would expect:
-	\begin{enumerate}[(a)]
-		\item To throw 7 more frequently than 6.
-		\item To throw six more frequently than 7.
-		\item To throw 6 and 7 equally often.
 	\end{enumerate}
 \end{frame}
 
@@ -578,6 +563,35 @@ $$\uncover<2->{P(A \cup A^c) =} \uncover<2->{P(A) + P(A^c) =} \uncover<3->{P(S) 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
+\frametitle{Will Having 5 Children Guarantee a Boy? }
+A couple plans to have five children. Assuming that each birth is independent and male and female children are equally likely, what is the probability that they have at least one boy?
+\vspace{1em}
+
+\pause
+\alert{By Independence and the Complement Rule,}
+	\begin{eqnarray*}
+		P(\mbox{no boys})&=& P(\mbox{5 girls})\\
+							&=& 1/2 \times 1/2 \times 1/2 \times 1/2 \times 1/2\\
+							&=&\ 1/32\\ \\ \pause
+		P(\mbox{at least 1 boy})&=&1 - P(\mbox{no boys})\\
+		&=&1 - 1/32 =31/32 = 0.97
+	\end{eqnarray*}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{The Birthday Problem}
+	\begin{quote}
+		What is the least number of persons required if the probability exceeds 1/2 that two or more of them have the same birthday? (Year of birth need not match.)
+	\end{quote}
+	
+	\hfill \alert{[Hint: Use the Complement Rule.]}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
 \frametitle{Axioms of Probability}
 We assign every event $A$ in the sample space $S$ a real number $P(A)$ called the \alert{probability of $A$} such that: 
 \vspace{1em}
@@ -752,35 +766,8 @@ $\mbox{Independence } \iff P(A|B) = P(A)$\\
 Knowledge that $B$ has occurred tells nothing about whether $A$ will.
 \end{block}
 \end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}
-\frametitle{Will Having 5 Children Guarantee a Boy? }
-A couple plans to have five children. Assuming that each birth is independent and male and female children are equally likely, what is the probability that they have at least one boy?
-\vspace{1em}
-
-\pause
-\alert{By Independence and the Complement Rule,}
-	\begin{eqnarray*}
-		P(\mbox{no boys})&=& P(\mbox{5 girls})\\
-							&=& 1/2 \times 1/2 \times 1/2 \times 1/2 \times 1/2\\
-							&=&\ 1/32\\ \\ \pause
-		P(\mbox{at least 1 boy})&=&1 - P(\mbox{no boys})\\
-		&=&1 - 1/32 =31/32 = 0.97
-	\end{eqnarray*}
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{The Birthday Problem}
-	\begin{quote}
-		What is the least number of persons required if the probability exceeds 1/2 that two or more of them have the same birthday? (Year of birth need not match.)
-	\end{quote}
-	
-	\hfill \alert{[Hint: Use the Complement Rule.]}
-\end{frame}
-
+\section{The Law of Total Probability}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{The Law of Total Probability}
@@ -855,6 +842,8 @@ Combining,
 \end{columns}
 
 \end{frame}
+
+\section{Prediction Markets}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
@@ -890,12 +879,11 @@ $$\mbox{Price}/\mbox{Payout}\approx \mbox{Subjective Probability}$$
 	\end{alertblock} \pause
 
   \vspace{1em}
-  \alert{Last I checked a \$1 contract on Trump winning was going for \$0.30 on \url{predictit.org}}
+  \alert{Last I checked a \$1 contract on Trump winning was going for \$0.36 on \url{predictit.org}}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{A Simple Example of Statistical Arbitrage}
-\framesubtitle{Courtesy of  \fbox{\href{http://offsettingbehaviour.blogspot.co.nz/2012/11/barriers-to-arbitrage.html}{Eric Crampton}}}
 
 \begin{block}{November 5th, 2012}
 	\begin{itemize}
@@ -942,8 +930,324 @@ Buy Equal Numbers of Each
 
 \end{alertblock}
 
+\end{frame}
+
+\section{The Lie Detector}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\centering \Huge Four Volunteers Please!
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{The Lie Detector Problem}
+\begin{block}{From accounting records, we know that 10\% of employees in the store are stealing merchandise.}
+\end{block}
+\begin{block}{The managers want to fire the thieves, but their only tool in distinguishing is a lie detector test that is 80\% accurate:}
+	\begin{eqnarray*}
+	\mbox{Innocent } &\Rightarrow& \mbox{Pass test with } 80\% \mbox{ Probability}\\
+	\mbox{Thief } &\Rightarrow& \mbox{Fail test with } 80\% \mbox{ Probability}
+	\end{eqnarray*}
+\end{block}
+
+\pause
+\begin{alertblock}{What is the probability that someone is a thief \emph{given} that she has failed the lie detector test? }
+\end{alertblock}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Monte Carlo Simulation -- Roll a 10-sided Die Twice}
+Managers will split up and visit employees. Employees roll the die twice \alert{but keep the results secret!}
+\vspace{1em}
+\begin{block}{First Roll -- Thief or not?}
+$0 \Rightarrow$ Thief, $1-9 \Rightarrow$ Innocent
+\end{block}
+
+\begin{block}{Second Roll -- Lie Detector Test}
+$0,1 \Rightarrow$ Incorrect Test Result, $2-9$ Correct Test Result
+\end{block}
+\begin{table}
+	\begin{tabular}{l|cc}
+	&0 or 1&2--9\\
+	\hline
+	Thief&Pass&\alert{Fail}\\
+	Innocent&\alert{Fail} &Pass
+	\end{tabular}
+\end{table}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{What percentage of those who failed the test are guilty?}
+\begin{block}{\# Who Failed Lie Detector Test:}
+
+\end{block}
+
+
+\begin{block}{\# Of Thieves Among Those Who Failed:}
+
+\end{block}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Base Rate Fallacy -- Failure to Consider Prior Information}
+
+\begin{block}{Base Rate -- Prior Information}
+Before the test we know that 10\% of Employees are stealing.
+\end{block}
+\vspace{2em}
+\begin{alertblock}{People tend to focus on the fact that the test is 80\% accurate and ignore the fact that only 10\% of the employees are theives. }
+\end{alertblock}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Thief (Y/N), Lie Detector (P/F)}
+\footnotesize
+\begin{table}
+\begin{tabular}{|c|cccccccccc|}
+\hline
+&0&1&2&3&4&5&6&7&8&9\\
+\hline
+0&\textcolor{blue}{YP}&\textcolor{blue}{YP}&\textcolor{red}{YF}&\textcolor{red}{YF}&\textcolor{red}{YF}&\textcolor{red}{YF}&\textcolor{red}{YF}&\textcolor{red}{YF}&\textcolor{red}{YF}&\textcolor{red}{YF}\\
+1&\textcolor{red}{NF}&\textcolor{red}{NF}&\textcolor{blue}{NP}&\textcolor{blue}{NP}&\textcolor{blue}{NP}&\textcolor{blue}{NP}&\textcolor{blue}{NP}&\textcolor{blue}{NP}&\textcolor{blue}{NP}&\textcolor{blue}{NP}\\
+2&\textcolor{red}{NF}&\textcolor{red}{NF}&\textcolor{blue}{NP}&\textcolor{blue}{NP}&\textcolor{blue}{NP}&\textcolor{blue}{NP}&\textcolor{blue}{NP}&\textcolor{blue}{NP}&\textcolor{blue}{NP}&\textcolor{blue}{NP}\\
+3&\textcolor{red}{NF}&\textcolor{red}{NF}&\textcolor{blue}{NP}&\textcolor{blue}{NP}&\textcolor{blue}{NP}&\textcolor{blue}{NP}&\textcolor{blue}{NP}&\textcolor{blue}{NP}&\textcolor{blue}{NP}&\textcolor{blue}{NP}\\
+4&\textcolor{red}{NF}&\textcolor{red}{NF}&\textcolor{blue}{NP}&\textcolor{blue}{NP}&\textcolor{blue}{NP}&\textcolor{blue}{NP}&\textcolor{blue}{NP}&\textcolor{blue}{NP}&\textcolor{blue}{NP}&\textcolor{blue}{NP}\\
+5&\textcolor{red}{NF}&\textcolor{red}{NF}&\textcolor{blue}{NP}&\textcolor{blue}{NP}&\textcolor{blue}{NP}&\textcolor{blue}{NP}&\textcolor{blue}{NP}&\textcolor{blue}{NP}&\textcolor{blue}{NP}&\textcolor{blue}{NP}\\
+6&\textcolor{red}{NF}&\textcolor{red}{NF}&\textcolor{blue}{NP}&\textcolor{blue}{NP}&\textcolor{blue}{NP}&\textcolor{blue}{NP}&\textcolor{blue}{NP}&\textcolor{blue}{NP}&\textcolor{blue}{NP}&\textcolor{blue}{NP}\\
+7&\textcolor{red}{NF}&\textcolor{red}{NF}&\textcolor{blue}{NP}&\textcolor{blue}{NP}&\textcolor{blue}{NP}&\textcolor{blue}{NP}&\textcolor{blue}{NP}&\textcolor{blue}{NP}&\textcolor{blue}{NP}&\textcolor{blue}{NP}\\
+8&\textcolor{red}{NF}&\textcolor{red}{NF}&\textcolor{blue}{NP}&\textcolor{blue}{NP}&\textcolor{blue}{NP}&\textcolor{blue}{NP}&\textcolor{blue}{NP}&\textcolor{blue}{NP}&\textcolor{blue}{NP}&\textcolor{blue}{NP}\\
+9&\textcolor{red}{NF}&\textcolor{red}{NF}&\textcolor{blue}{NP}&\textcolor{blue}{NP}&\textcolor{blue}{NP}&\textcolor{blue}{NP}&\textcolor{blue}{NP}&\textcolor{blue}{NP}&\textcolor{blue}{NP}&\textcolor{blue}{NP}\\
+\hline
+\end{tabular}
+\caption{Each outcome in the table is equally likely. The 26 given in red correspond to failing the test, but only 8 of these (YF) correspond to being a thief.}
+\end{table}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Base Rate of Thievery is 10\%}
+
+% Set the overall layout of the tree
+\tikzstyle{level 1}=[level distance=3.5cm, sibling distance=3.5cm]
+\tikzstyle{level 2}=[level distance=3.5cm, sibling distance=2.5cm]
+
+% Define styles for bags and leafs
+\tikzstyle{bag} = [text width=4em, text centered]
+\tikzstyle{end} = [circle, minimum width=3pt,fill, inner sep=0pt]
+\tikzstyle{tip} = [circle,fill, minimum height = 3pt, inner sep=0pt]
+\begin{figure}
+\centering
+\begin{tikzpicture}[scale = 0.75,thick,grow=right]
+\node[tip]{}
+    child {
+        node[bag] {Thief}        
+        child {
+                node[end, label=right:
+                    {\alert{\fbox{Fail} $\;\;\; \frac{1}{10} \times \frac{4}{5} = \frac{4}{50}$}}] {}
+                edge from parent
+                node[below]  {$\frac{4}{5}$}
+            }
+            child {
+                node[end, label=right:
+                    {Pass}] {}
+                edge from parent
+                node[above] {$\frac{1}{5}$}
+            }
+            edge from parent 
+            node[below]  {$\frac{1}{10}$}
+    }
+    child {
+        node[bag] {Honest}        
+        child {
+                node[end, label=right:
+                    {\alert{\fbox{Fail} $\;\;\; \frac{9}{10} \times \frac{1}{5} = \frac{9}{50}$}}] {}
+                edge from parent
+                node[below]  {$\frac{1}{5}$}
+            }
+            child {
+                node[end, label=right:
+                    {Pass}] {}
+                edge from parent
+                node[above] {$\frac{4}{5}$}
+            }
+        edge from parent         
+            node[above] {$\frac{9}{10}$}
+    };
+\end{tikzpicture}
+\caption{Although $\frac{9}{50} + \frac{4}{50} = \frac{13}{50}$ fail the test, only $\frac{4/50}{13/50} = \frac{4}{13} \approx 0.31$ are actually theives!}
+\end{figure}
+
+
+\end{frame}
+
+\section{Bayes' Rule}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Deriving Bayes' Rule}
+Intersection is symmetric: $A\cap B = B\cap A$ so $P(A\cap B) = P(B \cap A)$ \pause  By the definition of conditional probability,
+	$$P(A|B) = \frac{P(A\cap B)}{P(B)}$$ \pause
+And by the multiplication rule:
+	$$P(B\cap A) = P(B|A)P(A)$$ \pause
+Finally, combining these
+	$$P(A|B) = \frac{P(B|A)P(A)}{P(B)}$$
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Understanding Bayes' Rule}
+$$\boxed{P(A|B) = \frac{P(B|A)P(A)}{P(B)}}$$
+
+\begin{block}
+	{Reversing the Conditioning}
+	Express $P(A|B)$ in terms of $P(B|A)$. \emph{Relative magnitudes} of the two conditional probabilities determined by the ratio $P(A)/P(B)$.
+\end{block}
+
+\begin{block}
+	{Base Rate}
+	$P(A)$ is called the ``base rate'' or the ``prior probability.'' 
+\end{block}
+
+\begin{block}
+	{Denominator}
+	Typically, we calculate $P(B)$ using the law of total probability
+\end{block}
 
 
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{In General $P(A|B) \neq P(B|A)$ } 
+\begin{block}{Question}
+Most college students are Democrats. Does it follow that most Democrats are college students?  \hfill  \alert{(A = YES, B = NO)}
+\end{block}
+
+\pause
+
+\begin{block}{Answer}
+There are many more Democracts than college students: 
+$$P(\mbox{Dem}) > P(\mbox{Student})$$ 
+so $P(\mbox{Student}|\mbox{Dem})$ is small even though $P(\mbox{Dem}|\mbox{Student})$ is large.
+\end{block}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Solving the Lie Detector Problem with Bayes' Rule}
+\footnotesize
+\fbox{$T =$ Employee is a Thief, $F = $ Employee Fails Lie Detector Test}
+\normalsize
+\vspace{1em}
+$$P(T|F) = \frac{P(F|T)P(T)}{P(F)}$$ \pause
+\begin{eqnarray*}
+	P(F) &=& P(F|T)P(T) + P(F|T^c)P(T^c)\\ \pause
+		&=& 0.8 \times 0.1 + 0.2\times 0.9\\ \pause
+		&=& \alert{0.08} + 0.18 = \alert{0.26} \pause
+\end{eqnarray*}
+
+
+$$P(T|F) = \frac{\alert{0.08}}{\alert{0.26}} = \pause \frac{8}{26} = \frac{4}{13} \approx 0.31$$
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\singlespacing
+\frametitle{``Odd'' Question \# 5}
+
+
+There are two kinds of taxis: green cabs and blue cabs. Of all the cabs on the road, \alert{85\% are green cabs}. On a misty winter night a taxi sideswiped another car and drove off. \alert{A witness says it was a blue cab.} The witness is tested under conditions like those on the night of the accident, and \alert{80\% of the time she correctly reports the color of the cab that is seen}. That is, regardless of whether she is shown a blue or a green cab in misty evening light, she gets the color right 80\% of the time. 
+
+\vspace{1em}
+\begin{center}
+\fbox{\begin{minipage}{0.85\textwidth}
+\textcolor{blue}{Given that the witness said she saw a blue cab, what is the probability that a blue cab was the sideswiper?}
+\end{minipage}}
+\end{center}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Solving The Taxi Problem}
+\footnotesize
+\fbox{
+\begin{minipage}{0.85\textwidth}
+$G = $ Taxi is Green, $P(G) = 0.85$\\
+$B = $ Taxi is Blue, $P(B) = 0.15$\\
+$W_B = $ Witness says Taxi is Blue, $P(W_B|B) = 0.8, P(W_B|G) = 0.2$
+\end{minipage}}
+\normalsize
+
+\vspace{1em}
+
+\pause
+$$P(B|W_B) = P(W_B|B)P(B)/P(W_B)$$
+\pause
+\begin{eqnarray*}
+	P(W_B) &=& P(W_B|B) P(B) + P(W_B|G) P(G)\\ \pause
+			&=& 0.8\times 0.15 + 0.2 \times 0.85 \\ \pause
+			&=& \alert{0.12} + 0.17 = \alert{0.29}\\ \\ \pause
+		P(B|W_B) &=& 0.12/0.29 = 12/29 \approx 0.41\\ \pause
+		P(G|W_B) &=& 1 - (12/19) \approx 0.59 
+	\end{eqnarray*}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{The Monty Hall Problem!}
+\begin{figure}
+\includegraphics[scale = 0.28]{./images/door}
+\includegraphics[scale = 0.28]{./images/door}
+\includegraphics[scale = 0.28]{./images/door}
+\end{figure}
+\begin{figure}
+	\fbox{\includegraphics[scale = 0.08]{./images/car}}
+	\hspace{0.5em}
+	\fbox{\includegraphics[scale = 0.095]{./images/goat}}
+	\hspace{0.5em}
+	\fbox{\includegraphics[scale = 0.095]{./images/goat}}
+\end{figure}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}
+\frametitle{What is the probability that you win if you switch? }
+\begin{figure}
+\centering
+	\includegraphics[scale = 0.55]{./images/monty_hall}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+
+\Huge Key Point -- Monte doesn't choose a door randomly: he \emph{always} shows you a goat.
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}
+\frametitle{Without loss of generality, suppose you chose door \#1}
+\begin{figure}[htbp]
+\begin{center}
+\small
+\synttree[Choose Door 1
+			[\emph{Car Behind Door 1}
+				[Switch	[\textbf{Lose}]	]	[Don't Switch	[\textbf{Win}]	]
+			]
+						[\emph{Car Behind Door 2}
+				[Switch	[\textbf{Win}]	]	[Don't Switch	[\textbf{Lose}]	]
+			]
+						[\emph{Car Behind Door 3}
+				[Switch	[\textbf{Win}]	]	[Don't Switch	[\textbf{Lose}]	]
+			]
+]
+\end{center}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{document}
