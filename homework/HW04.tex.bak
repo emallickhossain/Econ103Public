@@ -1,0 +1,183 @@
+\documentclass[addpoints,12pt]{exam}
+\usepackage{amsmath, amssymb}
+\linespread{1.1}
+\usepackage{hyperref}
+\usepackage{enumerate}
+\usepackage{multirow}
+\usepackage{enumitem}
+
+%\printanswers
+
+\title{Problem Set \#4}
+\author{Econ 103}
+\date{}
+\begin{document}
+\maketitle
+
+\section*{Lecture Progress}
+We made it to slide 36 of the Chapter 4 lecture.
+
+\section*{Homework Checklist}
+
+\begin{itemize}[label = $\square$]
+	\item \textbf{Book Problems (Chapter 3):} 17cd, 21, 23, 25, 27, 29, 39
+	\item \textbf{Book Problems (Chapter 4):} 1, 3, 5
+	\item \textbf{Additional Problems: }See below
+	\item\textbf{R Tutorial:} None this week! Stay tuned next week
+	\item \textbf{Practice Exams:} Do them.
+	\item \textbf{Ask questions on Piazza}
+	\item\textbf{Review slides}
+\end{itemize}
+
+
+
+\section*{Part II -- Additional Problems}
+\begin{questions}
+
+\question This question refers to the prediction market example from lecture. Imagine it is October 2012. Let $O$ be a contract paying \$10 if Obama wins the election, zero otherwise, and $R$ be a contract paying \$10 if Romney wins the election, zero otherwise. Let $\mbox{Price}(O)$ and $\mbox{Price}(R)$ be the respective prices of these contracts.
+	\begin{parts}
+	\part Suppose you \emph{buy} one of each contract. What is your profit?
+		\begin{solution}
+			Regardless of whether Romney or Obama wins, you get \$10. Thus, your profit is $$10 - \mbox{Price}(O) - \mbox{Price}(R)$$
+		\end{solution}
+	\part Suppose you \emph{sell} one of each contract. What is your profit?
+		\begin{solution}
+			Regardless of whether Romney or Obama wins, you have to pay out \$10. Thus, your profit is $$\mbox{Price}(O) + \mbox{Price}(R) - 10$$
+		\end{solution}
+	 \part What must be true about $\mbox{Price}(O)$ and $\mbox{Price}(R)$, to prevent an opportunity for statistical arbitrage? 
+	 \begin{solution}
+	  From (a) we see that you can earn a guaranteed, risk-free profit from \emph{buying} one of each contract whenever $10 > \mbox{Price}(O) +\mbox{Price}(R)$. From (b) we see that you can earn a guaranteeed, risk-free profit by \emph{selling} one of each contract whenever $ \mbox{Price}(O) +\mbox{Price}(R) > 10$. Therefore, the only way to prevent statistical arbitrage is to have $\mbox{Price}(O) +\mbox{Price}(R) = 10$.
+	 \end{solution}
+	 \part How is your answer to part (c) related to the Complement Rule?
+	 	\begin{solution}
+	 	In class we discussed how the market price of a prediction contract can be viewed as a subjective probability assessment. To find the implied probability we divide the price of the contract by the amount that is pays out, in this case \$10. Hence, dividing through by \$10, we see that the condition from part (b) when stated in probability terms is
+	 	$$P(O) = 1 - P(R)$$
+	 	This is precisely the Complement Rule because $R = O^c$.
+	 	\end{solution}
+	 \part What is the implicit assumption needed for your answers to parts (a)--(c) to be correct? How would your answers change if we were to relax this assumption?
+	 	\begin{solution}
+	 	The above discussion assumes that the only possible outcomes are Obama or Romney winning the election, that is $O \cup R = S$. This is equivalent to assuming that the probability of a third-party candidate winning the election is zero. If this assumption is not true, we need to redo the above with an extra contract. Let $I$ be a contract that pays out \$10 if a third-party (i.e.\ independent) candidate wins the election, zero otherwise. Then the answers to the above become:
+	 		\begin{enumerate}
+	 			\item $10 - \mbox{Price}(O) - \mbox{Price}(R) -\mbox{Price}(I) $
+	 			\item  $\mbox{Price}(O) + \mbox{Price}(R) +\mbox{Price}(I) - 10$
+	 			\item $\mbox{Price}(O) + \mbox{Price}(R) +\mbox{Price}(I) = 10$
+	 			\item The Complement Rule becomes:
+	 				$$P(I) = 1 - P(O) - P(R)$$
+	 		\end{enumerate}
+	 	\end{solution}
+	 \end{parts}
+	 
+
+
+\question ``Odd Question'' \# 6, from Hacking (2001):
+	\begin{quote}You are a physician. You think it is quite likely that one of your patients has strep throat, but you aren't sure. You take some swabs from the throat and send them to a lab for testing. The test is (like nearly all lab tests) not perfect. If the patient has strep throat, then 70\% if the time the lab says yes. But 30\% of the time it says NO. If the patient does not have strep throat, then 90\% of the time the lab says NO. But 10\% of the time it says YES. You send five successive swabs to the lab, from the same patient. and get back these results in order: YES, NO, YES, NO, YES.\end{quote} 
+	Let $S$ be the event that the patient has strep throat, and $S^c$ be the even that she does not. Let $Y$ be the event that a given test says YES and $N = Y^c$ be the event that a given test says NO. You may assume that the tests are independent.
+
+	\begin{parts}
+		\part Calculate the probability that your patient has strep throat. (Hint, there is a missing piece of information and you should express your answer \emph{in terms of it}.)
+	\begin{solution}
+		 The probabilities from the question statement are:
+			\begin{eqnarray*}
+				P(Y|S) &=& 0.7\\
+				P(N|S) &=& 0.3\\
+				P(Y|S^c) &=&0.1\\
+				P(N|S^c) &=&0.9
+			\end{eqnarray*}
+We are asked to calculate $P(S|YNYNY)$ where $YNYNY$ denotes the sequence of outcomes YES, NO, YES, NO, YES \emph{in that order} from the fives tests. By Bayes' Rule,
+	$$P(S|YNYNY) = \frac{P(YNYNY|S)P(S)}{P(YNYNY)}$$
+	From the information provided above, we can calculate everything \emph{except} the base rate, so we will express everything in terms of $P(S)$. By independence, 
+		\begin{eqnarray*}
+			P(YNYNY|S) &=& P(Y|S) \times P(N|S) \times P(Y|S) \times P(N|S) \times P(Y|S)\\
+			&=& P(Y|S)^3 \times P(N|S)^2 = (7/10)^3 \times (3/10)^2\\
+			&=& 343/1000 \times 9/100 
+		\end{eqnarray*}
+		and similarly,
+				\begin{eqnarray*}
+			P(YNYNY|S^c) &=& P(Y|S^c) \times P(N|S^c) \times P(Y|S^c) \times P(N|S^c) \times P(Y|S^c)\\
+			&=& P(Y|S^c)^3 \times P(N|S^c)^2 = (1/10)^3 \times (9/10)^2\\
+			&=& 1/1000 \times 81/100 
+		\end{eqnarray*}
+		Now, by the law of total probability,
+		\begin{eqnarray*}
+			P(YNYNY) &=& P(YNYNY|S)P(S) + P(YNYNY|S^c)P(S^c)\\
+			&=& P(YNYNY|S) \times P(S) + P(YNYNY|S^c) \times (1-P(S))\\
+			&=& 343/1000 \times 9/100 \times P(S)\\&& + 1/1000 \times 81/100 \times (1-P(S))
+		\end{eqnarray*}
+		Therefore, multiplying the numerator and denominator by $10^5$
+		\begin{eqnarray*}
+			P(S|YNYNY) &=&\frac{P(YNYNY|S)P(S)}{P(YNYNY)}\\
+				&=& \frac{343 \times 9 \times P(S)}{343 \times 9 \times P(S) + 81 \times (1-P(S))}\\
+				&=& \frac{3087 P(S)}{3087 P(S) + 81 - 81P(S)}\\
+				&=& \frac{3087 P(S)}{3006 P(S) + 81}\\
+				&=& \frac{3087}{3006 + 81/P(S)}
+		\end{eqnarray*}
+	\end{solution}
+	\part Based on your answer to part (b) do you think the patient has strep throat? Explain.
+		\begin{solution}
+			Since we don't know the base rate $P(S)$ we can't get an explicit value for the conditional probability from part (a). One way forward would be to ask what bounds on $P(S)$ would ensure that $P(S|YNYNY) > 1/2$. To do this, we solve the following expression for $P(S)$:
+				\begin{eqnarray*}
+					\frac{1}{2} &=& \frac{3087}{3006 + 81/P(S)}\\
+					3006 + 81/P(S)&=& 6174\\
+					6174 P(S) &=& 3006 P(S) + 81\\
+					3168 P(S) &=& 81\\
+					P(S) &=& 81/3168 \approx 0.026
+				\end{eqnarray*}
+				Therefore, as long as $P(S) > 0.026$, the test results given above make it more likely than not that our patient has strep throat. But where does this leave us? How can we evaluate whether this restriction on the base rate is likely to be satisfied? In this example the term ``base rate'' is perhaps a little misleading as the relevant probability $P(S)$  is \emph{not} the overall rate of strep throat in the population. A better term in this case would be ``prior probability.'' That is, how likely is it \emph{before we see that test results} that this patient has strep throat? The question statement says that you, the physician, think it is ``quite likely'' that the patient has strep throat, presumably based on her symptoms, etc. Perhaps ``quite likely'' should be interpreted as $P(S) = 0.9$, in which case $P(S|YNYNY) \approx 0.997$. I would certainly interpret ``quite likely'' as $P(S)>1/2$ and if $P(S) = 1/2$, we have $P(S|YNYNY) \approx 0.974$. The following is a reasonable summary of our results. If you have \emph{any reason to believe} a priori that your patient has strep throat, these test results imply that it is \emph{extremely likely} she does. However, if you were to randomly test someone off the street who had no symptoms of strep throat and get the above results, the evidence would be much less convincing. I would doubt, for example, that more than 2.6\% of the population have strep throat at any given time, as would be required to make the conditional probability greater than 1/2.
+		\end{solution}
+\end{parts}
+
+\question Suppose $X$ is a random variable with support $\{-1, 0, 1\}$ where $p(-1)=q$ and $p(1) = p$.
+	\begin{parts}
+		\part What is $p(0)$?
+			\begin{solution}
+				By the complement rule $p(0) = 1 - p - q$.
+			\end{solution}
+		\part Calculate the CDF, $F(x_0)$, of X.
+			\begin{solution}
+			$$F(x_0)=\left\{\begin{array}{l} 0, \;x_0 < -1\\ q, \;-1\leq x_0 < 0 \\ 1-p, \; 0\leq x_0 < 1 \\ 1, \; x_0\geq 1\end{array} \right.$$
+			\end{solution}
+		\part Calculate $E[X]$.
+		\begin{solution}$E[X] = -1 \cdot q + 0 \cdot (1-p-q) + p\cdot 1 = p-q$ \end{solution}
+		\part What relationship must hold between $p$ and $q$ to ensure $E[X]=0$?
+		\begin{solution}$p=q$\end{solution}
+	\end{parts}
+
+
+\section*{Challenge}
+\question Weren't stumped by the Monte Hall problem? Try this example from Mosteller (1965):
+	\begin{quote}
+	Three prisoners, $A$, $B$, and $C$, with apparently equally good records have applied for parole. The parole board has decided to release two of the three, and the prisoners know this but not which two. A warder friend of prisoner A knows who are to be released. Prisoner A realizes that it would be unethical to ask the warder if he, A, is to be released, but thinks of asking for the name of \emph{one} prisoner \emph{other than himself} who is to be released. He thinks that before he asks, his chances of release are 2/3. He thinks that if the warder says ``$B$ will be released,'' his own chances have now gone down to 1/2, because either $A$ and $B$ or $B$ and $C$ are to be released. And so $A$ decides not to reduce his chances by asking. However, $A$ is mistaken in his calculations. Explain.
+	\end{quote}
+	\begin{solution}
+		From Mosteller (1965):
+			\begin{quote}
+				The trouble with $A$'s argument is that he has not listed the possible events properly. In technical jargon, he does not have the correct sample space. He thinks his experiment has three possible outcomes: $AB$, $AC$, $BC$ with equal probabilities of $\frac{1}{3}$. From his point of view, that is the correct sample space for the experiment conducted by the parole board given that they are to release two of the three. But $A$'s own experiment adds an event--the reponse of the warder. The outcomes of his proposed experiment and reasonable probabilities for them are:
+				\begin{enumerate}
+					\item $A$ and $B$ released and warder says $B$, probability $\frac{1}{3}$
+					\item $A$ and $C$ released and warder says $C$, probability $\frac{1}{3}$
+					\item $B$ and $C$ released and warder says $B$, probability $\frac{1}{6}$
+					\item $B$ and $C$ released and warder says $C$, probability $\frac{1}{6}$
+				\end{enumerate}
+		If, in reponse to $A$'s question, the warder says ``$B$ will be released,'' then the probability for $A$'s release is the probability from outcome 1 divided by the sum of the probabilities from outcomes 1 and 3. Thus, the final probability of $A$'s release is $\frac{1}{3}/\left(\frac{1}{3} + \frac{1}{6}\right)$, or $\frac{2}{3}$, and mathematics comes round to common sense after all.
+			\end{quote}
+	Because this is such a tricky example, a bit more elaboration may be in order. If $A$ is to be released, the warder's hands are tied. Since he cannot tell $A$ that $A$ will be released, he \emph{must} name the other man who is to be released: $B$ in outcome 1, and $C$ in outcome 2. Since the warder has no influence in these two cases, their probabilities are equal to the initial probabilities from the parole board: $\frac{1}{3}$ each. The complication arises from the case where $A$ is \emph{not} to be released. The probability that we are in this situation is $\frac{1}{3}$ and here the warder has a choice: he can either say that $B$ will be released or $C$ will be released. To calculate the probabilities of outcomes 3 and 4 we need to know the probability of each choice the warder could make. The solution provided by Mosteller assumes that, in the situation where he has to make a choice, the warder simply flips a coin. Thus the probability of each of the outcomes 3 and 4 is $\frac{1}{2} \times \frac{1}{3} = \frac{1}{6}$. 
+	
+	But why is this a reasonable assumption? One way to think about this would be to ask what rule the warder should follow to \emph{ensure} that his answer does not provide $A$ with any additional information. To make this more precise, suppose that in cases 3 and 4 the warder follows the rule ``say $B$ with probability $p$.'' When $p=1$ we'll take this to mean ``always say $B$'' and when $p=0$ we'll take this to mean ``always say $C$.'' Then, redoing the conditional probability calculation from above with $p$ in place of $\frac{1}{2}$, we find that the conditional probability that $A$ is to be released given that the warder says $B$ is 
+	$$\frac{1/3}{1/3 + p \cdot 1/3} = \frac{1/3}{(1+p)/3} = \frac{1}{1+p}$$
+The condition that the warder provide no additional information is equivalent to requiring that this condition probability of $A$'s release be equal to the unconditional probability of his release, $2/3$. Solving for $p$,
+	\begin{eqnarray*}
+		\frac{2}{3} &=& \frac{1}{1+p}\\
+		2(1+p) &=& 3\\
+		2 + 2p &=& 3\\
+		2p &=& 1\\
+		p&=& 1/2
+	\end{eqnarray*}
+Thus we have what is essentially a game-theoretic justification for Mosteller's assumption (c.f.\ \emph{mixed equilibrium strategy} in any game theory textbook).
+	\end{solution}
+
+\end{questions}
+
+
+
+
+\end{document}
