@@ -1,5 +1,5 @@
-\documentclass[handout]{beamer}
-%\documentclass{beamer}
+%\documentclass[handout]{beamer}
+\documentclass{beamer}
  
 \usetheme[numbering = fraction, progressbar = none, background = light, sectionpage = progressbar]{metropolis}
 \usepackage{amsmath}
@@ -222,11 +222,6 @@
 	 \begin{block}{Why divide by $s^3$?}
 	 	So that skewness is unitless
 	 \end{block}
-	 \begin{block}{Rule of Thumb}
-	 	Typically (but not always), right-skewed $\Rightarrow$ mean $>$ median
-	 	\\ 
-	 	left-skewed $\Rightarrow$ mean $<$ median
-	 \end{block}
  \end{frame}
  
  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -241,12 +236,11 @@
 \frametitle{Definitions}
 	\begin{enumerate}
 	\setcounter{enumi}{4}
-		\item Relationship between variables (to be covered later)
+		\item Relationship between variables
 		\begin{itemize}
 			\item \textbf{Covariance:} how two variables vary together
-			\item \textbf{Correlation:} normalized version of covariance (can only range between -1 			and +1)
+			\item \textbf{Correlation:} normalized version of covariance (ranges between -1 and +1)
 			\item \textbf{Regression:} an estimation of how two variables are related
-			\item \alert{We'll cover these in-depth later in the semester}
 		\end{itemize}
 	\end{enumerate}
 \end{frame}
@@ -355,8 +349,8 @@
 \begin{frame}
 \frametitle{Which Summary Stats are Sensitive to Outliers?}
 	\begin{itemize}
-		\item Assume our data is 1, 2, 3, 4, 5. What are our summary stats (mean, median, variance, 			range, IQR)
-		\item What will be affected if the data includes an outlier and becomes 1, 2, 3, 4, 4990?
+		\item Assume our data is 1, 2, 3, 4, 5, 6, 7, 8, 9, 10. What are our summary stats (mean, median, variance, 			range, IQR)?
+		\item What will be affected if the data includes an outlier and becomes 1, 2, 3, 4, 5, 6, 7, 8, 94990?
 	\end{itemize}
 \end{frame}
 
@@ -465,6 +459,8 @@
 \begin{frame}
 \frametitle{Standard Deviations}
 	\includegraphics[width = \textwidth]{./images/six_sigma_normal_distribution.jpg}
+	
+	\only<2->{\alert{Physics uses a five-sigma rule (i.e. this could only happen normally 0.00057\% of the time!)}}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -514,7 +510,7 @@
 \begin{frame}
 \frametitle{Population Z-scores and the Empirical Rule: $\mu \pm 2\sigma$}
 	If we knew the population mean $\mu$ and standard deviation $\sigma$ we could create a 			\alert{\emph{population version}} of a z-score. This leads to an important way of rewriting the 		Empirical Rule:
-	\vspace{2em}
+
 	\alert{Bell-shaped population $\Rightarrow$ approx.\ 95\% of observations $x_i$ satisfy}
 	\begin{align*}
 	\mu - 2\sigma &\leq x_i \leq \mu + 2\sigma
@@ -575,6 +571,7 @@
 		\item Negative $\Rightarrow$ negative linear dependence
 		\item Population parameter: $\sigma_{xy}$
 		\item Units?
+		\only<2->{\item \alert{If you know this, you know variance!}}
 	\end{itemize}
 \end{frame}
 
@@ -638,7 +635,7 @@
 	\begin{itemize}
 		\item $(x_i, y_i)_{i = 1}^n$ are the \alert{observed data}
 		\item $\widehat{y}$ is our \alert{prediction} for a given value of $x$
-		\item Neither $x$ nor $\widehat{y}$ needs to be in out dataset!
+		\item Neither $x$ nor $\widehat{y}$ needs to be in our dataset!
 	\end{itemize}
 \end{frame}
 
@@ -877,6 +874,16 @@
 		\item Wonnacott: Chapter 2, Section 4-5 A+B, Section 5-3, 11-1, 11-2, Appendices to 2-2, 2-5, 11-1, and 11-2
 		\item How to Lie with Statistics: Chapters 2, 5, and 6
 		\item If you're rusty on permutations, combinations, etc., read the ``Permutations and Combinations'' document on the course page (\url{mallickhossain.com/econ-103})
+	\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Homework}
+	\begin{itemize}
+		\item Chapter 2 Problems
+		\item Additional Problems
+		\item R Tutorial 2
 	\end{itemize}
 \end{frame}
 

@@ -349,8 +349,8 @@
 \begin{frame}
 \frametitle{Which Summary Stats are Sensitive to Outliers?}
 	\begin{itemize}
-		\item Assume our data is 1, 2, 3, 4, 5. What are our summary stats (mean, median, variance, 			range, IQR)
-		\item What will be affected if the data includes an outlier and becomes 1, 2, 3, 4, 4990?
+		\item Assume our data is 1, 2, 3, 4, 5, 6, 7, 8, 9. What are our summary stats (mean, median, variance, 			range, IQR)?
+		\item What will be affected if the data includes an outlier and becomes 1, 2, 3, 4, 5, 6, 7, 8, 63?
 	\end{itemize}
 \end{frame}
 
@@ -358,11 +358,11 @@
 \begin{frame}
 \frametitle{Which Summary Stats are Sensitive to Outliers?}
 	\begin{itemize}[<+->]
-		\item Mean changes from 3 to 1000
-		\item Median remains at 3
-		\item Variance changes from 2.5 to 4,975,032
-		\item Range changes from 4 to 4889
-		\item IQR remains at 2
+		\item Mean changes from 5 to 11
+		\item Median remains at 5
+		\item Variance changes from 7.5 to 385.5
+		\item Range changes from 8 to 62
+		\item IQR remains at 5
 		\item \alert{When Does the Median Change? IQR?}
 		\begin{itemize}
 			\item Ranks would have to change.
