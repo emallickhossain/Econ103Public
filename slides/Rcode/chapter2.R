@@ -50,7 +50,7 @@ plot_ly(data = carStats, x = carStats$mpg, y = carStats$hp, type = "scatter", mo
 reg <- lm(hp ~ mpg, data = carStats)
 short_a <- round(reg$coefficients[1], digits = 2)
 short_b <- round(reg$coefficients[2], digits = 2)
-plot_ly(data = carStats, x = carStats$mpg, y = carStats$hp, type = "scatter", mode = "markers") %>%
+plot_ly(data = carStats, x = mpg, y = hp, type = "scatter", mode = "markers") %>%
   add_trace(x = mpg, y = fitted(reg), mode = "lines") %>%
   layout(xaxis = x, yaxis = y, title = "Horsepower and MPG", showlegend = FALSE)
 sd(carStats$mpg)
