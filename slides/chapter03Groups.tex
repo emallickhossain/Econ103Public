@@ -25,13 +25,12 @@
 \begin{frame}
 \frametitle{``Odd Question'' \# 4}
     To throw a total of 7 with a pair of dice, you have to get a 1 and a 6, or a 2 and a 5, or a 3 and a 4.
-    To throw a total of 6 with a pair of dice, you have to get a 1 and a 5, or a 2 and a 4, or a 3 and 
-    another 3.
+    To throw a total of 6 with a pair of dice, you have to get a 1 and a 5, or a 2 and a 4, or a 3 and a 3.
 	\vspace{1em}
 	With two fair dice, you would expect:
 	\begin{enumerate}[(a)]
 		\item To throw 7 more frequently than 6.
-		\item To throw six more frequently than 7.
+		\item To throw 6 more frequently than 7.
 		\item To throw 6 and 7 equally often.
 	\end{enumerate}
 \end{frame}
@@ -107,7 +106,7 @@
 
 \begin{block}{Basic Outcomes}
 \vspace{0.3em} 
-$\displaystyle{52 \choose 5}$ possible hands
+$\displaystyle{\binom{52}{5}}$ possible hands
 \end{block}
 \begin{block}{How Many Hands have Four Aces? } \pause
 \alert{48 (\# of ways to choose the single card that is not an ace)}
@@ -115,7 +114,7 @@ $\displaystyle{52 \choose 5}$ possible hands
 
 \begin{block}{Probability of Getting Four Aces}
 \vspace{0.3em} 
-$48/\displaystyle{52 \choose 5} \approx 0.00002$
+$48/\displaystyle{\binom{52}{5}} \approx 0.00002$
 \end{block}
 
 
@@ -131,7 +130,7 @@ $48/\displaystyle{52 \choose 5} \approx 0.00002$
 	\end{itemize}}
 \end{block}
 \vspace{0.3em} 
-\only<2->{$624/\displaystyle{52 \choose 5} \approx 0.00024$}
+\only<2->{$624/\displaystyle{\binom{52}{5}} \approx 0.00024$}
 
 \end{frame}
 
@@ -150,7 +149,7 @@ Roger Federer and Novak Djokovic have agreed to play in a tennis tournament agai
 \begin{frame}
 \begin{figure}
 \centering
-\begin{tikzpicture}[thick,scale=0.8, every node/.style={transform shape},grow'=left]
+\begin{tikzpicture}[thick,scale=0.7, every node/.style={transform shape},grow'=left]
 \node {Winner} 
   [sibling distance=6cm]
   child {node {Semifinalist 2}
@@ -212,9 +211,9 @@ Roger Federer and Novak Djokovic have agreed to play in a tennis tournament agai
 \begin{frame}
 \frametitle{Three Cards, Each with a Face on the Front and Back}
 \begin{figure}
-\fbox{\includegraphics[scale = 0.75]{./images/gaga}}
+\fbox{\includegraphics[scale = 0.69]{./images/gaga}}
 \hspace{1em}
-\fbox{\includegraphics[scale = 0.75]{./images/obama}}
+\fbox{\includegraphics[scale = 0.69]{./images/obama}}
 \end{figure}
 \begin{enumerate}
 	\item Gaga/Gaga
@@ -236,7 +235,7 @@ Roger Federer and Novak Djokovic have agreed to play in a tennis tournament agai
 \tikzstyle{end} = [circle, minimum width=3pt,fill, inner sep=0pt]
 
 
-\begin{tikzpicture}[thick,scale=0.94, every node/.style={transform shape},grow=right]
+\begin{tikzpicture}[thick,scale=0.85, every node/.style={transform shape},grow=right]
 \node[bag]{Choose Card}
     child {
         node[bag] {Obama Obama}        
@@ -305,33 +304,9 @@ Roger Federer and Novak Djokovic have agreed to play in a tennis tournament agai
 \end{itemize}
 
 \centering
-\includegraphics[scale=0.25]{./images/chess.jpg}
+\includegraphics[scale=0.2]{./images/chess.jpg}
 
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{The Secretary Problem (aka the Marriage Problem)}
-\begin{itemize}
-	\item You have $n$ applicants for a secretary position
-	\item There is a ranking of the candidates (but you cannot observe it)
-	\item You can only determine relative ranks (this person was better than that person)
-	\item Your goal is to choose the best candidate
-	\item You interview them one at a time, but at the end of the interview, you have to either reject them or give them an offer
-	\item Once you've rejected someone, you cannot get them back
-	\item What strategy will give you the highest chance of success?
-\end{itemize}
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{The Secretary Problem (aka the Marriage Problem)}
-\begin{itemize}
-	\item \textbf{Strategy:} Let some number $k$ candidates go by and then pick the next candidate that is better than anyone you've seen so far.
-	\item \textbf{Question:} What should $k - 1$ be?
-\end{itemize}
-
-\end{frame}
-
 \end{document}
