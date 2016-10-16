@@ -6,7 +6,7 @@
 \usepackage{multirow}
 \usepackage{enumitem}
 
-%\printanswers
+\printanswers
 
 \title{Problem Set \#6}
 \author{Econ 103}
@@ -23,7 +23,7 @@ We made it to the end of the Chapter 5 slides.
 \begin{itemize}[label = $\square$]
 	\item \textbf{Book Problems (Chapter 4):} 19, 21, 25, 27, 29 (\emph{When necessary, use R instead of the Normal tables in the textbook})
 	\item \textbf{Additional Problems: }See below
-	\item\textbf{R Tutorial:} None this week so you can focus on discrete and continuous RVs
+	\item\textbf{R Tutorial:} R Tutorial 5
 	\item \textbf{Ask questions on Piazza}
 	\item\textbf{Review slides}
 	\item \textbf{Work on R Project!}
