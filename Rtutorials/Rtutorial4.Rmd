@@ -225,7 +225,7 @@ Now, let's use R to roll two dice a large number of times. We'll start with 100:
 ```{r}
 sims <- replicate(100, two.dice())
 ```
-Notice that I stored the result in a vector called ``sims``. When calculating probabilities, we're not interested in *each* of the outcomes, but their *relative frequencies*. Using the ``table`` function introduced in R Tutorial #2, we can summarize the result as follows:
+Notice that I stored the result in a vector called ``sims``. When calculating probabilities, we're not interested in *each* of the outcomes, but their *relative frequencies*. Using the ``table`` function, we can summarize the result as follows:
 ```{r}
 table(sims)
 ```
@@ -237,6 +237,7 @@ The function ``plot`` has many special features, one of which is that it knows w
 ```{r}
 plot(table(sims), xlab = 'Sum', ylab = 'Frequency', main = '100 Rolls of 2 Fair Dice')
 ```
+
 Or expressed in relative frequencies:
 ```{r}
 plot(table(sims)/length(sims), xlab = 'Sum', ylab = 'Relative Frequency', main = '100 Rolls of 2 Fair Dice')
@@ -250,6 +251,7 @@ more.sims <- replicate(1000, two.dice())
 table(more.sims)/length(more.sims)
 plot(table(more.sims)/length(more.sims), xlab = 'Sum', ylab = 'Relative Frequency', main = '1000 Rolls of 2 Fair Dice')
 ```
+
 And 100000 rolls
 ```{r}
 even.more.sims <- replicate(100000, two.dice())
@@ -287,6 +289,7 @@ sum(z >= 9)/length(z)
 
 ### Exercise #5
 Using similar commands, calculate:
+  
   1. The proportion of elements in ``z`` that equal 3.
   2. The proportion of elements in ``z`` that are less than 7.
 ```{r cache=TRUE,echo=FALSE,results='hide',fig.show='hide',warning=FALSE}
@@ -355,7 +358,7 @@ plot(table(passadieci)/length(passadieci), xlab = 'Sum', ylab = 'Relative Freque
 ```
 
 ### Exercise #8
-This problem was initially posed by the famous 17th century gambler Antoine Gombaud, more commonly known as the Chevalier de Méré. Fermat and Pascal discussed its solution in their legendary correpondance that began the study of probability as we know it. Here's the Chevalier's question:
+This problem was initially posed by the famous 17th century gambler Antoine Gombaud, more commonly known as the Chevalier de Méré. Fermat and Pascal discussed its solution in their legendary correspondence that began the study of probability as we know it. Here's the Chevalier's question:
 
 >Which is more likely: (A) getting at least one 6 when rolling a *single* fair six-sided die 4 times or (B) getting at least one *pair* of sixes when *two* fair, six-sided dice are thrown 24 times.
 

@@ -46,8 +46,10 @@ extract the regression slope and intercept. The "%>%" lets you string together
 multiple commands and continue to add onto the same chart instead of making a new one.
 ```{r}
 regLine <- lm(hp ~ mpg, data = mtcars)
-plot_ly(data = mtcars, x = mpg, y = hp, type = "scatter", mode = "markers", name = "data") %>% 
+carRegression <- plot_ly(data = mtcars, x = mpg, y = hp, type = "scatter", mode = "markers", name = "data") %>% 
   add_trace(x = mpg, y = fitted(regLine), type = "lines", name = "regression")
+carRegression
+plotly_POST(carRegression, filename = "carRegression", sharing = "public")
 ```
 
 Note that ``add_trace`` can only be used *after* you've already made a plot. 
@@ -58,15 +60,17 @@ we can show that the regression line goes through the means of the data. I added
 some style options that made the "average" lines dashed instead of solid. The main
 idea of this example is to get comfortable with the idea of plotting your data
  and then adding lines on top of the original plot. Unfortunately, Plotly does not
- have something like an ``hline`` or ``vline`` command so you acutally have to 
- specify the points that you are plotting. Slightly annoying, but managable.
+ have something like an ``hline`` or ``vline`` command so you actually have to 
+ specify the points that you are plotting. Slightly annoying, but manageable.
 ```{r}
-plot_ly(data = mtcars, x = mpg, y = hp, type = "scatter" , mode = "markers", name = "Data") %>%
+carRegMeans <- plot_ly(data = mtcars, x = mpg, y = hp, type = "scatter" , mode = "markers", name = "Data") %>%
   add_trace(x = mpg, y = fitted(regLine), type = "lines", name = "Regression") %>%
   add_trace(x = c(min(mpg), max(mpg)), y = c(mean(hp), mean(hp)), mode = "lines", 
             line = list(dash = "5px"), name = "Average HP") %>%
   add_trace(x = c(mean(mpg), mean(mpg)), y = c(min(hp), max(hp)), mode = "lines", 
             line = list(dash = "5px"), name = "Average MPG")
+carRegMeans
+plotly_POST(carRegMeans, filename = "carRegMeans", sharing = "public")
 ```
 
 ### Exercise #1 - Regression
@@ -519,7 +523,9 @@ the opening price, the high price, the low price and the closing price.
 
 We're mainly going to be interested in the closing prices, which we can plot by themselves as follows:
 ```{r}
-plot_ly(data = apple.prices, x = Date, y = Close, type = "lines")
+applePrice <- plot_ly(data = apple.prices, x = Date, y = Close, type = "lines")
+applePrice
+plotly_POST(applePrice, filename = "applePrice", sharing = "public")
 ```
 
 ### From Prices to Returns
@@ -564,7 +570,9 @@ apple.returns <- diff(log(apple.prices$Close))
 
 Plotting these, we have
 ```{r}
-plot_ly(y = apple.returns)
+appleReturns <- plot_ly(y = apple.returns)
+appleReturns
+plotly_POST(appleReturns, filename = "appleReturns", sharing = "public")
 ```
 
 Notice how different everything looks now! While the prices show a clear trend, 
@@ -610,7 +618,9 @@ the year.
 A classic question in financial economics is whether stock returns are skewed. 
 Let's have a look at Apple:
 ```{r}
-plot_ly(x = apple.returns, type = "histogram") 
+appleHist <- plot_ly(x = apple.returns, type = "histogram") 
+appleHist
+plotly_POST(appleHist, filename = "appleHist", sharing = "public")
 mean(apple.returns)
 median(apple.returns)
 ```
