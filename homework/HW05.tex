@@ -253,13 +253,13 @@ We made it to the end of the Chapter 4 (Updated) slides.
 	\begin{solution}
 		Using the definition of expectation:
 		\begin{align*}
-		E[aX + bY + c] &= \sum_x \sum_y (ax + by + c) p_{XY}(x, y)
+		E[aX + bY + c] &= \int \int (ax + by + c) f_{XY}(x, y) dx dy
 		\\
-		&= \sum_x \sum_y ax p_{XY}(x, y) + \sum_x \sum_y by p_{XY}(x, y) + \sum_x \sum_y c p_{XY}(x, y)
+		&= \int \int ax f_{XY}(x, y) dx dy + \int \int by f_{XY}(x, y) dx dy + \int \int c f_{XY}(x, y) dx dy
 		\\
-		&= a \sum_x x \sum_y p_{XY}(x, y) + b \sum_y y \sum_x p_{XY}(x, y) + c \sum_x \sum_y p_{XY}(x, y)
+		&= a \int x dx \int f_{XY}(x, y) dy + b \int y dy \int f_{XY}(x, y) dx + c \int \int f_{XY}(x, y) dx dy
 		\\
-		&= a \sum_x x p_{X}(x) + b \sum_y y p_{Y}(y) + c
+		&= a \int x f_{X}(x) dx + b \int y f_{Y}(y) dy + c
 		\\
 		&= a E[X] + b E[Y] + c
 		\end{align*}

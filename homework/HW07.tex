@@ -1,240 +1,120 @@
-\documentclass[addpoints,12pt]{exam}\usepackage[]{graphicx}\usepackage[]{color}
-%% maxwidth is the original width if it is less than linewidth
-%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
-\makeatletter
-\def\maxwidth{ %
-  \ifdim\Gin@nat@width>\linewidth
-    \linewidth
-  \else
-    \Gin@nat@width
-  \fi
-}
-\makeatother
-
-\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
-\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
-\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
-\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
-\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
-\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
-\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
-\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
-\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
-\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
-
-
-\makeatletter
-\newenvironment{kframe}{%
- \def\at@end@of@kframe{}%
- \ifinner\ifhmode%
-  \def\at@end@of@kframe{\end{minipage}}%
-  \begin{minipage}{\columnwidth}%
- \fi\fi%
- \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
- \colorbox{shadecolor}{##1}\hskip-\fboxsep
-     % There is no \\@totalrightmargin, so:
-     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
- \MakeFramed {\advance\hsize-\width
-   \@totalleftmargin\z@ \linewidth\hsize
-   \@setminipage}}%
- {\par\unskip\endMakeFramed%
- \at@end@of@kframe}
-\makeatother
-
-\definecolor{shadecolor}{rgb}{.97, .97, .97}
-\definecolor{messagecolor}{rgb}{0, 0, 0}
-\definecolor{warningcolor}{rgb}{1, 0, 1}
-\definecolor{errorcolor}{rgb}{1, 0, 0}
-\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
-
-\usepackage{alltt}
+\documentclass[addpoints,12pt]{exam}
 \usepackage{amsmath, amssymb}
 \linespread{1.1}
 \usepackage{hyperref}
 \usepackage{enumerate}
 \usepackage{multirow}
+\usepackage{enumitem}
+\usepackage{verbatim}
 
-%-------------------DON'T CHANGE---------------------%
-%The following is needed to prevent a conflict between knitr and the exam class involving the package ``framed.''
-
-%-------------------DON'T CHANGE---------------------%
-
-
-
-%This keeps images from being too big, centers them, and makes sure we use pdf images
-
-
-
-%Change the default width of the output to fit within the solution boxes
-
-
-
-%To include the answers use:
-%  pdflatex "\def\showanswers{1} \input{thisfile.tex}"
-\ifdefined\showanswers
-  \printanswers
-\else
-  \noprintanswers
-\fi
+%\printanswers
 
 \title{Problem Set \#7}
 \author{Econ 103}
 \date{}
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 \begin{document}
 \maketitle
 
-% This problem set concerns random sampling and the theory of point estimators. It also has a few R exercises based on Lecture 13 which is a video lecture.
+% This problem set concerns continuous random variables
+\section*{Lecture Progress}
+We made it to the end of the Chapter 6 slides.
 
-\section*{Part I -- Problems from the Textbook}
-Chapter 6: 1, 3, 5, 7\\
-Chapter 7: 1, 3, 5, 9, 13, 17, 18, 19\\
+\section*{Homework Checklist}
 
-\noindent\emph{The answer in the back of the book for 7-19 is \emph{wrong}. I will provide full solutions to 7-13 since it's hard, 7-18 since it's even-numbered, and 7-19 since the book is wrong.}
+\begin{itemize}[label = $\square$]
+	\item \textbf{Book Problems (Chapter 6):} 1, 3, 5, 7, 33
+	\item \textbf{Book Problems (Chapter 7):} 1, 3, 7, 9, 17
+	\item \textbf{Additional Problems: }See below
+	\item\textbf{R Tutorial:} Do the RMarkdown tutorial at \url{https://www.datacamp.com/courses/reporting-with-r-markdown}. This tutorial uses the package ``dplyr'' to clean the data, which we have not covered, but you should see how you can do similar cleaning using ``data.table''. If you have questions about what the tutorial is doing, please post on Piazza!
+	\item \textbf{Ask questions on Piazza}
+	\item\textbf{Review slides}
+	\item \textbf{Work on R Project:} Use RMarkdown to report your summary statistics!
+	\item \textbf{RMarkdown Cheat Sheet:} \url{http://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf}
+\end{itemize}
 
-
+\section*{Additional Problems}
 \begin{questions}
-  \item[]
-    \begin{solution}
-    \textbf{7-13}\\
-The point is that $S$, the number of successes in $n$ trials each with probability $\pi$ of success, is a Binomial$(n,\pi)$ random variable. We calculated the mean and variance of such a RV in class (see the slides) and we will use this information to find the MSE of $P = S/n$ as well as that of
-  $$P^* = \frac{nP + 1}{n+2} = \left(\frac{n}{n+2}\right)P + \left(\frac{1}{n+2}\right)$$
-The reason the book gives you the above expression is to give you a hint: namely that once you've solved for the MSE of $P$ you can use this to get the MSE of $P^*$ fairly easily by writing it as above.
-  \begin{eqnarray*}
-		E[P] &=& E[S/n] = E[S]/n = n\pi/n = \pi\\ 
-		\mbox{Bias}(P) &=& E[P] - \pi = \pi - \pi = 0\\ 
-		Var(P) &=& Var(S/n) = Var(S)/n^2 = n\pi(1-\pi)/n^2 = \pi(1-\pi)/n \\ 
-		MSE(P) &=& \mbox{Bias}(P)^2 + Var(P) = 0^2 + \pi(1-\pi)/n = \pi(1-\pi)/n
-	\end{eqnarray*}
-where we have used our rules for manipulating expectation and variance, as well as the expressions for the mean and variance of a Binomial random variable. Now:
-	\begin{eqnarray*}
-		E[P^*] &=& E\left[ \left(\frac{n}{n+2}\right)P + \left(\frac{1}{n+2}\right)\right]=  \left(\frac{n}{n+2}\right)E[P] + \left(\frac{1}{n+2}\right)\\
-			&=&  \left(\frac{n}{n+2}\right)\pi + \left(\frac{1}{n+2}\right)\\\\
-		\mbox{Bias}(P^*) &=& E[P^*] - \pi =  \left(\frac{n}{n+2}\right)\pi + \left(\frac{1}{n+2}\right) - \pi\\
-			&=&\left(\frac{n}{n+2} -1\right)\pi + \left(\frac{1}{n+2}\right) = \frac{1-2\pi}{n+2}\\\\
-		Var(P^*) &=& Var\left[  \left(\frac{n}{n+2}\right)P + \left(\frac{1}{n+2}\right)\right] = \left(\frac{n}{n+2}\right)^2 Var(P)\\
-		&=& \frac{n^2}{(n+2)^2} \frac{\pi(1-\pi)}{n} = \frac{n\pi(1-\pi)}{(n+2)^2}\\ \\ 
-		MSE(P^*) &=& \mbox{Bias}(P^*)^2 + Var(P^*) = \left(\frac{1-2\pi}{n+2}\right)^2 + \frac{n\pi(1-\pi)}{(n+2)^2}\\
-			&=& \frac{(1-2\pi)^2 + n\pi(1-\pi)}{(n+2)^2} = \frac{1 - 4\pi + 4\pi^2 + n\pi - n\pi^2}{(n+2)^2}\\
-			&=& \frac{1 + (n-4)\pi - (n-4)\pi^2 }{(n+2)^2} =\frac{1 + \pi(1-\pi)(n-4)}{(n+2)^2}
-	\end{eqnarray*}
-	If we take limits, we'll see that both $P$ and $P^*$ are consistent, since their mean-squared errors go to zero as $n\rightarrow  \infty$. For different values of $\pi$ and $n$, however, the two estimators will have different MSE. Parts (d) and (e) of this question simply ask you to plug in various values and compare.
+\question James is running a polling operation. He interviews 1,000 people and asks who they are voting for in the upcoming election (for simplicity, assume only two candidates). Assume each interview is an iid draw from the voting population and the share of the population voting for Hillary Clinton is $\mu$, with a variance of $\sigma^2$.
+\begin{parts}
+\part Is the sample share of Hillary Clinton voters (percent of voters polled that said they would vote for Hillary Clinton) an unbiased estimator of the true $\mu$?
+\begin{solution}
+Yes. We can think of each interview as being either a 1 if the voter is a Hillary Clinton supporter or a 0 if they are a Donald Trump supporter. Then, the sample share is $\bar{X} = \frac{1}{1000} \sum_{i = 1}^{1000} X_i$. To see whether this is biased or not, we look at the expectation $E[\bar{X}] = E[\frac{1}{1000} \sum_{i = 1}^{1000} X_i] = \frac{1}{1000} \sum_{i = 1}^{1000} E[X_i] = \mu$. Hence, this is an unbiased estimator of the true share of the population that will vote for Hillary Clinton, $\mu$
+\end{solution}
+\part What is the variance of this estimate?
+\begin{solution}
+The variance can be computed as 
+$$
+Var \left(\frac{1}{1000} \sum_{i = 1}^{1000} X_i \right) = \frac{1}{1000^2} \sum_{i = 1}^{1000} Var(X_i) = \frac{\sigma^2}{1000}
+$$
+\end{solution}
 
-    
-    \end{solution}
-  \item[]
-    \begin{solution}
-    \textbf{7-18}\\
-    The point of this question is non-response bias: the people who respond are not representative of the population as a whole. Note that $P$ and $P^*$ as defined in this question \emph{do not correspond} to question 7-13. Our goal is to estimate the population proportion who will buy a computer. Using the table, we calculate the total number of people who will buy a computer as:
-  $$0.2 \times 40 + 0.04\times 5 + 0.1\times 3 + 0.2\times 2 = 1.7 \mbox{ million}$$
-which corresponds to a fraction $\pi^* = 1.7/50 = 0.034$. Again using the table, the number of people who will buy a computer \emph{among the sub-population who would respond} can be calculated as:
-	$$0.2 \times 7 + 0.04\times 1 + 0.1\times 1 + 0.2\times 1 =  0.48 \mbox{ million}$$
-which corresponds to a fraction $\pi = 0.48/10 = 0.048$. The point is that $\pi \neq \pi^*$. In other words, the proportion of people who would buy a computer \emph{differs} across people who would and would not respond to the phone survey. The estimator $P$ is based on calling 1000 people chosen at random and recording responses for \emph{only those who reply}. The proportion of people who will reply is $10/50 = 1/5$. Thus, $P$ will end up with a sample size of approximately $n=200$ individuals. These individuals correspond to the sub-population for which the proportion who would buy a computer is $\pi^* = 0.048$. In contrast, the estimator $P^*$ is based on calling $n^* = 100$ people chosen at random and then following up with these people repeatedly until \emph{all of them respond}. Thus, $P^*$ draws from the \emph{full population}, in which a proportion $\pi^* = 0.034$ of people will buy a computer. The \emph{true parameter} is $\pi^*$ since we want to estimate the \emph{overall} fraction of people who will buy a computer, \emph{not} the fraction of people who would buy a computer among those who are likely to respond to a telephone survey. Hence bias is calculated \emph{relative to} $\pi^*$. Variance is calculated \emph{relative to the mean of each sampling distribution}. For $P$ this mean is $\pi$ while for $P^*$ it is $\pi^*$. That is:
-	\begin{eqnarray*}
-		MSE(P) &=& \mbox{Bias}(P)^2 + Var(P) = (E[P] - \pi^*)^2 + E[(P - \pi)^2]\\
-		&=& (\pi - \pi^*)^2 + E[(P - \pi)^2]\\
-		&=&  (\pi - \pi^*)^2 + \pi(1-\pi)/n\\
-		MSE(P^*)	&=& \mbox{Bias}(P^*)^2 + Var(P^*) = (\pi^* - \pi^*)^2 + E[(P^* - \pi^*)^2]\\
-			&=& E[(P^* - \pi^*)^2] = \pi^*(1-\pi^*)/n^*
-	\end{eqnarray*}
-The estimator $P^*$ does not have any bias because of the follow-ups to ensure that everyone in the original random sample responds. However, since it is based on a smaller sample, we would expect it to have a higher variance. The question is how this trade-off comes out in the expressions for MSE. To find out, we simply plug in the values $\pi^* = 0.034$, $\pi = 0.048$, $n =200$ and $n^* = 100$. We find $MSE(P^*) \approx 0.000328$ and $MSE(P) \approx 0.000424$.
-    \end{solution}
-  \item[]
-    \begin{solution}
-    \textbf{7-19} \emph{THE ANSWER IN THE BOOK IS WRONG!} 
+\part James decides to only report the results of the first person he interviews and ignore the other 999 people he interviews (so his estimator is $X = X_1$). Is this an unbiased estimator of the true population share $\mu$?
+\begin{solution}
+Yes! Taking expectations, we get $E[X] = E[X_1] = \mu$. While this seems like a silly way to do polling, it is still an unbiased estimator!
+\end{solution}
 
-\noindent Specifically, they take $n=100$ rather than $n = 200$ when calculating the variance of $P$. The reason this is wrong is because 1000 is the number of people \emph{called} not the number of people who \emph{reply}. The question statement specifically states that $P$ should be calculated relative to  those who respond.
+\part What is the variance of this new estimator?
+\begin{solution}
+It is simply $Var(X) = Var(X_1) = \sigma^2$
+\end{solution}
 
-All we have to do in this question is take the square root of the answers from the previous question. We find that $RMSE(P^*) \approx 0.018$ and $RMSE(P) \approx 0.021$. These are the root mean squared errors for estimators of the population \emph{proportion}. To answer the question for estimators of \emph{market size}, i.e.\ the population proportion multiplied by the size of the market (50 million), we simply multiply each of the RMSE values by 50 million yielding values of approximately 900,000 and 1,000,000 respectively.
+\part Is the first estimator consistent? What about the second?
+\begin{solution}
+Recall that we are interested in MSE consistency, which means that 
+$$
+\lim_{n \rightarrow \infty} MSE(\hat{\theta_n}) = 0
+$$
+We know that $MSE = variance + bias^2$ and we established that both estimators are unbiased, so we only have to examine how their variance behaves as $n \rightarrow \infty$. The variance of the first estimator is $\frac{\sigma^2}{n}$ while for the second estimator it is $\sigma$. Hence, only the first estimator estimator is consistent since its MSE error goes to 0 in the limit while the second estimator does not.
+\end{solution}
 
-    \end{solution}
-\end{questions}
+\part Which estimator do you prefer? Why?
+\begin{solution}
+I would prefer the first estimator because even though both estimators are unbiased, the first has a smaller variance and is hence, more \textit{efficient} than the second one. This means we can be more confident that the resulting estimate is somewhere close to the actual truth while the estimator with the higher variance could be farther off (and most definitely will be).
+\end{solution}
 
-\section*{Part II -- Additional Problems}
-\begin{questions}
-	
-\question In this question you will replicate some of the density plots from Lecture 13.
+\end{parts}
+
+\question In this question you will replicate some of the density plots of normal, t-, F-, and chi-squared distributions. Feel free to experiment with the parameters and see how the different distributions behave!
 \begin{parts}
 	\part Plot a standard normal pdf on the same graph as a $t(1)$ pdf on the interval $[-5, 5]$. How do the pdfs compare? Explain.
 \begin{solution}
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlstd{x} \hlkwb{<-} \hlkwd{seq}\hlstd{(}\hlkwc{from} \hlstd{=} \hlopt{-}\hlnum{5}\hlstd{,} \hlkwc{to} \hlstd{=} \hlnum{5}\hlstd{,} \hlkwc{by} \hlstd{=} \hlnum{0.01}\hlstd{)}
-\hlstd{y1} \hlkwb{<-} \hlkwd{dnorm}\hlstd{(x)}
-\hlstd{y2} \hlkwb{<-} \hlkwd{dt}\hlstd{(x,} \hlkwc{df} \hlstd{=} \hlnum{1}\hlstd{)}
-\hlstd{y} \hlkwb{<-} \hlkwd{cbind}\hlstd{(y1, y2)}
-\hlkwd{matplot}\hlstd{(x, y,} \hlkwc{lty} \hlstd{=} \hlnum{1}\hlstd{,} \hlkwc{type} \hlstd{=} \hlstr{'l'}\hlstd{,} \hlkwc{ylab} \hlstd{=} \hlstr{'f(x)'}\hlstd{)}
-\end{alltt}
-\end{kframe}
+\begin{verbatim}
+library(plotly)
+x <- seq(from = -5, to = 5, by = 0.01)
+normal <- dnorm(x)
+tdist1 <- dt(x, df = 1)
+plot_ly(x = x, y = normal, type = "scatter", mode = "lines") 
+%>% add_trace(x = x, y = tdist1, type = "scatter")
+\end{verbatim}
 
-{\centering \includegraphics[width=\maxwidth]{figure/unnamed-chunk-4-1} 
-
-}
-
-
-
-\end{knitrout}
 The $t(1)$ has much fatter tails than the normal: it's much more spread out. Although both are centered at zero, the $t$ is much more likely to take on very large postive or negative values.
 \end{solution}
 	\part Plot a standard normal pdf on the same graph as a $t(100)$ pdf on the interval $[-5,5]$. How do the pdfs compare? Explain.
 \begin{solution}
 Carrying on from the code in the previous part:
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlstd{y3} \hlkwb{<-} \hlkwd{dt}\hlstd{(x,} \hlkwc{df} \hlstd{=} \hlnum{100}\hlstd{)}
-\hlstd{y} \hlkwb{<-} \hlkwd{cbind}\hlstd{(y1, y3)}
-\hlkwd{matplot}\hlstd{(x, y,} \hlkwc{lty} \hlstd{=} \hlnum{1}\hlstd{,} \hlkwc{type} \hlstd{=} \hlstr{'l'}\hlstd{,} \hlkwc{ylab} \hlstd{=} \hlstr{'f(x)'}\hlstd{)}
-\end{alltt}
-\end{kframe}
+\begin{verbatim}
+tdist100 <- dt(x, df = 100)
+plot_ly(x = x, y = normal, type = "scatter", mode = "lines") 
+	%>% add_trace(x = x, y = tdist100, type = "scatter")
+\end{verbatim}
 
-{\centering \includegraphics[width=\maxwidth]{figure/unnamed-chunk-5-1} 
-
-}
-
-
-
-\end{knitrout}
 The two plots overlap almost perfectly: it looks like we've only plotted one curve! This is because the $t$ distribution gets closer and closer to the standard normal as its degrees of freedom increase.
 \end{solution}
 	\part Plot a $\chi^2$ pdf with degrees of freedom equal to 4 on the interval $[0,20].$
 \begin{solution}
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlstd{x} \hlkwb{<-} \hlkwd{seq}\hlstd{(}\hlkwc{from} \hlstd{=} \hlnum{0}\hlstd{,} \hlkwc{to} \hlstd{=} \hlnum{20}\hlstd{,} \hlkwc{by} \hlstd{=} \hlnum{0.01}\hlstd{)}
-\hlstd{y} \hlkwb{<-} \hlkwd{dchisq}\hlstd{(x,} \hlkwc{df} \hlstd{=} \hlnum{4}\hlstd{)}
-\hlkwd{plot}\hlstd{(x, y,} \hlkwc{type} \hlstd{=} \hlstr{'l'}\hlstd{,} \hlkwc{ylab} \hlstd{=} \hlstr{'f(x)'}\hlstd{)}
-\end{alltt}
-\end{kframe}
-
-{\centering \includegraphics[width=\maxwidth]{figure/unnamed-chunk-6-1} 
-
-}
-
-
-
-\end{knitrout}
+\begin{verbatim}
+x <- seq(from = 0, to = 20, by = 0.01)
+y <- dchisq(x, df = 4)
+plot_ly(x = x, y = y, type = "scatter", mode = "lines")
+\end{verbatim}
 \end{solution}
 	\part Plot an $F$ pdf with numerator degrees of freedom equal to 4 and denominator degrees of freedom equal to 40 on the interval $[0,5]$.
 \begin{solution}
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlstd{x} \hlkwb{<-} \hlkwd{seq}\hlstd{(}\hlkwc{from} \hlstd{=} \hlnum{0}\hlstd{,} \hlkwc{to} \hlstd{=} \hlnum{5}\hlstd{,} \hlkwc{by} \hlstd{=} \hlnum{0.01}\hlstd{)}
-\hlstd{y} \hlkwb{<-} \hlkwd{df}\hlstd{(x,} \hlkwc{df1} \hlstd{=} \hlnum{4}\hlstd{,} \hlkwc{df2} \hlstd{=} \hlnum{40}\hlstd{)}
-\hlkwd{plot}\hlstd{(x, y,} \hlkwc{type} \hlstd{=} \hlstr{'l'}\hlstd{,} \hlkwc{ylab} \hlstd{=} \hlstr{'f(x)'}\hlstd{)}
-\end{alltt}
-\end{kframe}
-
-{\centering \includegraphics[width=\maxwidth]{figure/unnamed-chunk-7-1} 
-
-}
-
-
-
-\end{knitrout}
+\begin{verbatim}
+x <- seq(from = 0, to = 5, by = 0.01)
+y <- df(x, df1 = 4, df2 = 40)
+plot_ly(x = x, y = y, type = "scatter", mode = "lines")
+\end{verbatim}
 \end{solution}
 \end{parts}
 
@@ -242,350 +122,74 @@ The two plots overlap almost perfectly: it looks like we've only plotted one cur
 	\begin{parts}
 		\part Draw 100000 iid observations from a standard normal distribution and store your results in a vector called \texttt{sims}.
 \begin{solution}
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlstd{sims} \hlkwb{<-} \hlkwd{rnorm}\hlstd{(}\hlnum{100000}\hlstd{)}
-\end{alltt}
-\end{kframe}
-\end{knitrout}
+\begin{verbatim}
+sims <- rnorm(100000)
+\end{verbatim}
 \end{solution}
 		\part What proportion of the observations in \texttt{sims} lie in the range $[-1,1]$?
 \begin{solution}
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlkwd{sum}\hlstd{((sims} \hlopt{>= -}\hlnum{1}\hlstd{)} \hlopt{&} \hlstd{(sims} \hlopt{<=} \hlnum{1}\hlstd{))}\hlopt{/}\hlkwd{length}\hlstd{(sims)}
-\end{alltt}
 \begin{verbatim}
-## [1] 0.68126
+sum((sims >= -1) & (sims <= 1))/length(sims)
 \end{verbatim}
-\end{kframe}
-\end{knitrout}
 \end{solution}
 		\part What proportion of the observations in \texttt{sims} lie in the range $[-2,2]$?
 \begin{solution}
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlkwd{sum}\hlstd{((sims} \hlopt{>= -}\hlnum{2}\hlstd{)} \hlopt{&} \hlstd{(sims} \hlopt{<=} \hlnum{2}\hlstd{))}\hlopt{/}\hlkwd{length}\hlstd{(sims)}
-\end{alltt}
 \begin{verbatim}
-## [1] 0.9552
+sum((sims >= -2) & (sims <= 2))/length(sims)
 \end{verbatim}
-\end{kframe}
-\end{knitrout}
 \end{solution}
 		\part What proportion of the observations in \texttt{sims} lie in the range $[-3,3]$?
 \begin{solution}
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlkwd{sum}\hlstd{((sims} \hlopt{>= -}\hlnum{3}\hlstd{)} \hlopt{&} \hlstd{(sims} \hlopt{<=} \hlnum{3}\hlstd{))}\hlopt{/}\hlkwd{length}\hlstd{(sims)}
-\end{alltt}
 \begin{verbatim}
-## [1] 0.99739
+sum((sims >= -3) & (sims <= 3))/length(sims)
 \end{verbatim}
-\end{kframe}
-\end{knitrout}
 \end{solution}
 		\part Use \texttt{pnorm} to calculate the exact probabilities for a standard normal pdf that correspond to the above simulation experiments. How accurate were your simulations?
 \begin{solution}
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlkwd{pnorm}\hlstd{(}\hlnum{1}\hlstd{)} \hlopt{-} \hlkwd{pnorm}\hlstd{(}\hlopt{-}\hlnum{1}\hlstd{)}
-\end{alltt}
 \begin{verbatim}
-## [1] 0.6826895
+pnorm(1) - pnorm(-1)
+pnorm(2) - pnorm(-2)
+pnorm(3) - pnorm(-3)
 \end{verbatim}
-\begin{alltt}
-\hlkwd{pnorm}\hlstd{(}\hlnum{2}\hlstd{)} \hlopt{-} \hlkwd{pnorm}\hlstd{(}\hlopt{-}\hlnum{2}\hlstd{)}
-\end{alltt}
-\begin{verbatim}
-## [1] 0.9544997
-\end{verbatim}
-\begin{alltt}
-\hlkwd{pnorm}\hlstd{(}\hlnum{3}\hlstd{)} \hlopt{-} \hlkwd{pnorm}\hlstd{(}\hlopt{-}\hlnum{3}\hlstd{)}
-\end{alltt}
-\begin{verbatim}
-## [1] 0.9973002
-\end{verbatim}
-\end{kframe}
-\end{knitrout}
 \end{solution}
 	\end{parts}
 
-\question  In this question you will replicate the Monte Carlo Experiment from Lecture 14. In particular, you will use R to study the sampling distribution of the sample mean where we take as our population the heights of all students in Econ 103.
-	\begin{parts}
-		\part Load the class survey data used in R Tutorial \# 2, extract the height column and assign it to a variable called \texttt{height}. Use \texttt{!is.na} to remove all missing values from \texttt{height}.
-\begin{solution}
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlstd{data.url} \hlkwb{<-} \hlstr{"http://www.ditraglia.com/econ103/old_survey.csv"}
-\hlstd{survey} \hlkwb{<-} \hlkwd{read.csv}\hlstd{(data.url)}
-\hlstd{height} \hlkwb{<-} \hlstd{survey}\hlopt{$}\hlstd{height}
-\hlstd{height} \hlkwb{<-} \hlstd{height[}\hlopt{!}\hlkwd{is.na}\hlstd{(height)]}
-\end{alltt}
-\end{kframe}
-\end{knitrout}
-\end{solution}
-  \part Make a histogram of height and calculate the mean height for students in the class. For the purposes of this exercise, these correspond to the \emph{population}.
-\begin{solution}
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlkwd{hist}\hlstd{(height,} \hlkwc{main} \hlstd{=} \hlstr{'Population - All Econ 103 Students'}\hlstd{,}
-     \hlkwc{xlab} \hlstd{=} \hlstr{'Height in Inches'}\hlstd{)}
-\end{alltt}
-\end{kframe}
-
-{\centering \includegraphics[width=\maxwidth]{figure/unnamed-chunk-14-1} 
-
-}
-
-
-\begin{kframe}\begin{alltt}
-\hlkwd{mean}\hlstd{(height)}
-\end{alltt}
-\begin{verbatim}
-## [1] 67.54545
-\end{verbatim}
-\end{kframe}
-\end{knitrout}
-\end{solution}
-  \part Write a function that takes $n$ as its only input and returns the sample mean of an iid random sample of size n drawn from the vector \texttt{height}. Call this function \texttt{x.bar.draw}. [Hint: use \texttt{sample} with \texttt{replace = TRUE}.]
-\begin{solution}
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlstd{x.bar.draw} \hlkwb{<-} \hlkwa{function}\hlstd{(}\hlkwc{n}\hlstd{)\{}
-
-  \hlstd{sim} \hlkwb{<-} \hlkwd{sample}\hlstd{(height,} \hlkwc{size} \hlstd{= n,} \hlkwc{replace} \hlstd{=} \hlnum{TRUE}\hlstd{)}
-  \hlkwd{return}\hlstd{(}\hlkwd{mean}\hlstd{(sim))}
-
-\hlstd{\}}\hlcom{#END x.bar.draw}
-\end{alltt}
-\end{kframe}
-\end{knitrout}
-\end{solution}
-  \part Test the function you wrote for part 4 by running it with \texttt{n = 10000}. What value do you get? Your answer should be approximately equal the population mean you calculated above. If it isn't, something is wrong with your code.
-\begin{solution}
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlkwd{x.bar.draw}\hlstd{(}\hlnum{10000}\hlstd{)}
-\end{alltt}
-\begin{verbatim}
-## [1] 67.5624
-\end{verbatim}
-\end{kframe}
-\end{knitrout}
-\end{solution}
-  \part Using the R function \texttt{replicate}, run your function \texttt{x.bar.draw} 10000 times with $n = 5$. Store the result in a vector called \texttt{x.bar.5}. Do the same for $n = 10, 20$ and $50$ and store the results as vectors \texttt{x.bar.10}, \texttt{x.bar.20} and \texttt{x.bar.50}
-\begin{solution}
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlstd{x.bar.5} \hlkwb{<-} \hlkwd{replicate}\hlstd{(}\hlnum{10000}\hlstd{,} \hlkwd{x.bar.draw}\hlstd{(}\hlnum{5}\hlstd{))}
-\hlstd{x.bar.10} \hlkwb{<-} \hlkwd{replicate}\hlstd{(}\hlnum{10000}\hlstd{,} \hlkwd{x.bar.draw}\hlstd{(}\hlnum{10}\hlstd{))}
-\hlstd{x.bar.20} \hlkwb{<-} \hlkwd{replicate}\hlstd{(}\hlnum{10000}\hlstd{,} \hlkwd{x.bar.draw}\hlstd{(}\hlnum{20}\hlstd{))}
-\hlstd{x.bar.50} \hlkwb{<-} \hlkwd{replicate}\hlstd{(}\hlnum{10000}\hlstd{,} \hlkwd{x.bar.draw}\hlstd{(}\hlnum{50}\hlstd{))}
-\end{alltt}
-\end{kframe}
-\end{knitrout}
-\end{solution}
-  \part Calculate the mean and variance of \texttt{x.bar.5},\texttt{x.bar.10}, \texttt{x.bar.20} and \texttt{x.bar.50} and plot a histogram of each, being sure to label them.
-\begin{solution}
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlkwd{mean}\hlstd{(x.bar.5)}
-\end{alltt}
-\begin{verbatim}
-## [1] 67.53742
-\end{verbatim}
-\begin{alltt}
-\hlkwd{mean}\hlstd{(x.bar.10)}
-\end{alltt}
-\begin{verbatim}
-## [1] 67.52975
-\end{verbatim}
-\begin{alltt}
-\hlkwd{mean}\hlstd{(x.bar.20)}
-\end{alltt}
-\begin{verbatim}
-## [1] 67.53301
-\end{verbatim}
-\begin{alltt}
-\hlkwd{mean}\hlstd{(x.bar.50)}
-\end{alltt}
-\begin{verbatim}
-## [1] 67.54734
-\end{verbatim}
-\begin{alltt}
-\hlkwd{hist}\hlstd{(x.bar.5)}
-\end{alltt}
-\end{kframe}
-
-{\centering \includegraphics[width=\maxwidth]{figure/unnamed-chunk-18-1} 
-
-}
-
-
-\begin{kframe}\begin{alltt}
-\hlkwd{hist}\hlstd{(x.bar.10)}
-\end{alltt}
-\end{kframe}
-
-{\centering \includegraphics[width=\maxwidth]{figure/unnamed-chunk-18-2} 
-
-}
-
-
-\begin{kframe}\begin{alltt}
-\hlkwd{hist}\hlstd{(x.bar.20)}
-\end{alltt}
-\end{kframe}
-
-{\centering \includegraphics[width=\maxwidth]{figure/unnamed-chunk-18-3} 
-
-}
-
-
-\begin{kframe}\begin{alltt}
-\hlkwd{hist}\hlstd{(x.bar.50)}
-\end{alltt}
-\end{kframe}
-
-{\centering \includegraphics[width=\maxwidth]{figure/unnamed-chunk-18-4} 
-
-}
-
-
-\begin{kframe}\begin{alltt}
-\hlkwd{var}\hlstd{(x.bar.5)}
-\end{alltt}
-\begin{verbatim}
-## [1] 3.961876
-\end{verbatim}
-\begin{alltt}
-\hlkwd{var}\hlstd{(x.bar.10)}
-\end{alltt}
-\begin{verbatim}
-## [1] 1.898782
-\end{verbatim}
-\begin{alltt}
-\hlkwd{var}\hlstd{(x.bar.20)}
-\end{alltt}
-\begin{verbatim}
-## [1] 0.9595143
-\end{verbatim}
-\begin{alltt}
-\hlkwd{var}\hlstd{(x.bar.50)}
-\end{alltt}
-\begin{verbatim}
-## [1] 0.3818701
-\end{verbatim}
-\end{kframe}
-\end{knitrout}
-\end{solution}
-	\end{parts}
-\question In this question you will replicate the Law of Large Numbers (LLN) visualization from lecture 15, in which we plotted ``running'' sample means as we kept adding more and more simulations from a $N(\mu = 0, \sigma^2 = 100)$ distribution. Your plot won't look exactly like the one from class since this is a random experiment, but it will show the same qualitative behavior.
+\question In this question you will replicate the Law of Large Numbers (LLN) visualization from lecture, in which we plotted ``running'' sample means as we kept adding more and more simulations from a $N(\mu = 0, \sigma^2 = 100)$ distribution. Your plot won't look exactly like the one from class since this is a random experiment, but it will show the same qualitative behavior.
     \begin{parts}
     \part The R command for a ``running'' or ``cumulative'' sum is \texttt{cumsum}. Look at the help file for this command and test it out on a vector of ten ones and another containing the integers from one to ten to make sure you understand what it does.
 \begin{solution}
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlstd{ones} \hlkwb{<-} \hlkwd{rep}\hlstd{(}\hlnum{1}\hlstd{,} \hlnum{10}\hlstd{)}
-\hlstd{ones}
-\end{alltt}
 \begin{verbatim}
-##  [1] 1 1 1 1 1 1 1 1 1 1
+ones <- rep(1, 10)
+ones
+cumsum(ones)
+cumsum(1:10)
 \end{verbatim}
-\begin{alltt}
-\hlkwd{cumsum}\hlstd{(ones)}
-\end{alltt}
-\begin{verbatim}
-##  [1]  1  2  3  4  5  6  7  8  9 10
-\end{verbatim}
-\begin{alltt}
-\hlkwd{cumsum}\hlstd{(}\hlnum{1}\hlopt{:}\hlnum{10}\hlstd{)}
-\end{alltt}
-\begin{verbatim}
-##  [1]  1  3  6 10 15 21 28 36 45 55
-\end{verbatim}
-\end{kframe}
-\end{knitrout}
 \end{solution}
-    \part Replicate the plot on slide 30/35 of lecture 15. First you'll need to draw 10,000 iid samples from a $N(\mu = 0, \sigma^2 = 100)$ distribution. Then you'll need to calculate the running means. You'll need to figure out how \texttt{cumsum} can be used to accomplish this. Finally, plot your results along with a dashed red line at the value to which the sample mean is converging. Make sure to label your axes.
+    \part Replicate the plot from the end of the lecture. First you'll need to draw 10,000 iid samples from a $N(\mu = 0, \sigma^2 = 100)$ distribution. Then you'll need to calculate the running means. You'll need to figure out how \texttt{cumsum} can be used to accomplish this. Finally, plot your results along with a dashed red line at the value to which the sample mean is converging. Make sure to label your axes.
 \begin{solution}
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlstd{n} \hlkwb{<-} \hlnum{10000}
-\hlstd{sims} \hlkwb{<-} \hlkwd{rnorm}\hlstd{(n,} \hlkwc{mean} \hlstd{=} \hlnum{0}\hlstd{,} \hlkwc{sd} \hlstd{=} \hlnum{10}\hlstd{)}
-\hlstd{running.mean} \hlkwb{<-} \hlkwd{cumsum}\hlstd{(sims)}\hlopt{/}\hlstd{(}\hlnum{1}\hlopt{:}\hlstd{n)}
-\hlkwd{plot}\hlstd{(}\hlnum{1}\hlopt{:}\hlstd{n, running.mean,} \hlkwc{type} \hlstd{=} \hlstr{'l'}\hlstd{,} \hlkwc{xlab} \hlstd{=} \hlstr{'n'}\hlstd{,} \hlkwc{ylab} \hlstd{=} \hlstr{'Sample Mean'}\hlstd{)}
-\hlkwd{abline}\hlstd{(}\hlkwc{h} \hlstd{=} \hlnum{0}\hlstd{,} \hlkwc{col} \hlstd{=} \hlstr{"red"}\hlstd{,} \hlkwc{lty} \hlstd{=} \hlnum{2}\hlstd{)}
-\end{alltt}
-\end{kframe}
-
-{\centering \includegraphics[width=\maxwidth]{figure/unnamed-chunk-20-1} 
-
-}
-
-
-
-\end{knitrout}
+\begin{verbatim}
+n <- 10000
+sims <- rnorm(n, mean = 0, sd = 10)
+running.mean <- cumsum(sims)/(1:n)
+plot_ly(x = 1:n, y = running.mean, type = "scatter", mode = "lines")
+\end{verbatim}
 \end{solution}
     \part Repeat the previous part but, rather than drawing $N(\mu = 0, \sigma^2 = 100)$ simulations, draw from a Student-t distribution with one degree of freedom. How do your results differ? Use what you know about the Student-t distribution to guess why our proof that the sample mean is consistent for the population mean doesn't work here.
   \begin{solution}
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlstd{n} \hlkwb{<-} \hlnum{10000}
-\hlstd{sims} \hlkwb{<-} \hlkwd{rt}\hlstd{(n,} \hlkwc{df} \hlstd{=} \hlnum{1}\hlstd{)}
-\hlstd{running.mean} \hlkwb{<-} \hlkwd{cumsum}\hlstd{(sims)}\hlopt{/}\hlstd{(}\hlnum{1}\hlopt{:}\hlstd{n)}
-\hlkwd{plot}\hlstd{(}\hlnum{1}\hlopt{:}\hlstd{n, running.mean,} \hlkwc{type} \hlstd{=} \hlstr{'l'}\hlstd{,} \hlkwc{xlab} \hlstd{=} \hlstr{'n'}\hlstd{,} \hlkwc{ylab} \hlstd{=} \hlstr{'Sample Mean'}\hlstd{)}
-\hlkwd{abline}\hlstd{(}\hlkwc{h} \hlstd{=} \hlnum{0}\hlstd{,} \hlkwc{col} \hlstd{=} \hlstr{"red"}\hlstd{,} \hlkwc{lty} \hlstd{=} \hlnum{2}\hlstd{)}
-\end{alltt}
-\end{kframe}
-
-{\centering \includegraphics[width=\maxwidth]{figure/unnamed-chunk-21-1} 
-
-}
-
-
-
-\end{knitrout}
+\begin{verbatim}
+n <- 10000
+sims <- rt(n, df = 1)
+running.mean <- cumsum(sims)/(1:n)
+plot_ly(x = 1:n, y = running.mean, type = "scatter", mode = "lines")
+\end{verbatim}
 This plot looks totally different from the previous one: the ``running means'' never settle down in this case. To prove that the sample mean is consistent for the population mean, we tacitly assumed that both the mean and variance of $X_i$ exist and are finite. (Remember that both quantities are defined as improper integrals, so they could diverge or may be undefined.) It turns out that the Student-t distribution with one degree of freedom has an \emph{infinite variance and a mean that does not exist}. Essentially its mean is $\infty - \infty$ which does \emph{not} equal zero: it's simply undefined. To get the LLN to work for a Student-t, we need a finite mean and variance. Both conditions turn out to hold as long as the degrees of freedom are $\geq 3$. For example:
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlstd{n} \hlkwb{<-} \hlnum{10000}
-\hlstd{sims} \hlkwb{<-} \hlkwd{rt}\hlstd{(n,} \hlkwc{df} \hlstd{=} \hlnum{3}\hlstd{)}
-\hlstd{running.mean} \hlkwb{<-} \hlkwd{cumsum}\hlstd{(sims)}\hlopt{/}\hlstd{(}\hlnum{1}\hlopt{:}\hlstd{n)}
-\hlkwd{plot}\hlstd{(}\hlnum{1}\hlopt{:}\hlstd{n, running.mean,} \hlkwc{type} \hlstd{=} \hlstr{'l'}\hlstd{,} \hlkwc{xlab} \hlstd{=} \hlstr{'n'}\hlstd{,} \hlkwc{ylab} \hlstd{=} \hlstr{'Sample Mean'}\hlstd{)}
-\hlkwd{abline}\hlstd{(}\hlkwc{h} \hlstd{=} \hlnum{0}\hlstd{,} \hlkwc{col} \hlstd{=} \hlstr{"red"}\hlstd{,} \hlkwc{lty} \hlstd{=} \hlnum{2}\hlstd{)}
-\end{alltt}
-\end{kframe}
-
-{\centering \includegraphics[width=\maxwidth]{figure/unnamed-chunk-22-1} 
-
-}
-
-
-
-\end{knitrout}
+\begin{verbatim}
+n <- 10000
+sims <- rt(n, df = 3)
+running.mean <- cumsum(sims)/(1:n)
+plot_ly(x = 1:n, y = running.mean, type = "scatter", mode = "lines")
+\end{verbatim}
   \end{solution}
     \end{parts}
-
-\end{questions}
-
-
-
-
+    \end{questions}
 \end{document}
