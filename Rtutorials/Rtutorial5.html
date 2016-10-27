@@ -94,6 +94,7 @@ button.code-folding-btn:focus {
 </style>
 
 
+
 <div class="container-fluid main-container">
 
 <!-- tabsets -->
@@ -221,13 +222,13 @@ matplot(x, y, type = 'l', col = c(&quot;red&quot;, &quot;blue&quot;), lty = c(1,
 <h3><code>rbinom</code> - Simulate Binomial Draws</h3>
 <p>This function takes 3 arguments: <code>n</code> is the number of random draws we want, <code>size</code> is what we call n in class, namely the underlying number of Bernoulli trials (coin flips) that we’re adding together to create the Binomial RV, and <code>prob</code> is <span class="math inline">\(p\)</span> from class. So, to get 20 draws from a Binomial<span class="math inline">\((n=10, p = 1/2)\)</span> random variable, I would use the following command:</p>
 <pre class="r"><code>rbinom(20, size = 10, prob = 1/2)</code></pre>
-<pre><code>##  [1] 2 5 5 4 5 4 6 3 5 3 3 3 9 6 7 3 4 2 3 7</code></pre>
+<pre><code>##  [1] 6 6 5 6 4 6 5 5 9 6 8 3 5 8 4 6 2 5 5 4</code></pre>
 <p>Remember, the support of this random variable is <span class="math inline">\(\{0, 1, 2, ..., 10\}\)</span> so each draw is a number between 0 and 10. In class we learned that the mean of a Binomial RV is <span class="math inline">\(np\)</span> while the variance is <span class="math inline">\(np(1-p)\)</span>. We can check this for particular examples using Monte Carlo Simulation. For this example, we don’t need <code>replicate</code> ***</p>
 <pre class="r"><code>sims &lt;- rbinom(100000, size = 10, prob = 1/2)
 mean(sims) - (10 * 1/2)</code></pre>
-<pre><code>## [1] -0.00301</code></pre>
+<pre><code>## [1] 0.00503</code></pre>
 <pre class="r"><code>var(sims) - (10 * 1/2 * 1/2)</code></pre>
-<pre><code>## [1] 0.01840612</code></pre>
+<pre><code>## [1] -0.0008303092</code></pre>
 <hr />
 </div>
 <div id="exercise-5" class="section level3">
@@ -330,6 +331,7 @@ plot(x, y, ylab = 'F(x)')</code></pre>
 $(document).ready(function () {
   $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
 });
+
 
 </script>
 
