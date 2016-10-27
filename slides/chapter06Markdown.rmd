@@ -1,0 +1,21 @@
+---
+title: "Econ 103: Statistics for Economists"
+subtitle: Chapter 6 and 7 -- Sampling and Bias
+author: Mallick Hossain
+header-includes: 
+  - \usetheme[numbering = fraction, progressbar = none, background = light, sectionpage = progressbar]{metropolis}
+  - \usepackage{amsmath}
+date: 
+fontsize: 10pt
+output:
+  beamer_presentation:
+  # keep_tex: true
+  # toc: true
+  slide_level: 3
+---
+
+# Motivation
+### Recall
+
+1. Sampling Error
+  - *Random* differences between sample and population
