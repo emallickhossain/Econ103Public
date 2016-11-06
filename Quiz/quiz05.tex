@@ -1,0 +1,117 @@
+%\documentclass[handout]{beamer}
+\documentclass{beamer}
+ 
+\usetheme[numbering = fraction, progressbar = none, background = light, sectionpage = progressbar]{metropolis}
+\usepackage{amsmath}
+\usepackage{synttree}
+\usepackage{tabu}
+\usepackage{graphicx}
+
+\title{Continuous RVs Review Quiz}
+\author{Mallick Hossain}
+\date{}
+\institute{University of Pennsylvania}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+	\titlepage 
+\end{frame} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Class Logistics}
+    \begin{enumerate}[<+- | alert@+>]
+        \item Have you gathered the data for your R project?
+        \begin{itemize}
+	        	\item The correct answer is ``Yes''
+        \end{itemize}
+        \item Have you compiled summary statistics of your data?
+   			\begin{itemize}
+        		\item The correct answer is ``Yes,'' but I will also accept ``I'm working on it.''
+        		\item Feel free to submit your summary stats or other questions over the next few weeks to ensure that you are on the right track!
+        \end{itemize}
+        \item Will the class be curved? How does the curve work?
+        \begin{itemize}
+        	\item I do not plan on curving the course. My goal is to prepare everyone for Econ 104 and give you a strong statistical background and I want your grade to help you assess that as opposed to your performance relative to your peers.
+        \end{itemize}
+       \item When is the next midterm?
+       	\begin{itemize}
+       		\item 2 weeks 
+       	\end{itemize}
+    \end{enumerate}
+\end{frame} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Class Logistics}
+\centering
+\includegraphics[scale=0.08]{scream.jpg}
+\end{frame} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Real Questions}
+    \begin{enumerate}[<+- | alert@+>]
+		\item Does the pdf tell the probability of the random variable taking a particular value?
+			\begin{itemize}
+				\item No! Individual points have zero probability for continuous random variables
+			\end{itemize}			        
+        \item What is $E[aY + b^2 X]$? $X$ and $Y$ are not independent and $X$ and $Y$ are continuous random variables.
+            \begin{itemize}
+                \item $aE[Y] + b^2 E[X]$
+            \end{itemize}
+        \item What is $Var(aX + bY)$? $X$ and $Y$ are not independent and $X$ and $Y$ are continuous random variables.
+        	\begin{itemize}
+        		\item $a^2 Var(X) + b^2 Var(Y) + 2 Cov(X, Y)$
+        	\end{itemize}
+    \end{enumerate}
+\end{frame} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Real Questions}
+    \begin{enumerate}[<+- | alert@+>]
+    \setcounter{enumi}{3}
+        \item What is the difference between the expectation of a discrete RV and a continuous RV?
+        	\begin{itemize}
+        		\item The expectation of a discrete RV $X$ is defined as $E[X] = \sum_{i = 1}^n x f(x)$ where $f(x)$ is the pmf. The expectation of a continuous RV $Y$ is defined as $E[Y] = \int_{-\infty}^\infty y f(y) dy$ where $f(y)$ is the pdf. 
+        	\end{itemize}
+    \item What are the cdf and pdf for a uniform random variable?
+    	\begin{itemize}
+    		\item PDF: $f(x) = 1$ if $x \in [0, 1]$ and 0 otherwise
+    		\item CDF: $ F(x) = \left\{ \begin{array}{l} 0, x < 0\\ x, 0\leq x \leq 1\\ 1, x > 1   \end{array}\right.$
+    	\end{itemize}
+    \end{enumerate}
+\end{frame} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Real Questions}
+    \begin{enumerate}[<+- | alert@+>]
+    \setcounter{enumi}{5}
+        \item What is the distribution of $Z = aX + bY$ if $X \sim N(\mu_X, \sigma_X^2)$ and $Y \sim N(\mu_Y, \sigma_Y^2)$ and $X$ and $Y$ are independent?
+        	\begin{itemize}
+        		\item $Z \sim N(a \mu_X + b \mu_Y, a^2 \sigma_X^2 + b^2 \sigma_Y^2)$
+        	\end{itemize}
+    \item What is the distribution of $X_1^2 + X_2^2$ if $X_i \sim \text{iid} N(0, 1)$? 
+    	\begin{itemize}
+    		\item $\chi^2(2)$
+    	\end{itemize}
+    \item What does \texttt{qnorm(0.33, mean = 1, sd = 1)} give you?
+    \begin{itemize}
+    	\item This gives you the 33rd percentile for a $N(1, 1)$ random variable.
+    \end{itemize}
+     \item Ready for the next lecture?	
+    \end{enumerate}
+\end{frame} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Real Questions}
+    \centering
+	   \includegraphics[scale = 0.5]{letsDoThis5.jpg}
+\end{frame} 
+
+\end{document}

@@ -1,0 +1,106 @@
+%\documentclass[handout]{beamer}
+\documentclass{beamer}
+ 
+\usetheme[numbering = fraction, progressbar = none, background = light, sectionpage = progressbar]{metropolis}
+\usepackage{amsmath}
+\usepackage{synttree}
+\usepackage{tabu}
+\usepackage{graphicx}
+
+\title{Lecture 2 Review Quiz}
+\author{Mallick Hossain}
+\date{}
+\institute{University of Pennsylvania}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+	\titlepage 
+\end{frame} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Class Logistics}
+    \begin{enumerate}[<+- | alert@+>]
+        \item Have you turned in your homework?
+            \begin{itemize}
+                \item The correct answer is ``Yes''
+            \end{itemize}
+        \item Have you chosen a grading scheme?
+            \begin{itemize}
+                \item The correct answer is ``Yes''
+            \end{itemize}
+    \end{enumerate}
+\end{frame} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Real Questions}
+    \begin{enumerate}[<+- | alert@+>]
+        \item What is the relationship between variance and covariance?
+            \begin{itemize}
+                \item Covariance is a general concept that includes variance. Variance is simply a random variable's covariance with itself. Recall that the formula for covariance is 
+                $$
+                Cov(X, Y) = \frac{1}{n - 1} \sum_{i = 1}^n (x_i - \bar{x})(y_i - \bar{y})
+                $$
+            \end{itemize}
+        \item What is the sum of deviations from the average for a dataset?
+        	\begin{itemize}
+        		\item Zero
+        	\end{itemize}
+        \item Why do we prefer standard deviation over variance?
+        	\begin{itemize}
+        		\item The units of standard deviation are the same as the variable. Variance is the units squared
+        	\end{itemize}
+    \end{enumerate}
+\end{frame} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Real Questions}
+    \begin{enumerate}[<+- | alert@+>]
+    \setcounter{enumi}{3}
+		\item Why do we prefer correlation over covariance?
+        	\begin{itemize}
+        		\item Correlation is unitless and normalized between -1 and 1. Covariance has units of X times units of Y.
+        	\end{itemize}
+		\item What problems do outliers cause?
+			\begin{itemize}
+				\item They affect the mean, variance, and range of our data
+			\end{itemize}
+		\item What does the z-score measure?
+			\begin{itemize}
+				\item The number of standard deviations the data is away from the mean
+			\end{itemize}    
+		\end{enumerate}
+\end{frame} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Real Questions}
+    \begin{enumerate}[<+- | alert@+>]
+    \setcounter{enumi}{6}
+		\item How do we fit a line to data using Ordinary Least Squares (OLS)?
+			\begin{itemize}
+				\item Specify a linear relationship: $y_i = a + bx_i$
+				\item Find $a$ and $b$ such that they minimize the sum of squared deviations from the line: $\min\limits_{a, b} (y_i - a - bx_i)^2$
+				\item $a = \bar{y} - b \bar{x}$
+				\item $b = \frac{\sum_{i = 1}^n (y_i - \bar{y})(x_i - \bar{x})}{\sum_{i = 1}^n (x_i - \bar{x})^2} = \frac{s_{xy}}{s_x^2}$
+			\end{itemize}
+		\item True or False? If two variables are unrelated, their correlation is zero.
+			\begin{itemize}
+				\item True. The other direction is false though.
+			\end{itemize}
+		\item Ready for the next lecture?
+		\end{enumerate}
+\end{frame} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Real Questions}
+    \centering
+	   \includegraphics[scale = 0.75]{letsDoThis2.jpg}
+\end{frame} 
+
+\end{document}

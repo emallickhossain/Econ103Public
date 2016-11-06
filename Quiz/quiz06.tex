@@ -1,0 +1,186 @@
+%\documentclass[handout]{beamer}
+\documentclass{beamer}
+ 
+\usetheme[numbering = fraction, progressbar = none, background = light, sectionpage = progressbar]{metropolis}
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\title{Sampling and Bias Review Quiz}
+\author{Mallick Hossain}
+\date{}
+\institute{University of Pennsylvania}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+	\titlepage 
+\end{frame} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Course Survey}
+       \alert{Thanks to everyone that filled out the midterm evaluation!}
+       
+       \centering
+      \only<2->{ \includegraphics[scale=0.5]{thanks.jpg}}
+\end{frame} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Course Survey Results}
+    \begin{enumerate}[<+- | alert@+>]
+        \item Strengths
+   			\begin{itemize}
+        		\item Enthusiastic and high-energy teaching style
+        		\item Comfortable and collaborative atmosphere
+        		\item Welcomes questions (``His priority is to have us learn the material'')
+        \end{itemize}
+        \item Suggested Improvements 
+        \begin{itemize}
+        	\item More examples and applications, especially sample exam questions as we go along would be great
+        	\item Discuss R in class, learning it separately is difficult without clear links to the course material
+        	\item Take up an R assignment before the R project is due to get more practice of what is expected
+        	\item Make homework due more often or have some form of weekly evaluation
+        \end{itemize}
+    \end{enumerate}
+\end{frame} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Class Logistics}
+    \begin{enumerate}[<+- | alert@+>]
+        \item Have you gathered the data for your R project?
+        \begin{itemize}
+	        	\item The correct answer is ``Yes''
+        \end{itemize}
+        \item Have you compiled summary statistics of your data?
+   			\begin{itemize}
+        		\item The correct answer is ``Yes,'' but I will also accept ``Once I figure out why R keeps giving me an error message.''
+        		\item This week's R assignment will get you started on your R project. I will take it up in two weeks.
+        \end{itemize}
+        \item How should I submit my R project?
+        \begin{itemize}
+        	\item It should be typed it either RMarkdown or \TeX. Let me know if this will pose a difficulty (but only \alert{after} you've completed the R Tutorial on RMarkdown).
+        	\item To encourage you to practice with either of these programs, I will give you 2 bonus points for submitting homework typed up in RMarkdown or \TeX. (For reference, that's about an extra 15-20\% on your homework grade)
+        \end{itemize}
+    \end{enumerate}
+\end{frame} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Midterm Questions}
+    \begin{enumerate}[<+- | alert@+>]
+       \item When is the next midterm?
+       	\begin{itemize}
+       		\item Next week
+       	\end{itemize}
+    \end{enumerate}
+\end{frame} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Class Logistics}
+\centering
+\includegraphics[scale=0.15]{scream2.jpg}
+\end{frame} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Midterm Questions}
+    \begin{enumerate}[<+- | alert@+>]
+       \item Can you hold extra office hours since the midterm is next week?
+       	\begin{itemize}
+       		\item Sure! Come by my office between 11-1 on Friday if you have questions!
+       	\end{itemize}
+       \item Post on Piazza!
+    \end{enumerate}
+\end{frame} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Class Logistics}
+\centering
+\includegraphics[scale=0.75]{happycat.jpg}
+\end{frame} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Homework Questions}
+    \begin{enumerate}[<+- | alert@+>]
+		\item How do you get the CDF from the PDF?
+			\begin{itemize}
+				\item Given a PDF $f(x)$, the CDF can be found by computing $\int_{-\infty}^{x_0} f(x) dx$
+			\end{itemize}			        
+        \item What does ``what is the distribution'' mean?
+            \begin{itemize}
+                \item This means you should completely specify the random variable that describes whatever I am asking about. Example, if $X_1$ and $X_2$ are independent standard normal RVs, what is the distribution of $X_1 + X_2$?
+                \item $X_1 + X_2 \sim N(0, 2)$
+            \end{itemize}
+        \item What are degrees of freedom?
+        	\begin{itemize}
+        		\item Roughly, it is the number of values that are allowed to vary when computing a statistic. For example, if you are computing the deviations from the mean, you have $n - 1$ degrees of freedom since they have to sum to 0. 
+        	\end{itemize}
+    \end{enumerate}
+\end{frame} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Real Questions}
+    \begin{enumerate}[<+- | alert@+>]
+		\item In real life, are surveys carried out with or without replacement? Why?
+			\begin{itemize}
+				\item Surveys are carried out without replacement (i.e. we do not call the same person twice). While this does affect the probability of each person getting chosen (since the unsampled population size changes), given a big population and a small relative sample size, the effect is negligible.
+			\end{itemize}			        
+        \item What is the difference between an estimator and an estimate?
+            \begin{itemize}
+                \item An estimator is a procedure for estimating some parameter. An estimate is the actual result of the procedure given the data. Think of an estimator as a function ($f$) while an estimate is the function evaluated at a point ($f(x)$). 
+            \end{itemize}
+    \end{enumerate}
+\end{frame} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Real Questions}
+    \begin{enumerate}[<+- | alert@+>]
+    \setcounter{enumi}{2}
+            \item What does ``unbiased'' mean?
+        	\begin{itemize}
+        		\item Mathematically, this means that the bias is 0, where the bias of an estimator $\hat{\theta}$ is defined as $E[\hat{\theta}] - \theta_0$. In other words, the expectation of the estimator is the true parameter.
+        	\end{itemize}
+        \item What is efficiency?
+        	\begin{itemize}
+        		\item Efficiency can only be estimated relative to another estimator. Given two estimators $\hat{\theta_1}, \hat{\theta_2}$, we say that $\hat{\theta_1}$ is more efficient than $\hat{\theta_2}$ if $Var(\hat{\theta_1}) < Var(\hat{\theta_2})$
+        	\end{itemize}
+    \item What is mean-squared error?
+    	\begin{itemize}
+    		\item $MSE(\hat{\theta}) = Bias(\hat{\theta})^2 + Var(\hat{\theta})$
+    	\end{itemize}
+    \end{enumerate}
+\end{frame} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Real Questions}
+    \begin{enumerate}[<+- | alert@+>]
+    \setcounter{enumi}{5}
+        \item What does consistency mean?
+        	\begin{itemize}
+        		\item An estimator is consistent if $\lim_{n \rightarrow \infty} MSE(\hat{\theta_n}) = 0$
+        	\end{itemize}
+     \item Ready for the next lecture?	
+    \end{enumerate}
+\end{frame} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Real Questions}
+    \centering
+	   \includegraphics[scale = 0.15]{letsDoThis6.jpg}
+	   
+	   \only<2->{\tiny{Sponsored by Home Depot}}
+	   
+	   \only<3->{\tiny{Not really}}
+\end{frame} 
+
+\end{document}

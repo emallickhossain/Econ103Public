@@ -1,0 +1,68 @@
+%\documentclass[handout]{beamer}
+\documentclass{beamer}
+ 
+\usetheme[numbering = fraction, progressbar = none, background = light, sectionpage = progressbar]{metropolis}
+\usepackage{amsmath}
+\usepackage{synttree}
+\usepackage{tabu}
+\usepackage{graphicx}
+
+\title{Discrete RVs Review Quiz}
+\author{Mallick Hossain}
+\date{}
+\institute{University of Pennsylvania}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+	\titlepage 
+\end{frame} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Class Logistics}
+    \begin{enumerate}[<+- | alert@+>]
+        \item Have you submitted your R project proposal?
+            \begin{itemize}
+                \item The correct answer is ``Yes''
+            \end{itemize}
+    \end{enumerate}
+\end{frame} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Real Questions}
+    \begin{enumerate}[<+- | alert@+>]
+		\item What is the expectation of a discrete RV?
+			\begin{itemize}
+				\item $E[X] = \sum_{i = 1}^n x_i p(x_i)$
+			\end{itemize}			        
+        \item What is $E[aY + b^2 X]$? $X$ and $Y$ are not independent.
+            \begin{itemize}
+                \item $aE[Y] + b^2 E[X]$
+            \end{itemize}
+        \item What is $Var(aX + bY)$? $X$ and $Y$ are not independent.
+        	\begin{itemize}
+        		\item $a^2 Var(X) + b^2 Var(Y) + 2 Cov(X, Y)$
+        	\end{itemize}
+        \item Is $E[Y|X]$ random or constant?
+        	\begin{itemize}
+        		\item Random
+        	\end{itemize}
+        \item $X$ and $Y$ can only take values 0 or 1. The joint distribution is $p(0, 0) = 0.2, p(0, 1) = 0.3, p(1, 0) = 0.2, p(1, 1) = 0.2$. Is this valid?
+        \begin{itemize}
+        	\item No. The sum over all possible pairs should exactly equal 1.
+        \end{itemize}
+     \item Ready for the next lecture?	
+    \end{enumerate}
+\end{frame} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Real Questions}
+    \centering
+	   \includegraphics[scale = 0.5]{letsDoThis4.jpg}
+\end{frame} 
+
+\end{document}

@@ -1,0 +1,63 @@
+\documentclass{beamer}
+ 
+\usetheme[numbering = fraction, progressbar = none, background = light, sectionpage = progressbar]{metropolis}
+\usepackage{amsmath}
+\usepackage{synttree}
+\usepackage{tabu}
+\usepackage{graphicx}
+
+\title{Discrete RVs Review Quiz}
+\author{Mallick Hossain}
+\date{}
+\institute{University of Pennsylvania}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+	\titlepage 
+\end{frame} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Class Logistics}
+    \begin{enumerate}[<+- | alert@+>]
+        \item Have you submitted your R project proposal?
+            \begin{itemize}
+                \item The correct answer is ``Yes''
+            \end{itemize}
+    \end{enumerate}
+\end{frame} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Real Questions}
+    \begin{enumerate}[<+- | alert@+>]
+		\item What is the expectation of a discrete RV?
+			\begin{itemize}
+				\item $E[X] = \sum_{i = 1}^n x_i p(x_i)$
+			\end{itemize}			        
+        \item What is $E[aY + b^2 X]$? $X$ and $Y$ are not independent.
+            \begin{itemize}
+                \item $aE[Y] + b^2 E[X]$
+            \end{itemize}
+        \item What is $Var(aX + bY)$? $X$ and $Y$ are not independent.
+        	\begin{itemize}
+        		\item $a^2 Var(X) 
+        	\end{itemize}
+        \item How many different Chipotle burritos can I make? There are 5 meats, 2 rice, 2 beans, and 4 salsas. I can only pick one of each ingredient.
+        	\begin{itemize}
+        		\item 5 * 2 * 2 * 4 = 80 burritos! 
+        	\end{itemize}
+     \item Ready for the next lecture?	
+    \end{enumerate}
+\end{frame} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Real Questions}
+    \centering
+	   \includegraphics[scale = 0.5]{letsDoThis4.jpg}
+\end{frame} 
+
+\end{document}
