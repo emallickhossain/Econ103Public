@@ -1,0 +1,59 @@
+---
+title: 'Econ 103: Statistics for Economists'
+author: "Mallick Hossain"
+date: NULL
+output:
+  beamer_presentation:
+  slide_level: 3
+header-includes:
+- \usetheme[numbering = fraction, progressbar = none, background = light, sectionpage
+  = progressbar]{metropolis}
+- \usepackage{amsmath}
+subtitle: Midterm 2 Postmortem
+fontsize: 10pt
+---
+
+### Test Statistics
+
+* Mean: 75
+* Median: 79
+* Standard Deviation: 20
+
+### Common Mistakes
+> 1. Being careless with sums:
+>       + $\sum_i X_i \neq nX_i$
+>       + What is $i$?
+    
+> 2. $\bar{X} \neq \mu$ anymore
+>       + $\mu$ is the true population mean. At the start of the course when we were dealing with **finite** samples, this was true.
+>       + Now we are thinking of populations as **distributions** and samples are draws from that population. As a result, populations are conceptually **infinite**.
+
+### Common Mistakes
+> 3. Be precise with your definitions and read over them to make sure they make sense. These are **not** definitions:
+>       + ``A random variable is neither random nor a variable''
+>       + ``A value that can take on any value of its realization''
+>       + ``A variable...and the specific value it takes is random''
+
+> 4. When proving something, make sure you are not assuming what I asked you to prove:
+>       + Prove that $E[aX + b] = aE[X] + b$ is asking you to prove linearity. 
+
+### Common Mistakes
+> 5. $\sum_i p(x) = 1$ is a property of pmfs. This has nothing to do with independence.
+
+> 6. $E[X^2] \neq E[f(x)^2]$
+>       + Expectation has a very specific definition
+
+> 7. Is $Var(\sum_i X_i) = \sum_i Var(X_i)$ always true?
+
+### Next Steps
+I will provide the following opportunity to make up some points:
+
+> 1. Pick **one** question from the midterm to redo
+> 2. Rework it **by yourself**
+>       + What does this mean?
+>       + Many people will pick the same question
+>       + I will NOT be happy or forgiving if I have any reason to question whether or not this is your work
+> 3. Write it up **neatly**. That means typed or VERY neatly written
+> 4. Turn it in next week
+> 5. You can earn up to half of the points you missed on that question back.
+> 6. **This is part of the exam and everyone signed the Code of Academic Integrity statement. I expect everyone to uphold it.**
