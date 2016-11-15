@@ -1494,17 +1494,19 @@ $X_1, \hdots, X_n \sim \mbox{iid Bernoulli}(p)$
 \frametitle{Approximate 95\% CI for Population Proportion}
 39\% of 771 Voters Polled Correctly Identified Chief Justice Roberts
 
-\begin{eqnarray*}
-	\widehat{SE}(\widehat{p}) &=& \sqrt{\frac{\widehat{p}(1-\widehat{p})}{n}} = \sqrt{\frac{(0.39)(0.61)}{771}}\\ 
-	&\approx& 0.018 
-\end{eqnarray*}
+\begin{align*}
+	\widehat{SE}(\widehat{p}) &= \sqrt{\frac{\widehat{p}(1-\widehat{p})}{n}} = \sqrt{\frac{(0.39)(0.61)}{771}}
+	\\ 
+	&\approx 0.018 
+\end{align*}
 
 \alert{What is the ME for an approximate 95\% confidence interval?} \pause
 
-$$ME \approx 2 \times \widehat{SE}(\bar{X}_n) \approx 0.04$$ \pause
-
-What can we conclude?
-$$\alert{\boxed{\mbox{Approximate 95\% CI: } \; (0.35, 0.43)}}$$
+\begin{align*}
+ME &\approx 2 \times \widehat{SE}(\bar{X}_n) \approx 0.04 
+\\
+&\Rightarrow \text{Confidence Interval:}\; (0.35, 0.43)
+\end{align*}
 
 \end{frame}
 
@@ -2120,9 +2122,9 @@ $$\widehat{p} - \widehat{q} = \frac{1}{n}\left(\sum_{i=1}^n X_i\right) - \frac{1
 
 
 \begin{block}{Refined Confidence Interval}
-	$$\alert{\tilde{p}} - \alert{\tilde{q}} = \frac{1}{n+\alert{2}}\left(1 + \sum_{i=1}^n X_i\right) - \frac{1}{m+\alert{2}}\left(1 + \sum_{i=1}^m Y_i\right) $$
+	$$\alert{p^*} - \alert{q^*} = \frac{1}{n+\alert{2}}\left(1 + \sum_{i=1}^n X_i\right) - \frac{1}{m+\alert{2}}\left(1 + \sum_{i=1}^m Y_i\right) $$
 
-	$$\left(\alert{\tilde{p}} -\alert{\tilde{q}}\right)\pm \texttt{qnorm}(0.975) \times \sqrt{\frac{\alert{\tilde{p}}(1-\alert{\tilde{p}})}{n+\alert{2}} + \frac{\alert{\tilde{q}}(1-\alert{\tilde{q}})}{m+\alert{2}}}$$
+	$$\left(\alert{p^*} -\alert{q^*}\right)\pm \texttt{qnorm}(0.975) \times \sqrt{\frac{\alert{p^*}(1-\alert{p^*})}{n+\alert{2}} + \frac{\alert{q^*}(1-\alert{q^*})}{m+\alert{2}}}$$
 \end{block}
 
 \end{frame}
