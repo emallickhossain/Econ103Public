@@ -1,0 +1,453 @@
+---
+title: 'Econ 103: Statistics for Economists'
+author: "Mallick Hossain"
+date: NULL
+output:
+  beamer_presentation:
+    slide_level: 3
+header-includes:
+- \usetheme[numbering = fraction, progressbar = none, background = light, sectionpage
+  = progressbar]{metropolis}
+- \usepackage{amsmath}
+subtitle: Polls and Forecasting
+fontsize: 10pt
+---
+### In Case You Forgot
+\begin{center}
+\includegraphics[width = \textwidth]{nyt}
+\end{center}
+
+\scriptsize{Source: New York Times}
+
+### In Case You Forgot
+\begin{center}
+\includegraphics[scale = 0.3]{538}
+\end{center}
+
+\scriptsize{Source: FiveThirtyEight}
+
+# Why is Forecasting Important?
+
+### Keeps Us Dry 
+\centering
+\includegraphics[scale = 0.5]{stupidweatherman}
+
+### Bragging Rights
+\centering
+\includegraphics[scale = 0.25]{potusBracket}
+
+### Bragging Rights
+\centering
+\includegraphics[scale = 0.5]{potusBrag}
+
+### Make Tons of Money
+\centering
+\includegraphics[scale = 0.25]{bigshort}
+
+### Make Tons of Money
+\centering
+\includegraphics[scale = 0.75]{wolf}
+
+### What Would Happen If?
+\centering
+\includegraphics[scale = 0.5]{brexit}
+
+# How Does Polling Work?
+
+### Polling Basics
+>- At their core, polls and pollsters are responsible for conducting surveys and translating their sample results into predictions about the population.
+
+>- Sound familiar?
+
+>- We will not discuss the details of survey design, but we will briefly discuss important questions that must be addressed when conducting any survey.
+
+### Conducting Surveys
+There are a lot of options when it comes to conducting surveys:
+
+* Phone calls
+* Online surveys
+* In-person interviews
+* Mail surveys
+
+### Phone Surveys
+
+* Live or automatic phone calls?
+* For landlines, do you survey the person picking up the phone or someone else in the household?
+* Do you include cell phones?
+    + People under 18 are usually not eligible for surveys so screening out ineligible respondents increases survey costs
+    + Determining geography from cell phone number is hard
+* Call or text?
+* Should we be worried about the ~3% of people without phones?
+
+### Cell Phone Use
+\begin{center}
+\includegraphics[scale = 0.4]{cellPhone}
+\end{center}
+
+>- **Meta-point:** Survey design is changing due to survey results.
+
+### Picking a Sample
+
+* How big should your sample be?
+* Should you pick a random sample and just tally what you get?
+* Should you have a desired sample and survey until you get that sample?
+* Who should you survey? Everyone? Eligible voters? Likely voters?
+    + How do you figure out which group people belong to?
+  
+### Sampling Error and Sample Size
+\begin{center}
+\includegraphics[scale = 0.75]{samplingError}
+\end{center}
+\scriptsize{Source: Pew Research}
+
+### Adjusting the Results
+* How do you deal with non-response or refusals? 
+    + For context, response rates are about 5% - 15%.
+    + Response rates have been declining over time. Should we be worried?
+* How do you account for people lying?  
+    + Social desirability bias
+* How do you properly weight your results? 
+    + Generally, pollsters use Census demographics to construct their weights.
+    
+# Detour/PSA: Concerns About National Statistics and Their Perception
+
+### National Statistics
+\begin{center}
+\emph{``What gets measured gets managed''}
+\end{center}
+
+>* Reliable national statistics are the mark of a well-developed country
+>* The depth and breadth of US national statistics set a high international standard
+>* We want our national statistics to be representative of the country
+>* National statistics should be isolated from partisan agendas
+>* We need to trust our statistical agencies to being doing their job well
+>     + What you've learned in this course enables you to check their methods
+>     + If there are shortcomings in their methods, let them know because they want to improve their data quality
+
+### What Should We Be Worried About?
+>* 2006: Miriam-Webster made ``truthiness'' the word of the year
+>* 2016: Oxford Dictionaries named ``post-truth'' as the international word of the year
+>* There is a debate to be had about national statistics, but the current tone of debate is an all-out disregard for them 
+>* Outright disregard is dangerous
+
+### Cases in Point
+\centering
+\includegraphics[scale = 0.15]{michael_gove}
+\par
+\scriptsize{``People in this country have had enough of experts''}
+
+### Cases in Point
+\begin{center}
+\includegraphics[scale = 0.5]{trump}
+\end{center}
+\scriptsize{``5.3 percent unemployment – that is the biggest joke there is in this country. ... The unemployment rate is probably 20 percent, but I will tell you, you have some great economists that will tell you it’s a 30, 32. And the highest I’ve heard so far is 42 percent.''}
+
+### Why is This Concerning?
+
+>* There seems to be a movement to undo all of our statistical progress. 
+>* It's important to convince everyone of the value of statistics
+>* Maybe a story would help
+
+
+# Curiosity: How a Statistic is Made (A Made-Up History)
+
+### It Starts with a Question
+\centering
+\includegraphics[scale = 1]{question}
+\par
+\scriptsize{``I wonder what the national unemployment rate is.''}
+
+### Ask the Question
+\centering
+\includegraphics[scale = 0.4]{talkingFriends}
+\par
+\scriptsize{``Do you have a job?''}
+
+### Gather Results
+\centering
+\includegraphics[scale = 0.75]{accountant}
+\par
+\scriptsize{``Fifty percent of my friends do not have a job''}
+
+### Question Results
+\centering
+\includegraphics[scale = 0.25]{questionResults}
+\par
+\scriptsize{``This doesn't seem right. Maybe I should ask more people since I only asked 2 of my friends.''}
+
+### Ask More People
+\centering
+\includegraphics[scale = 0.4]{talkingFriends}
+\par
+\scriptsize{``Do you have a job?''}
+
+### Gather Results
+\centering
+\includegraphics[scale = 0.75]{accountant}
+\par
+\scriptsize{``Twenty percent of my friends do not have a job''}
+
+### Question Results
+\centering
+\includegraphics[scale = 0.25]{questionResults}
+\par
+\scriptsize{``This doesn't seem right. Maybe I should ask people in other parts of town since I only asked people in my neighborhood and one of the stores just closed.''}
+
+### Ask More People
+\centering
+\includegraphics[scale = 0.4]{talkingFriends}
+\par
+\scriptsize{``Do you have a job?''}
+
+### Gather Results
+\centering
+\includegraphics[scale = 0.75]{accountant}
+\par
+\scriptsize{``Fifteen percent of the people I talked to do not have a job''}
+
+### Question Results
+\centering
+\includegraphics[scale = 0.25]{questionResults}
+\par
+\scriptsize{``Is my number a good estimate of the national unemployment rate? Probably.''}
+
+### Publish Results
+\centering
+\includegraphics[scale = 0.2]{publishResults}
+\par
+\scriptsize{``I'm gonna tell everyone the national unemployment rate!''}
+
+### Respond to Comments
+\centering
+\includegraphics[scale = 0.5]{facebook}
+\par
+\scriptsize{``My friend commented that he thinks my number is wrong. None of his friends are unemployed. He's in California, so maybe I should talk to people in California and see what their job prospects are.''}
+
+### Repeat 
+>* Repeat 
+>* Repeat
+>* Repeat
+>* Repeat until you get a representative sample.
+>* Or just skip most of these initial steps and start with a nationally representative sample
+
+### And So a Statistic Was Born!
+\centering
+\includegraphics[scale = 0.15]{brightLight}
+
+### And Statistics Lived Happily Ever After
+\centering
+\includegraphics[scale = 0.1]{happyEnding}
+
+### And Now We're Here
+\centering
+\includegraphics[scale = 0.3]{reader}
+\par
+\scriptsize{``Yeah, I don't believe that number either. Two of my friends don't have a job, so the unemployment rate has got to be higher than that. The rest of my friends are emus, so they don't count.''}
+
+### What's Next?
+>* Now that you've learned the magic of statistics
+>     + It's really not that crazy, is it?
+>* It's up to all of us to help others understand that statistics is a tool
+>* If we do not believe a number, let's figure out the assumption we do not like, let's not throw out the whole statistic (or all of statistics)
+
+# Back on Track: Thinking About Forecasting
+### Point Estimates
+>* Point estimates are helpful, but not particularly informative
+>     + Trump/Clinton will win the election
+>     + GDP growth will be 1.8% in 2016:Q4
+>     + Unemployment will be 5% in December 2016
+>* Why are these not particularly informative? 
+>* What statistical concept have we discussed would be more informative?
+
+### Creating a Forecast
+\centering
+\includegraphics[width = 0.9\textwidth, height = 0.6\textheight]{productivity}
+\par
+What is your forecast of the change in productivity next quarter?
+
+### Smoothing Out the Noise
+\centering
+\includegraphics[width = 0.9\textwidth, height = 0.6\textheight]{ceaProductivity}
+\par
+Now it might be easier to make a forecast? How confident are you that your estimate will be right?
+
+### Let's Look at Election Polls!
+\centering
+\includegraphics[width = 0.9\textwidth]{huffpost}
+\par
+Uh oh...This is gonna be hard.
+
+### Smooth Them Out?
+\centering
+\includegraphics[width = 0.9\textwidth]{huffpostTrend}
+\par
+If we don't smooth too much, this still looks difficult.
+
+### More Smoothing!
+\centering
+\includegraphics[width = 0.9\textwidth]{huffpostSmooth}
+\par
+This makes it easier to make a forecast. Do we believe it though? Too much smoothing could be covering up some meaningful shifts in polls.
+
+### Difficult Decisions
+\centering
+\includegraphics[width = 0.4\textwidth]{tapOut}
+\includegraphics[width = 0.4\textwidth]{challengeAccepted}
+
+### Difficult Decisions
+\centering
+\includegraphics[width = 0.6\textwidth]{wiseChoice}
+
+# Poll Rating
+
+### How to Rate Polls
+Note: I am primarily outlining FiveThirtyEight's methodology since they're probably the most popular poll aggregator and forecaster. If you have questions about other forecasters, just let me know!
+
+>* We know that all of these polls are wrong in some way
+>     + Some are more wrong than others
+>* What is the best way to combine them to extract meaning and hopefully cancel out a lot of the noise?
+>     + We want a system that gives more accurate polls more weight
+
+### What Do Polls Look Like?
+Let's look at FiveThirtyEight's database of polls!
+https://github.com/fivethirtyeight/data/tree/master/pollster-ratings
+
+### Pollster Ratings
+>* How should we assess pollster accuracy?
+>     + Compare predicted outcome with actual outcome (what share of the population voted for each option?)
+>     + Do polls consistently tilt one way or another (i.e. evidence of bias)?
+>     + How much are polls ``herding'' (i.e. tinkering with results if they are too far away from the norm of other pollsters or just not publish the results)?
+>     + Bonus question: What assumption does herding violate?
+
+### Step 1: Computing Simple Average Error
+>* Calculate the average error of each pollster
+>     + Take the absolute value of the difference between the predicted outcome and the actual outcome
+>* Are we confident that the top-ranked pollsters are actually the best? AKA How can we game this ranking?
+>       + If my goal was to be the top pollster, I would just poll for easy elections. 
+>       + We want to figure out which pollsters are actually good instead of which ones are just good at picking easy elections.
+
+### Comparing Pollsters
+\centering
+\includegraphics[height = 0.8\textheight]{simpleAverageError}
+  
+### Step 2: Computing Simple Plus-Minus (Incorporating Different Factors)
+>* Different kinds of elections can be harder to predict than others (primary elections are harder to predict than general elections)
+>* How can we quantify these differences so we do not unfairly penalize pollsters? 
+>* If there are certain factors that are related to polling accuracy, then using regression, we should be able to control for these factors
+>   $$PollingError = \beta_1 + \beta_2 ElectionType + \beta_3 SampleSize + \beta_4 DaysToElection$$
+>       + 538 actually uses a nonlinear approach that incorporates the square root of the sample size, but the intuition is the same.
+>* How can we game this ranking?
+>     + Pick well-covered elections and just mirror the results of other good pollsters. Maybe make your sample size really small so it looks like you're doing even better than you should!
+>     + We have to try and break rewarding herding behavior so that good pollsters can really shine
+
+### Step 3: Refining to Advanced Plus-Minus
+>* What do we do about elections that only few pollsters covered? A lot of pollsters?
+>     + If only a few pollsters tried to predict an election (maybe because it was a tough election), we do not want to penalize them too much for being wrong. Why?
+>     + If there are a lot of pollsters predicting an election, we do not want to reward them too much for being right for similar reasons as above.
+>     + Pollster ratings are like sports rankings. You account for both the win record as well as the ``strength'' of the schedule.
+
+### Comparing Pollsters
+\centering
+\includegraphics[height = 0.8\textheight]{advancedPlusMinus}
+
+### Step 4: Refining to Predictive Measures
+>* Remember, the whole point of these pollster ratings is to figure out which ones will be best at predicting future election outcomes
+>* After accounting for historical performance, is there anything else we can incorporate to get a better insight into predictive power?
+>     + Yes. Incorporating some measure of methodological standards can help better separate shady pollsters that are doing well by herding to strong polling firms from pollsters that are actually putting out rigorous results. Strong methodological standards leave less room for fudging.
+>     + Being a member of the National Council of Public Polls or supporting the American Association for Public Opinion Research Transparency Initiative are both good indicators that a pollster adheres to rigorous polling standards.
+
+### Comparing Pollsters
+\centering
+\includegraphics[height = 0.8\textheight]{methods}
+\par
+\scriptsize{Note: 2010 and 2012 are out-of-sample tests}
+
+### Now What?
+>* We've got a nice ranking of polls, but we want to try and predict elections.
+>* What do we do now?
+>* Now that we've got our ratings, let's aggregate and adjust our polls!
+
+# Poll Aggregation and Election Forecasting
+### Weighting polls
+>* Now that we have our ratings, how should we determine the weight we give each pollster and how should we aggregate?
+>     + For a general election, we should aggregate polls by state so we can get some prediction of the electoral college
+>* Weights take into account the following:
+>     + Pollster ratings
+>     + Sample size
+>     + Recency of poll
+
+### Adjust Polls
+>* There are a lot of factors that can cause significant differences between polls. We need to adjust them so that we are actually comparing and combining apples to apples
+>* Adjust based upon the following:
+>     + Likely voter adjustment (make polls of registered voters or adults comparable to likely voter polls)
+>     + Convention bounce
+>     + Omitted third-party candidate
+>     + Trend-line adjustment (how have polls by the same firm changed over time?)
+>     + House effects (account for statistical biases of various pollsters)
+
+### Forecast by Simulation
+>* Now that we have satisfactory estimates of how each state will vote (with appropriate standard errors), let's run a lot of simulations and see what could happen!
+>* Simulation is particularly effective because it allows for the introduction of all kinds of errors to see how the results are affected.
+>       + Correlated errors: If polls underpredicted a Trump win in Ohio, they likely underpredicted a win in Pennsylvania too.
+>       + National error: Polls could be systematically off across the country (e.g. only landline users will actually vote)
+>       + Demographic and regional error: Polls could be off in states that have various characteristics in common
+>       + State-specific error: Some error might only affects a particular state with no effect on other states
+>       + Error distributions are assumed to have fat tails, so they are drawn from a t-distribution! Some of this is also motivated because these forecasts are based on 11 past elections, so we're not exactly in large sample territory just yet.
+
+# What Happened?
+### The Question
+* The overarching question since the election has been did Trump beat the odds or were the odds wrong all along? 
+  + It is difficult to separate the two.
+  
+### All Forecasts Have Uncertainty
+>* Just because the most likely outcome did not happen does not mean that the forecasts were "wrong." A 70% chance of winning also means a 30% chance of losing, not a 0% chance of losing.
+>     + Polls did do a decent job of predicting popular vote outcome (only off by about 2 percentage points, which is in line with historical accuracy)
+>     + Polls and poll aggregators did very well at quantifying the sampling error from polls. 
+>     + Given the number of polls in the final weeks of the election, sampling error should approach zero since overall sample sizes are so large.
+>     + You know how to do this!
+>     + So if it wasn't sampling error, what was it?
+
+### Some Things Went Wrong
+>* There were a lot of polling shortcomings that were revealed by this election and improving our forecasts means admitting where we went wrong and not making the same mistakes again
+>* A lot of analysis is still being done, but a few explanations have already been offered:
+>     + Non-response bias 
+>     + Voter turnout was different than expected
+>     + Correlated errors between states within regions (primarily in the Midwest)
+>     + Correlated polling errors within states (if voters are not responding to one poll, they probably won't respond to another)
+>     + Dealing with undecided voters is a judgement call
+
+### Takeaways and Future Work
+>* As you can tell, election forecasting is a serious undertaking
+>* There's plenty of room for improvement. Just because Nate Silver is the best-known statistician does not mean he is the best statistician.
+>     + I assume there's some Nate Gold/Platinum/Diamond out there waiting to make his/her name! Maybe someone in this class!
+
+### Notable 538 Assumptions
+* 538 only computes the error based on the difference between the top 2 finishers. Would taking a more comprehensive account of errors if there are more than 2 finishers give a better result?
+* 538 only includes polls that are conducted within 21 days of the election. Is there information to be obtained from using earlier polls? Is there a more nuanced cut-off date we could apply?
+* 538 bans certain pollsters that it believes have "faked some polling results or engaged in other gross ethical misbehavior." Would having stricter rules improve forecasts (e.g. removing demonstrated "herders")?
+
+### Startup Idea
+> It is indeed problematic, and even a little dangerous, for any one site like FiveThirtyEight to have that much influence over the market...It’s the “fault” of a marketplace that has failed to develop alternatives to our ratings, in spite of the barriers to entry being relatively low...But this hasn’t happened, for reasons I don’t fully understand. I think part of it is that the overlap of skills and interests required to motivate something like a set of pollster ratings occurs relatively rarely outside of academia, and the culture of the Academy is very conservative in many ways. And outside of academia, deigning to rate anything from restaurants to baseball players usually results in a lot of people being fed up at you; it’s not the best way to make friends. **The Pollster Ratings are a product of which I’m immensely proud, but it would be better if they had some competition.** --[Nate Silver](https://fivethirtyeight.com/features/why-arent-there-more-pollster-ratings/) (June 20, 2010)
+
+### If You're Interested
+>* FiveThirtyEight makes all of its code and data available on their GitHub page
+>* Most of their analysis is done in R
+>* You've been preparing for this moment your whole life!
+>     + Well, most of the preparation was this semester...but you're whole life has led up to this point!
+
+### Go Fly!
+\centering
+\includegraphics[scale = 0.4]{fly}
+
+### Sources
+
+* [The State of the Polls, 2016](http://fivethirtyeight.com/features/the-state-of-the-polls-2016/)
+* [The Polls Missed Trump. We Asked Pollsters Why](http://fivethirtyeight.com/features/the-polls-missed-trump-we-asked-pollsters-why/?ex_cid=2016-forecast)
+* [Presidential Forecast Post-Mortem](http://www.nytimes.com/2016/11/16/upshot/presidential-forecast-postmortem.html)
+* [Pollster Ratings v4.0: Methodology](http://fivethirtyeight.com/features/pollster-ratings-v40-methodology/)
+* [How the FiveThirtyEight Senate Forecast Model Works](http://fivethirtyeight.com/features/how-the-fivethirtyeight-senate-forecast-model-works/)
+* [How FiveThirtyEight Calculates Pollster Ratings](fivethirtyeight.com/features/how-fivethirtyeight-calculates-pollster-ratings/)
+* [Here's Proof Some Pollsters Are Putting A Thumb On The Scale](http://fivethirtyeight.com/features/heres-proof-some-pollsters-are-putting-a-thumb-on-the-scale/)
+* [A User's Guide To FiveThirtyEight's 2016 General Election Forecast](http://fivethirtyeight.com/features/a-users-guide-to-fivethirtyeights-2016-general-election-forecast/)
+* [Why FiveThirtyEight Gave Trump A Better Chance Than Almost Anyone Else](http://fivethirtyeight.com/features/why-fivethirtyeight-gave-trump-a-better-chance-than-almost-anyone-else/)
+* [Explanations for that shocking 2% shift](http://andrewgelman.com/2016/11/09/explanations-shocking-2-shift/)

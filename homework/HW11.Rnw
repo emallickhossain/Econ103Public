@@ -4,6 +4,7 @@
 \usepackage{hyperref}
 \usepackage{enumerate}
 \usepackage{multirow}
+\usepackage{enumitem}
 
 %-------------------DON'T CHANGE---------------------%
 %The following is needed to prevent a conflict between knitr and the exam class involving the package ``framed.''
@@ -26,88 +27,34 @@ options(width = 60)
 @
 %-------------------DON'T CHANGE---------------------%
 
-%To include the answers use:
-%  pdflatex "\def\showanswers{1} \input{thisfile.tex}"
-\ifdefined\showanswers
-  \printanswers
-\else
-  \noprintanswers
-\fi
+%\printanswers
 
-\title{Problem Set \#11}
+\title{Problem Set \# 11}
 \author{Econ 103}
 \date{}
 \begin{document}
 \maketitle
 
-\section*{Part I -- Problems from the Textbook}Chapter 9: 23 (use the ``textbook'' procedure), 27, 29
+\section*{Lecture Progress}
+We made it to slide 72 of the Chapter 8 slides.
 
+\section*{Homework Checklist}
 
-\section*{Part II -- Additional Problems}
+\begin{itemize}[label = $\square$]
+	\item \textbf{Book Problems (Chapter 9):} 7, 9, 11, 23, 25, 27, 29
+	\item \textbf{Additional Problems: }See below
+	\item \textbf{Ask questions on Piazza}
+	\item\textbf{Review slides}
+	\item\textbf{R Tutorial:} Develop testable hypotheses for your R project and test at least one of them.
+\end{itemize}
+
+\section*{Additional Problems}
 
 \begin{questions}
 
+\question This problem uses a dataset that investigates the relationship between schizophrenia and the volume (in cm$^3$) of a particular region of the brain (the left hippocampus) measured using an MRI machine. 
 
-\question This question revisits the data from this semester's anchoring experiment. In a previous assignment you used these data to construct confidence intervals. In this question you will carry out hypothesis tests. You may assume throughout that the sample size is large enough to use the Central Limit Theorem. Details of how to load the data from my website appear in Lecture 19. Be sure to properly account for missing values. 
-\begin{parts}
-	\part Suppose we want to test the null hypothesis of equality of population means across the two groups. What is the value of our test statistic?
-	\begin{solution}
-<<anchoring_experiment_load_data>>=
-data.url <- "http://www.ditraglia.com/econ103/survey_clean.csv"
-survey <- read.csv(data.url)
-anchoring <- survey[,c("rand.num", "africa.percent")]
-lo <- subset(anchoring, rand.num == "10")$africa.percent
-hi <- subset(anchoring, rand.num == "65")$africa.percent
-lo <- lo[!is.na(lo)]
-hi <- hi[!is.na(hi)]
-SE.lo <- sd(lo)/sqrt(length(lo))
-SE.hi <- sd(hi)/sqrt(length(hi))
-SE <- sqrt(SE.hi^2 + SE.lo^2)
-diff <- mean(hi) - mean(lo)
-test.stat <- diff/SE
-test.stat
-@	
-\end{solution}
-	\part Suppose we want to test the equality of population means against the one-sided alternative that the the ``Hi'' group has a higher mean at the 10\% level. What is our critical value, and what is our decision rule? Do we reject the null hypothesis?
-	\begin{solution}
-The critical value is
-<<>>=
-qnorm(1 - 0.1)
-@
-Our decision rule is to reject if the test statistic exceeds the critical value:
-<<>>=
-test.stat > qnorm(1 - 0.1)
-@
-	\end{solution}
-	\part Calculate the p-value for a test of the equality of population means against the one-sided alternative that the ``Hi'' group has a higher mean.
-	\begin{solution} 
-<<anchoring_experiment_oneside>>=
-1 - pnorm(test.stat)
-@
-	\end{solution}
-	\part Suppose we wanted to test the equality of population means against the two-sided alternative at the 10\% level. What is our critical value, and what is our decision rule? Do we reject the null hypothesis?
-	\begin{solution}
-The critical value is
-<<>>=
-qnorm(1 - 0.1/2)		
-@		
-Our decision rule is to reject if the \emph{absolute value} of the test statistic exceeds the critical value:
-<<>>=
-abs(test.stat) > qnorm(1 - 0.1/2)
-@
-	\end{solution}
-	\part Calculate the p-value for a test of the equality of population means against the two-sided alternative.
-	\begin{solution} 
-<<anchoring_experiment_twoside>>=
-2 * (1 - pnorm(test.stat))
-@
-	\end{solution}
-\end{parts}
-
-
-\question This problem uses a dataset that investigates the relationship between schizophrenia and the volume (in cm$^3$) of a particular region of the brain (the left hippocampus) measured using an MRI machine. In a past assignment you used this dataset to construct confidence intervals. In this question you will carry out hypothesis tests
-
-The dataset contains 15 sets of monozygotic (i.e.\ identical) twins, one of whom has schizophrenia (``Affected'') and the other who does not (``Unaffected''). The idea of using identical twins is to hold constant unobserved genetic and socioeconomic confounding variables that might influence whether someone develops schizophrenia. You can download the data from my website as follows:
+The dataset contains 15 sets of monozygotic (i.e.\ identical) twins, one of whom has schizophrenia (``Affected'') and the other who does not (``Unaffected''). The idea of using identical twins is to hold constant unobserved genetic and socioeconomic confounding variables that might influence whether someone develops schizophrenia. You can download the data from Professor DiTraglia's website as follows:
 <<>>=
 data.url <- "http://www.ditraglia.com/econ103/case0202.csv"
 twins <- read.csv(data.url)
@@ -170,7 +117,7 @@ We see that this is indeed the case, so we would reject that null hypothesis tha
 	
 
 
-\question This problem concerns a dataset comparing the scores of men and women on the Armed Forces Qualifying Test (AFQT). In an earlier assignment you used this dataset to construct confidence intervals. In this question you will carry out hypothesis tests instead. Throughout you may assume that the sample size is large enough for the CLT to apply. As before, the data are available from my website:
+\question This problem concerns a dataset comparing the scores of men and women on the Armed Forces Qualifying Test (AFQT). Throughout you may assume that the sample size is large enough for the CLT to apply. As before, the data are available from Professor DiTraglia's website:
 <<>>=
 data.url <- "http://www.ditraglia.com/econ103/ex0222.csv"
 test.scores <- read.csv(data.url)
@@ -229,8 +176,8 @@ We have found extremely strong evidence of a difference between men and women on
 	\end{parts}
 
 
-\question In April of 2013, Public Policy Polling carried out a survey of 1247 registered voters to determine whether Republicans and Democrats differ in their beliefs about various conspiracy theories. To answer this question, you'll need to download the full results of their survey which I've posted on my website for convenience:\\
-\url{http://www.ditraglia.com/econ103/conspiracy.pdf}\\
+\question In April of 2013, Public Policy Polling carried out a survey of 1247 registered voters to determine whether Republicans and Democrats differ in their beliefs about various conspiracy theories. To answer this question, you'll need to download the full results of their survey which are on my website:\\
+\url{https://mallickhossain.files.wordpress.com/2016/07/conspiracy.pdf}\\
 In an earlier assignment you used these data to construct confidence intervals. In this question you'll use them to carry out hypothesis tests. Throughout you may assume that the sample size is large enough for the approximate based on the central limit theorem to be valid.
 	\begin{parts}
 		\part Suppose we wanted to test the null hypothesis that 20\% of registered voters believe that a UFO crashed at Roswell, New Mexico in 1947 and the US Government covered it up. There are two possible test statistics we could use. Calculate them both and explain the difference. Which is preferable?

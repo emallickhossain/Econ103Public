@@ -23,6 +23,7 @@
 	\titlepage 
 \end{frame} 
 
+\section{The Lady Tasting Tea}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{An excerpt from \emph{The Lady Tasting Tea} by David Salsburg}
@@ -202,7 +203,6 @@ If you just guess randomly, what is the probability of identifying \emph{all but
 	\huge Hypothesis Testing is Similar to a Criminal Trial
 	\end{center}
 \end{frame}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
@@ -256,6 +256,8 @@ If you just guess randomly, what is the probability of identifying \emph{all but
 \end{columns} 
 
 \end{frame}
+
+\section{Hypothesis Testing}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{How is the Pepsi Challenge a Hypothesis Test?}
@@ -505,6 +507,8 @@ $T_n\colon$ \# of Cokes correctly identified. Has following sampling under the n
 		\item Nulls are \emph{very specific}: we need to be able to do probability calculations under the null -- c.f.\ the Pepsi Challenge.
 	\end{itemize}
 \end{frame}
+
+\section{Big Mac Example}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[t]
 	\frametitle{Example: How many calories in a Big Mac? }
@@ -1083,7 +1087,7 @@ Reject $H_0$ based on two-sided test $\implies$ Reject $H_0$ based on appropriat
 \begin{frame}
 \frametitle{How to Handle Other Examples?}
 
-\alert{You already know lots of sampling distributions! Testing is very similar to constructing confidence intervals in that the steps are always the same, and the only thing that differs is \emph{which} sampling distribution we work with. We'll look at more examples next time.}
+\alert{You already know lots of sampling distributions! Testing is very similar to constructing confidence intervals in that the steps are always the same, and the only thing that differs is \emph{which} sampling distribution we work with.}
 
 \end{frame}
 
@@ -1145,6 +1149,8 @@ $\alert{c =  \texttt{qt}(1-\alpha/2, \texttt{df}=n-1)}$
 	Collect all the values $\mu_0$ such that we cannot reject $H_0\colon \mu = \mu_0$ against the two-sided alternative. The result is \emph{precisely} a $100\times (1-\alpha)\%$ CI for $\mu$.
 \end{block}
 \end{frame}
+
+\section{The Anchoring Effect}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
@@ -1163,6 +1169,13 @@ Shown a ``random'' number and then asked what proportion of UN member states are
 \vspace{1em}
 
 \hfill\alert{\fbox{Fairly large samples here, so we'll proceed via the CLT...}}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{The Anchoring Experiment}
+Work together to formulate a null hypothesis, test statistic, and run your test!
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -1260,7 +1273,7 @@ $\alpha$ &   0.10& 0.05 &0.01\\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Anchoring Experiment Example}
-Which of these commands would give us the p-value of our test of $H_0\colon \mu_{Lo} = \mu$ against $H_1\colon \mu_{Lo}<\mu_{Hi}$ at significance level $\alpha$?
+Which of these commands would give us the p-value of our test of $H_0\colon \mu_{Lo} = \mu_{Hi}$ against $H_1\colon \mu_{Lo}<\mu_{Hi}$ at significance level $\alpha$?
 \vspace{1em}
 	\begin{enumerate}[(a)]
 		\item \texttt{qnorm($1-\alpha$)}
@@ -1292,7 +1305,7 @@ We plug in the value of the test statistic that we observed: 5
 \hfill \fbox{What should we conclude?}
 \end{frame}
 
-
+\section{Exam Difficulty}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Which Exam is Harder?}
@@ -1319,6 +1332,13 @@ Sample Corr.& \multicolumn{2}{c}{0.54}&\\
 \vspace{1em}
 
 \fbox{Again, large sample size here so we'll use CLT.}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Exam Difficulty}
+Work together to formulate a null hypothesis, test statistic, and run your test!
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
@@ -1421,12 +1441,14 @@ $\texttt{1 - pnorm(1.36)} =  \texttt{pnorm(-1.36)}  \approx 0.09$
 $\texttt{2 * (1 - pnorm(1.36))} =  \texttt{2 * pnorm(-1.36)} \approx 0.18$
 \end{block}
 \end{frame}
+
+\section{2012 Voter Polls}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 	\frametitle{Tests for Proportions}
 	\begin{block}
 		{Basic Idea}
-		The population \emph{can't be} normal (it's Bernoulli) so we use the CLT to get approximate sampling distributions (c.f.\ Lecture 18).
+		The population \emph{can't be} normal (it's Bernoulli) so we use the CLT to get approximate sampling distributions.
 	\end{block}
 	\begin{block}
 		{But there's a small twist!}
@@ -1609,8 +1631,8 @@ $$T_n = \frac{\widehat{p} - \widehat{q}}{\widehat{SE}_{Pooled}}= \frac{0.61 - 0.
 	\texttt{2 * (1 - pnorm(1.78))}$\approx 0.08$
 \end{block}
 \end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\section{Biased Scales}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \begin{block}

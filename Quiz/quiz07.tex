@@ -1,0 +1,107 @@
+%\documentclass[handout]{beamer}
+\documentclass{beamer}
+ 
+\usetheme[numbering = fraction, progressbar = none, background = light, sectionpage = progressbar]{metropolis}
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\title{Confidence Intervals Quiz}
+\author{Mallick Hossain}
+\date{}
+\institute{University of Pennsylvania}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+	\titlepage 
+\end{frame} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Class Logistics}
+    \begin{enumerate}[<+- | alert@+>]
+        \item Have you turned in your exam corrections?
+        \begin{itemize}
+	        	\item The correct answer is ``Yes''
+        \end{itemize}
+        \item Have you turned in/emailed your R project summary?
+   			\begin{itemize}
+        		\item The correct answer is ``Yes.''
+        \end{itemize}
+        \item Do we have class next Wednesday?
+        \begin{itemize}
+        	\item The correct answer is ``No.''
+        \end{itemize}
+        \item When are office hours?
+        \begin{itemize}
+        	\item I will not have office hours the Tuesday or Wednesday of Thanksgiving week and no office hours on the Tuesday following Thanksgiving. To make up, I will hold office hours from 9-11 on Monday of Thanksgiving week to answer any questions you have before the holidays.
+        \end{itemize}
+        \item Have you answered the Piazza poll?
+        \begin{itemize}
+        	\item The correct answer is ``Yes''
+        \end{itemize}
+    \end{enumerate}
+\end{frame} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Homework Questions}
+    \begin{enumerate}[<+- | alert@+>]
+		\item What is the distribution of $\bar{X}_n - \bar{Y}_m$ if we know the variances $\sigma_X$ and $\sigma_Y$ and $X$ and $Y$ are normally distributed and independent of each other?
+			\begin{itemize}
+				\item $N \left( \mu_X - \mu_Y, \frac{\sigma_X^2}{n} - \frac{\sigma_Y^2}{m} \right)$
+			\end{itemize}			        
+		\item What is the distribution of $\bar{X}_n - \bar{Y}_m$ if the variances are unknown, but $X$ and $Y$ are normally distributed and independent of each other?
+			\begin{itemize}
+				\item Formally, this is a t-distribution. 
+				\item As long as $m$ and $n$ are large enough, we can approximate with a Normal distribution. $N(\mu_X - \mu_Y, \frac{\S_X^2}{n} + \frac{\S_Y^2}{m})$
+			\end{itemize}		            
+    \end{enumerate}
+\end{frame} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Real Questions}
+    \begin{enumerate}[<+- | alert@+>]
+    \setcounter{enumi}{2}
+	    \item What is the distribution of $\bar{X}_n - \bar{Y}_m$ if the variances are unknown, and $X$ and $Y$ are from an unknown distribution and independent of each other?
+        	\begin{itemize}
+        		\item The exact answer would depend upon the actual distribution of $X$ and $Y$, but we can use the Central Limit Theorem (assuming $m$ and $n$ are large enough) and approximate this by a Normal distribution
+        	\end{itemize}
+        	\item What is the distribution of $\bar{X}_n - \bar{Y}_m$ if the variances are unknown, and $X$ and $Y$ are from an unknown distribution?
+        	\begin{itemize}
+        		\item We can approximate this with a normal distribution, but the variance is changed because of the dependence of the two populations. You must add in the $2Cov(\bar{X}, \bar{Y})$ term. 
+        	\end{itemize}
+    \end{enumerate}
+\end{frame} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Real Questions}
+    \begin{enumerate}[<+- | alert@+>]
+    \setcounter{enumi}{4}
+    \item Who is the Chief Justice of the Supreme Court?
+			\begin{itemize}
+				\item John Roberts
+			\end{itemize}			        
+        \item What is the best way to think about a sample proportion?
+            \begin{itemize}
+                \item It is the sample mean of a bunch of iid Bernoulli variables with probability $p$ of being one option and $1-p$ of being the other option.
+            \end{itemize}
+           \item If we cannot reject that two populations have the same mean, what value must be in our confidence interval for $\bar{X} - \bar{Y}$?
+           \begin{itemize}
+           	\item 0
+           \end{itemize}
+     \item Ready for the next lecture?	
+    \end{enumerate}
+\end{frame} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Real Questions}
+    \centering
+	   \includegraphics[scale = 0.4]{letsDoThis7.jpg}
+\end{frame} 
+
+\end{document}

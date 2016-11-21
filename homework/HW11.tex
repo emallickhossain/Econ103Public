@@ -21,6 +21,7 @@
 \newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
 \newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
 \newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+\let\hlipl\hlkwb
 
 
 \makeatletter
@@ -53,6 +54,7 @@
 \usepackage{hyperref}
 \usepackage{enumerate}
 \usepackage{multirow}
+\usepackage{enumitem}
 
 %-------------------DON'T CHANGE---------------------%
 %The following is needed to prevent a conflict between knitr and the exam class involving the package ``framed.''
@@ -67,138 +69,35 @@
 
 %-------------------DON'T CHANGE---------------------%
 
-%To include the answers use:
-%  pdflatex "\def\showanswers{1} \input{thisfile.tex}"
-\ifdefined\showanswers
-  \printanswers
-\else
-  \noprintanswers
-\fi
+%\printanswers
 
-\title{Problem Set \#11}
+\title{Problem Set \# 11}
 \author{Econ 103}
 \date{}
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 \begin{document}
 \maketitle
 
-\section*{Part I -- Problems from the Textbook}Chapter 9: 23 (use the ``textbook'' procedure), 27, 29
+\section*{Lecture Progress}
+We made it to slide 72 of the Chapter 8 slides.
 
+\section*{Homework Checklist}
 
-\section*{Part II -- Additional Problems}
+\begin{itemize}[label = $\square$]
+	\item \textbf{Book Problems (Chapter 9):} 7, 9, 11, 23, 25, 27, 29
+	\item \textbf{Additional Problems: }See below
+	\item \textbf{Ask questions on Piazza}
+	\item\textbf{Review slides}
+	\item\textbf{R Tutorial:} Develop testable hypotheses for your R project and test at least one of them.
+\end{itemize}
+
+\section*{Additional Problems}
 
 \begin{questions}
 
+\question This problem uses a dataset that investigates the relationship between schizophrenia and the volume (in cm$^3$) of a particular region of the brain (the left hippocampus) measured using an MRI machine. 
 
-\question This question revisits the data from this semester's anchoring experiment. In a previous assignment you used these data to construct confidence intervals. In this question you will carry out hypothesis tests. You may assume throughout that the sample size is large enough to use the Central Limit Theorem. Details of how to load the data from my website appear in Lecture 19. Be sure to properly account for missing values. 
-\begin{parts}
-	\part Suppose we want to test the null hypothesis of equality of population means across the two groups. What is the value of our test statistic?
-	\begin{solution}
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlstd{data.url} \hlkwb{<-} \hlstr{"http://www.ditraglia.com/econ103/survey_clean.csv"}
-\hlstd{survey} \hlkwb{<-} \hlkwd{read.csv}\hlstd{(data.url)}
-\hlstd{anchoring} \hlkwb{<-} \hlstd{survey[,}\hlkwd{c}\hlstd{(}\hlstr{"rand.num"}\hlstd{,} \hlstr{"africa.percent"}\hlstd{)]}
-\hlstd{lo} \hlkwb{<-} \hlkwd{subset}\hlstd{(anchoring, rand.num} \hlopt{==} \hlstr{"10"}\hlstd{)}\hlopt{$}\hlstd{africa.percent}
-\hlstd{hi} \hlkwb{<-} \hlkwd{subset}\hlstd{(anchoring, rand.num} \hlopt{==} \hlstr{"65"}\hlstd{)}\hlopt{$}\hlstd{africa.percent}
-\hlstd{lo} \hlkwb{<-} \hlstd{lo[}\hlopt{!}\hlkwd{is.na}\hlstd{(lo)]}
-\hlstd{hi} \hlkwb{<-} \hlstd{hi[}\hlopt{!}\hlkwd{is.na}\hlstd{(hi)]}
-\hlstd{SE.lo} \hlkwb{<-} \hlkwd{sd}\hlstd{(lo)}\hlopt{/}\hlkwd{sqrt}\hlstd{(}\hlkwd{length}\hlstd{(lo))}
-\hlstd{SE.hi} \hlkwb{<-} \hlkwd{sd}\hlstd{(hi)}\hlopt{/}\hlkwd{sqrt}\hlstd{(}\hlkwd{length}\hlstd{(hi))}
-\hlstd{SE} \hlkwb{<-} \hlkwd{sqrt}\hlstd{(SE.hi}\hlopt{^}\hlnum{2} \hlopt{+} \hlstd{SE.lo}\hlopt{^}\hlnum{2}\hlstd{)}
-\hlstd{diff} \hlkwb{<-} \hlkwd{mean}\hlstd{(hi)} \hlopt{-} \hlkwd{mean}\hlstd{(lo)}
-\hlstd{test.stat} \hlkwb{<-} \hlstd{diff}\hlopt{/}\hlstd{SE}
-\hlstd{test.stat}
-\end{alltt}
-\begin{verbatim}
-## [1] 0.1865588
-\end{verbatim}
-\end{kframe}
-\end{knitrout}
-\end{solution}
-	\part Suppose we want to test the equality of population means against the one-sided alternative that the the ``Hi'' group has a higher mean at the 10\% level. What is our critical value, and what is our decision rule? Do we reject the null hypothesis?
-	\begin{solution}
-The critical value is
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlkwd{qnorm}\hlstd{(}\hlnum{1} \hlopt{-} \hlnum{0.1}\hlstd{)}
-\end{alltt}
-\begin{verbatim}
-## [1] 1.281552
-\end{verbatim}
-\end{kframe}
-\end{knitrout}
-Our decision rule is to reject if the test statistic exceeds the critical value:
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlstd{test.stat} \hlopt{>} \hlkwd{qnorm}\hlstd{(}\hlnum{1} \hlopt{-} \hlnum{0.1}\hlstd{)}
-\end{alltt}
-\begin{verbatim}
-## [1] FALSE
-\end{verbatim}
-\end{kframe}
-\end{knitrout}
-	\end{solution}
-	\part Calculate the p-value for a test of the equality of population means against the one-sided alternative that the ``Hi'' group has a higher mean.
-	\begin{solution} 
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlnum{1} \hlopt{-} \hlkwd{pnorm}\hlstd{(test.stat)}
-\end{alltt}
-\begin{verbatim}
-## [1] 0.4260033
-\end{verbatim}
-\end{kframe}
-\end{knitrout}
-	\end{solution}
-	\part Suppose we wanted to test the equality of population means against the two-sided alternative at the 10\% level. What is our critical value, and what is our decision rule? Do we reject the null hypothesis?
-	\begin{solution}
-The critical value is
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlkwd{qnorm}\hlstd{(}\hlnum{1} \hlopt{-} \hlnum{0.1}\hlopt{/}\hlnum{2}\hlstd{)}
-\end{alltt}
-\begin{verbatim}
-## [1] 1.644854
-\end{verbatim}
-\end{kframe}
-\end{knitrout}
-Our decision rule is to reject if the \emph{absolute value} of the test statistic exceeds the critical value:
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlkwd{abs}\hlstd{(test.stat)} \hlopt{>} \hlkwd{qnorm}\hlstd{(}\hlnum{1} \hlopt{-} \hlnum{0.1}\hlopt{/}\hlnum{2}\hlstd{)}
-\end{alltt}
-\begin{verbatim}
-## [1] FALSE
-\end{verbatim}
-\end{kframe}
-\end{knitrout}
-	\end{solution}
-	\part Calculate the p-value for a test of the equality of population means against the two-sided alternative.
-	\begin{solution} 
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlnum{2} \hlopt{*} \hlstd{(}\hlnum{1} \hlopt{-} \hlkwd{pnorm}\hlstd{(test.stat))}
-\end{alltt}
-\begin{verbatim}
-## [1] 0.8520066
-\end{verbatim}
-\end{kframe}
-\end{knitrout}
-	\end{solution}
-\end{parts}
-
-
-\question This problem uses a dataset that investigates the relationship between schizophrenia and the volume (in cm$^3$) of a particular region of the brain (the left hippocampus) measured using an MRI machine. In a past assignment you used this dataset to construct confidence intervals. In this question you will carry out hypothesis tests
-
-The dataset contains 15 sets of monozygotic (i.e.\ identical) twins, one of whom has schizophrenia (``Affected'') and the other who does not (``Unaffected''). The idea of using identical twins is to hold constant unobserved genetic and socioeconomic confounding variables that might influence whether someone develops schizophrenia. You can download the data from my website as follows:
+The dataset contains 15 sets of monozygotic (i.e.\ identical) twins, one of whom has schizophrenia (``Affected'') and the other who does not (``Unaffected''). The idea of using identical twins is to hold constant unobserved genetic and socioeconomic confounding variables that might influence whether someone develops schizophrenia. You can download the data from Professor DiTraglia's website as follows:
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
@@ -257,7 +156,7 @@ Notice that we calculated the differences as Unaffected twin minus Affected twin
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
-In this case, our decision rule is to reject the null if the test statistic is \emph{less than} \ensuremath{-1.7613101}. (Remember, we have to keep track of the sign.) We see that this is not the case, so we fail to reject the null. We have not found evidence that the Affected twin has a larger left hippocampus.
+In this case, our decision rule is to reject the null if the test statistic is \emph{less than} -1.7613101. (Remember, we have to keep track of the sign.) We see that this is not the case, so we fail to reject the null. We have not found evidence that the Affected twin has a larger left hippocampus.
   \end{solution}
 	\part Repeat part (a) for a test against the \emph{opposite} one-sided alternative.
     \begin{solution}
@@ -331,7 +230,7 @@ We see that this is indeed the case, so we would reject that null hypothesis tha
 	
 
 
-\question This problem concerns a dataset comparing the scores of men and women on the Armed Forces Qualifying Test (AFQT). In an earlier assignment you used this dataset to construct confidence intervals. In this question you will carry out hypothesis tests instead. Throughout you may assume that the sample size is large enough for the CLT to apply. As before, the data are available from my website:
+\question This problem concerns a dataset comparing the scores of men and women on the Armed Forces Qualifying Test (AFQT). Throughout you may assume that the sample size is large enough for the CLT to apply. As before, the data are available from Professor DiTraglia's website:
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
@@ -444,8 +343,8 @@ We have found extremely strong evidence of a difference between men and women on
 	\end{parts}
 
 
-\question In April of 2013, Public Policy Polling carried out a survey of 1247 registered voters to determine whether Republicans and Democrats differ in their beliefs about various conspiracy theories. To answer this question, you'll need to download the full results of their survey which I've posted on my website for convenience:\\
-\url{http://www.ditraglia.com/econ103/conspiracy.pdf}\\
+\question In April of 2013, Public Policy Polling carried out a survey of 1247 registered voters to determine whether Republicans and Democrats differ in their beliefs about various conspiracy theories. To answer this question, you'll need to download the full results of their survey which are on my website:\\
+\url{https://mallickhossain.files.wordpress.com/2016/07/conspiracy.pdf}\\
 In an earlier assignment you used these data to construct confidence intervals. In this question you'll use them to carry out hypothesis tests. Throughout you may assume that the sample size is large enough for the approximate based on the central limit theorem to be valid.
 	\begin{parts}
 		\part Suppose we wanted to test the null hypothesis that 20\% of registered voters believe that a UFO crashed at Roswell, New Mexico in 1947 and the US Government covered it up. There are two possible test statistics we could use. Calculate them both and explain the difference. Which is preferable?
@@ -655,7 +554,7 @@ Now, we can make the plot as follows:
 \end{alltt}
 \end{kframe}
 
-{\centering \includegraphics[width=\maxwidth]{figure/unnamed-chunk-34-1} 
+{\centering \includegraphics[width=\maxwidth]{figure/unnamed-chunk-30-1} 
 
 }
 
@@ -761,7 +660,7 @@ We can compare this to the power function when $n=m=10$ by plotting them on the 
 \end{alltt}
 \end{kframe}
 
-{\centering \includegraphics[width=\maxwidth]{figure/unnamed-chunk-41-1} 
+{\centering \includegraphics[width=\maxwidth]{figure/unnamed-chunk-37-1} 
 
 }
 
