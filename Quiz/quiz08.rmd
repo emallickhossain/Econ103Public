@@ -1,0 +1,82 @@
+---
+title: 'Econ 103: Statistics for Economists'
+author: "Mallick Hossain"
+date: NULL
+output:
+  beamer_presentation:
+    slide_level: 3
+header-includes:
+- \usetheme[numbering = fraction, progressbar = none, background = light, sectionpage
+  = progressbar]{metropolis}
+- \usepackage{amsmath}
+subtitle: Hypothesis Testing Quiz
+fontsize: 10pt
+---
+
+### R Project Logistics
+> * When is the R project due?
+>     + Next week! 
+> * What should I submit? 
+>     + Well-written report exploring the question you have posed
+>     + Ideally, 1-2 well done charts and/or tables. Do not use tables and charts as page fillers. I'm grading based on quality of the report, not on the length.
+>     + Review the assignment description on the website
+> * Can I just submit a bunch of R code and you figure it out?
+>     + No. This project is meant to combine your writing, statistical, and programming skills together. Well-written and well-presented facts and analysis are a key part of this task. 
+>     + Attach R code in an appendix or submit RMarkdown document (set echo=FALSE and eval=TRUE to hide the code but display results). That way, I can check the code if I have questions
+>     + Alternatively, add "code_folding: hide" to the top of your document to hide the code, but it can be expanded if I want to see how you generated a particular graph or table
+
+### Final Exam Logistics
+> * When is the final exam?
+>     + Wednesday, December 21.
+>     + Exam will start promptly at 5 and end at 7
+>     + Comprehensive. Will have slightly more emphasis on the most recent material, but because of the cumulative nature of the material, those questions will likely pull on knowledge covered earlier in the course. 
+> * Will you have extra office hours? 
+>     + Yes, I'll extend my normal office hours during reading week.
+>     + 8-10am on Tuesday of reading week 
+>     + 3-5pm on Wednesday of reading week
+
+### Class Logistics
+> * I got this course evaluation email. I just trashed it. Is that okay?
+>     + No! Please fill it out and give me comments on how to improve the course. 
+> * I opted for the "participation" grading scheme. How is that decided? 
+>     + As I outlined in the syllabus and reiterated on Piazza, your participation is a composite of your in-class participation, homework submissions, and Piazza participation.
+> * Do I get full points if I turned in all the homework?
+>     + No. Participation is a composite of all of those facets. Composite means all pieces contribute.
+
+### Questions
+> 1. What is the difference between Type I and Type II errors?
+>     + Type I error is the chance that you reject a true null hypothesis (you control this by controlling $\alpha$)
+>     + Type II error is the chance that you do not reject a false null hypothesis (false positive).
+> 2. How do you construct a null hypothesis?
+>     + It should be specific. "Specific" means that you are able to compute probabilities about the population based on the null. As a result, you are able to compute the likelihood of observing the particular outcome in your data. If it's highly unlikely, the null is unlikely to be true.
+
+### Questions
+> 3. How are hypothesis testing and confidence intervals related?
+>     + For a given significance level, if you reject the null hypothesis, that means your test statistic lies outside of the corresponding confidence interval. Alternatively, if you construct a confidence level for a given significance level, you will reject your null hypothesis if your test statistic lies outside of the confidence interval.
+> 4. What is the p-value?
+>     + This is the probability of observing a test statistic at least as extreme as the one we actually observed. Alternatively, this is the smallest significance level at which we could have rejected the null.
+
+### Old Exam Questions (Fall 2012 Question 10)
+This question concerns the "Pepsi Challenge" experiment. The setup is identical to the one we used in class except with five cups of each soda rather than four. The experimental procedure is as follows. We first fill five cups with Pepsi and five with Coke. Then we randomize the order of the cups and allow our expert to taste each. Finally, we ask the expert to identify which five cups contain Coke and record the number of cups that she correctly identifies. The idea is to determine whether our expert can really tell the difference between Coke and Pepsi based on the results of the experiment. This question asks to you formalize the experiment as a statistical hypothesis test.  Our test statistic $T$ is the number of Cokes that our expert correctly identified.
+
+### Questions
+> 1. What is our null hypothesis, $H_0$, in this experiment?
+>     + Our expert is randomly guessing
+> 2. What is our alternative hypothesis, $H_1$, in this experiment
+>     + Our expert is not guessing and actually has skill in telling the difference. This is a one-sided alternative since we're only testing if they can tell the difference.
+> 3. Under $H_0$ what is the probability that $T = 5$?
+>     + This is the probability that out of the 10 cups, the expert correctly identifies all 5 Cokes. There's only 1 way to correctly choose all 5 and there are $\binom{10}{5} = 252$ ways of choosing 5 cups from 10. Hence, there is a $\frac{1}{252} \approx 0.4\%$ chance that all 5 are correctly identified.
+
+### Questions
+> 4. Under $H_0$ what is the probability of $T = 4$?
+>     + This means that 4 of the 5 cups our expert chose were correct. As we saw above, there are 252 ways to choose 5 cups from 10. On top of this, there are 5 ways to have misidentified a Coke and 5 ways to have misidentified a Pepsi. Therefore, there are $\frac{25}{252} \approx 10\%$ chance of this happening.
+> 5. Suppose I wanted to test $H_0$ at the $5\%$ significance level. What is my decision rule given the alternative you specified?
+>     + We would reject if $T > 4$ or alternatively, if $T = 5$
+> 6. Suppose our expert identified four Cokes correctly. What is the p-value for our test against the alternative you specified?
+>     + This is simply the sum of the two probabilities we found above, so it is roughly $10.4\%$
+
+### Ready for the next lecture?
+
+### Let's Do This!
+\centering
+\includegraphics[scale = 0.75]{letsDoThis8}
