@@ -242,7 +242,7 @@ Suppose we observe an iid sample $(Y_1, X_1), \hdots, (Y_n, X_n)$ from the popul
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\frametitle{Intuition for What Effects $SE(\widehat{\beta}_1)$ for Simple Regression}
+\frametitle{Intuition for What Affects $SE(\widehat{\beta}_1)$ for Simple Regression}
 
 	$$SE(\widehat{\beta}_1) \approx \frac{\sigma}{\sqrt{n}} \cdot \frac{1}{s_X}$$
 	\begin{itemize}
@@ -252,15 +252,7 @@ Suppose we observe an iid sample $(Y_1, X_1), \hdots, (Y_n, X_n)$ from the popul
 	\end{itemize}
 \end{frame}
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-I treated the class as our population for the purposes of the simulation experiment but it makes more sense to think of the class as a sample from some population. We'll take this perspective now and think about various inferences we can draw from the cars data using regression.
-\end{frame}
-
-
-
-
+\section{Cars Data}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
 \frametitle{MPG = $\beta_0 +  \epsilon$}
@@ -340,6 +332,11 @@ n = 32, k = 2
 residual sd = 4.90, R-Squared = 0.36
 \end{verbatim}
 
+\pause
+$$
+7.24 \pm 2 * 1.76 = [3.72, 10.76]
+$$
+
 \end{frame}
 
 
@@ -375,6 +372,11 @@ hp          -0.07     0.01
 n = 32, k = 2
 residual sd = 3.86, R-Squared = 0.60
 \end{verbatim}
+
+\pause
+$$
+-0.07 \pm 2 * 0.01 = [-0.09, -0.05]
+$$
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -518,7 +520,7 @@ residual sd = 3.86, R-Squared = 0.60
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
-\frametitle{Which Gives Better Predictions: Transmission (a) or Horsepower (b)?}
+\frametitle{Which Gives Better Predictions: (a) Transmission or (b) Horsepower?}
 \footnotesize
 \begin{verbatim}
 lm(formula = mpg ~ am, data = mtcars)

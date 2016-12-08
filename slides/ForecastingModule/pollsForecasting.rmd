@@ -5,6 +5,7 @@ date: NULL
 output:
   beamer_presentation:
     slide_level: 3
+    keep_tex: false
 header-includes:
 - \usetheme[numbering = fraction, progressbar = none, background = light, sectionpage
   = progressbar]{metropolis}
@@ -416,6 +417,49 @@ https://github.com/fivethirtyeight/data/tree/master/pollster-ratings
 >     + Correlated polling errors within states (if voters are not responding to one poll, they probably won't respond to another)
 >     + Dealing with undecided voters is a judgement call
 
+### So What Happened?
+>* Currently, the consensus seems to be that education levels can explain a large amount of the difference in voting patterns. 
+>    + Clinton outperformed Obama's margins in 48 of the 50 most-educated counties in the US (almost 9 percentage point outperformance)
+>    + Clinton underperformed Obama's margins in 47 of the 50 least-educated counties in the US (about 11 percentage point underperformance)
+
+### So What Happened?
+>* Question: We know education and income are correlated (corr = 0.69), so why are we saying it was education that predicted the outcome instead of maybe that richer people voted for Clinton and poorer people voted for Trump?
+>* We can examine 4 different county groups (I'm not sure why the income was removed from the minority counties, maybe sample size issues):
+>     + High-education, low-income, majority white
+>     + Low-education, high-income, majority white
+>     + High-education, minority white
+>     + Low education, minority white
+
+### Group 1: High-Education, Low-Income, Majority White
+>* There are 22 counties with >35% bachelor's degress, median income <$50,000, and >50% non-Hispanic whites.  
+>* If education matters more, we would expect Clinton to do well in those counties. If income is the story, we would expect her to do poorly. 
+>     + In 18 of 22 counties, Clinton improved on Obama's performance
+>     + Obama won 13 of 22 counties and Clinton won 15 of 22 and decreased her loss margins even in counties she lost.
+
+### Group 2: Low-Education, High-Income, Majority White
+>* There are 30 counties with <35% bachelor's degress, median income >$70,000, and >50% non-Hispanic whites.  
+>* In 23 of 30 counties, Trump improved on Romney's performance
+>     + Obama won 10 of 30 counties and Clinton won 4 of 30 counties and her loss margin was greater in the ones she lost.
+
+### Group 3: High-Education, Minority White
+>* There are 24 counties with >35% bachelor's degress and <50% non-Hispanic whites.  
+>* Obama won 22 of 24 counties and Clinton won all 24 counties and her win margin was about 6 percentage points greater.
+
+### Group 4: Low-Education, Minority White
+>* There are 19 counties with <15% bachelor's degress and <50% non-Hispanic whites.  
+>* Obama won 11 of 19 counties and Clinton won 10 of 24 counties and her win margin was about 3 percentage points smaller than Obama's.
+
+### What About Regression Results?
+* Even when running regressions that include both education and income in their specification, after controlling for education, low-income counties were no more likely to shift to Trump than high-income counties. 
+
+### Criticism of This Analysis
+>* Education could simply be a proxy for cultural factors. The "cultural elites" also tend to be highly educated, so if this was a backlash against those "elites", then education would not be a causative factor.
+>* Education could be a better indicator of long-term economic well-being than income. Most manufacturing jobs pay well, but these are most at risk of being automated or off-shored and they often do not require college degrees. 
+>* Education levels are likely related to media-consumption patterns. Those patterns may have influenced voting behavior. There's been much post-election discussion of echo chambers, but pinning down the effect has been difficult.
+
+### How Much Did the Polls Miss By?
+http://fivethirtyeight.com/features/how-much-the-polls-missed-by-in-every-state/
+
 ### Takeaways and Future Work
 >* As you can tell, election forecasting is a serious undertaking
 >* There's plenty of room for improvement. Just because Nate Silver is the best-known statistician does not mean he is the best statistician.
@@ -450,4 +494,6 @@ https://github.com/fivethirtyeight/data/tree/master/pollster-ratings
 * [Here's Proof Some Pollsters Are Putting A Thumb On The Scale](http://fivethirtyeight.com/features/heres-proof-some-pollsters-are-putting-a-thumb-on-the-scale/)
 * [A User's Guide To FiveThirtyEight's 2016 General Election Forecast](http://fivethirtyeight.com/features/a-users-guide-to-fivethirtyeights-2016-general-election-forecast/)
 * [Why FiveThirtyEight Gave Trump A Better Chance Than Almost Anyone Else](http://fivethirtyeight.com/features/why-fivethirtyeight-gave-trump-a-better-chance-than-almost-anyone-else/)
+* [Education, Not Income, Predicted Who Would Vote For Trump](http://fivethirtyeight.com/features/education-not-income-predicted-who-would-vote-for-trump/)
+* [Pollsters Probably Didn’t Talk To Enough White Voters Without College Degrees](http://fivethirtyeight.com/features/pollsters-probably-didnt-talk-to-enough-white-voters-without-college-degrees/)
 * [Explanations for that shocking 2% shift](http://andrewgelman.com/2016/11/09/explanations-shocking-2-shift/)
