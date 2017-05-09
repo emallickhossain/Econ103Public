@@ -11,6 +11,7 @@ header-includes:
 - \usepackage{amsmath}
 subtitle: Hypothesis Testing Quiz
 fontsize: 10pt
+classoption: handout
 ---
 
 ### R Project Logistics
